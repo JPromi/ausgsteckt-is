@@ -10,6 +10,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { HeurigerComponent } from './components/heuriger/heuriger.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomeComponent } from './components/home/home.component';
     AllHeurigenComponent,
     CurrentHeurigenComponent,
     NavComponent,
-    HomeComponent
+    HomeComponent,
+    HeurigerComponent
   ],
   imports: [
     BrowserModule,
