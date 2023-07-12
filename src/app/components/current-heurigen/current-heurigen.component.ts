@@ -26,31 +26,21 @@ export class CurrentHeurigenComponent {
   ngOnInit(dateP = '') {
 
     var parameter = '';
-
-    if(!this.parameter.date) {
-      const currentDate = new Date();
-      parameter = currentDate.getFullYear() + '-' + this.checkDateZero(currentDate.getMonth() + 1) + '-' + this.checkDateZero(currentDate.getDate());
+    if(dateP == '') {
+      if(!this.parameter.date) {
+        const currentDate = new Date();
+        parameter = currentDate.getFullYear() + '-' + this.checkDateZero(currentDate.getMonth() + 1) + '-' + this.checkDateZero(currentDate.getDate());
+      } else {
+        const currentDateT = Date.parse(this.parameter.date);
+        const currentDate = new Date(currentDateT);
+        parameter = currentDate.getFullYear() + '-' + this.checkDateZero(currentDate.getMonth() + 1) + '-' +this.checkDateZero(currentDate.getDate());
+      }
     } else {
-      const currentDateT = Date.parse(this.parameter.date);
-      const currentDate = new Date(currentDateT);
-      parameter = currentDate.getFullYear() + '-' + this.checkDateZero(currentDate.getMonth() + 1) + '-' +this.checkDateZero(currentDate.getDate());
+      parameter = dateP;
     }
+    
 
-      this.service.getPosts(parameter)
-        .subscribe(response => {
-          this.currentHeurigen = response;
-
-          if(!this.parameter.date) {
-            const currentDate = new Date();
-            this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
-            console.log(this.dateDisplay);
-          } else {
-            const currentDateT = Date.parse(this.parameter.date);
-            const currentDate = new Date(currentDateT);
-            this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
-          }
-        }
-      );
+    this.loadContent(parameter);
       
       if(!this.parameter.date) {
         const currentDate = new Date();
@@ -63,23 +53,23 @@ export class CurrentHeurigenComponent {
       }
   }
 
-  lastDate() {
+  async lastDate() {
     if(!this.parameter.date) {
       var parameter = '';
       const currentDate = new Date();
       currentDate.setDate(currentDate.getDate() - 1);
-      parameter = currentDate.getFullYear() + '-' + this.checkDateZero(currentDate.getMonth() + 1) + '-' + this.checkDateZero(currentDate.getDate());
+      parameter = await currentDate.getFullYear() + '-' + this.checkDateZero(currentDate.getMonth() + 1) + '-' + this.checkDateZero(currentDate.getDate());
     } else {
       const currentDateT = Date.parse(this.parameter.date);
       const currentDate = new Date(currentDateT);
       currentDate.setDate(currentDate.getDate() - 1);
-      parameter = currentDate.getFullYear() + '-' + this.checkDateZero(currentDate.getMonth() + 1) + '-' +this.checkDateZero(currentDate.getDate());
+      parameter = await currentDate.getFullYear() + '-' + this.checkDateZero(currentDate.getMonth() + 1) + '-' +this.checkDateZero(currentDate.getDate());
     }
     
     this.router.navigate(['/ausgsteckt'], { queryParams: { date: parameter}});
     
     
-    this.ngOnInit(parameter);
+    this.loadContent(parameter);
   }
 
   nextDate() {    
@@ -108,6 +98,24 @@ export class CurrentHeurigenComponent {
     }
 
     return dateNumber;
+  }
+
+  async loadContent(parameter:any) {
+    await this.service.getPosts(parameter)
+    .subscribe(response => {
+      this.currentHeurigen = response;
+
+      if(!this.parameter.date) {
+        const currentDate = new Date();
+        this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
+        console.log(this.dateDisplay);
+      } else {
+        const currentDateT = Date.parse(this.parameter.date);
+        const currentDate = new Date(currentDateT);
+        this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
+      }
+    }
+  );
   }
 
 }
