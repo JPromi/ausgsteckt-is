@@ -23,7 +23,19 @@
     
 </div>
 
-<div class="heurigen-list">
+<div class="heurigen-list skeleton" *ngIf="!currentHeurigen">
+    <a *ngFor="let n of numSequence(6);
+                let i = index;">
+        <span class="img"></span>
+        <div class="informations">
+            <h3 class="title"></h3>
+            <p class="text"></p>
+        </div>
+    </a>
+    
+</div>
+
+<div class="heurigen-list" *ngIf="currentHeurigen">
     <a 
         *ngFor="let heuriger of currentHeurigen"
         [routerLink]="['/heurigen', heuriger.nameId]"

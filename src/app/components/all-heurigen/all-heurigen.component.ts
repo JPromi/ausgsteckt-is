@@ -28,5 +28,9 @@ export class AllHeurigenComponent {
         this.heurigen = response;
       }
     );
-}
+  }
+
+  numSequence(n: number): Array<number> {
+    return Array(n);
+  }
 }

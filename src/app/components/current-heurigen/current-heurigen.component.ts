@@ -118,4 +118,8 @@ export class CurrentHeurigenComponent {
   );
   }
 
+  numSequence(n: number): Array<number> {
+    return Array(n);
+  }
+
 }
