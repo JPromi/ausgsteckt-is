@@ -26,10 +26,27 @@
 <div class="heurigen-list">
     <a 
         *ngFor="let heuriger of currentHeurigen"
-        href="{{ heuriger.link }}">
+        [routerLink]="['/heurigen', heuriger.nameId]"
+        >
+
         <img 
+            *ngIf="heuriger.type == 'heuriger'"
             [src]="'/assets/heurigen/' + heuriger.nameId + '.png'"
             onerror="this.src='./assets/heurigen/placeholder.png';">
+
+        <img 
+            *ngIf="heuriger.type == 'event'"
+            [src]="'/assets/heurigen/event.png'"
+            onerror="this.src='./assets/heurigen/placeholder.png';">
+
+        <img 
+            *ngIf="heuriger.type == 'weinrat'"
+            [src]="'/assets/heurigen/weinrat.png'"
+            onerror="this.src='./assets/heurigen/placeholder.png';">
+        
+        <img 
+            *ngIf="heuriger.type == null"
+            [src]="'/assets/heurigen/placeholder.png'">
         <div class="informations">
             <h3>{{ heuriger.name }}</h3>
             <p>{{ heuriger.address }}</p>
