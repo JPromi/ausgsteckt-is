@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import cfg from '../../config.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CurrentHeurigenService {
-  private url = 'https://api.jpromi.com/perchtoldsdorf/heurigen/v2/ausgesteckt';
+  private url = cfg.api + '/v2/ausgesteckt';
    
   constructor(private httpClient: HttpClient) {}
   
