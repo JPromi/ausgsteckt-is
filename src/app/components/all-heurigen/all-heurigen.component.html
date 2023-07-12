@@ -6,7 +6,8 @@
 
 <div class="heurigen-list">
     <a 
-        *ngFor="let heuriger of heurigen">
+        *ngFor="let heuriger of heurigen"
+        [routerLink]="['/heurigen', heuriger.nameId]">
         <img 
             [src]="'/assets/heurigen/' + heuriger.nameId + '.png'"
             onerror="this.src='./assets/heurigen/placeholder.png';">
