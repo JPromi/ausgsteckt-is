@@ -1,0 +1,54 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 2rem;
+    gap: 2rem;
+
+    .top {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        h4 {
+            width: 100%;
+            color: #161616;
+            font-size: 1.25rem;
+        }
+
+        img {
+            object-fit: cover;
+            width: 7rem;
+            height: 7rem;
+            border-radius: .75rem;
+            box-shadow: .5rem .5rem 2rem #21212150;
+        }
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20vw;
+
+        a {
+            box-shadow: 0 .1rem .2rem #21212110;
+            padding: 1rem .5rem;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+            
+            color: #000;
+            text-decoration: none;
+
+            p {
+
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                width: 100%;
+            }
+        }
+    }
+}

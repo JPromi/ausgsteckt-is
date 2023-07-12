@@ -1,1 +1,45 @@
-<p>heuriger works!</p>
+<div class="content" *ngIf="heuriger">
+    <div class="top">
+        <h4>{{ heuriger.name }}</h4>
+        <img [src]="'/assets/heurigen/' + heuriger.nameId + '.png'"
+            onerror="this.src='./assets/heurigen/placeholder.png';">
+    </div>
+
+    <div class="info">
+
+        <a [href]="mapsLink">
+            <span class="material-symbols-outlined">
+                location_on
+            </span>
+            <p target="_blank"> {{ heuriger.address }} </p>
+        </a>
+
+        <a *ngIf="heuriger.phone.main" href="tel:{{ heuriger.phone.main }}">
+            <span class="material-symbols-outlined">
+                call
+            </span>
+            <p> {{ heuriger.phone.main }} </p>
+        </a>
+        <a *ngIf="heuriger.phone.mobile" href="tel:{{ heuriger.phone.mobile }}">
+            <span class="material-symbols-outlined">
+                call
+            </span>
+            <p> {{ heuriger.phone.mobile }} </p>
+        </a>
+
+        <a *ngIf="heuriger.email" href="mailto:{{ heuriger.email }}">
+            <span class="material-symbols-outlined">
+                email
+            </span>
+            <p> {{ heuriger.email }} </p>
+        </a>
+
+        <a *ngIf="heuriger.link" [href]="'heuriger.link'">
+            <span class="material-symbols-outlined">
+                language
+            </span>
+            <p>Website</p>
+        </a>
+
+    </div>
+</div>
