@@ -8,8 +8,8 @@
     <a 
         *ngFor="let heuriger of heurigen">
         <img 
-            [src]="'/assets/heurigen/all/' + heuriger.nameId + '.png'"
-            onerror="this.src='./assets/heurigen/all/placeholder.png';">
+            [src]="'/assets/heurigen/' + heuriger.nameId + '.png'"
+            onerror="this.src='./assets/heurigen/placeholder.png';">
         <div class="informations">
             <h3>{{ heuriger.name }}</h3>
             <p>{{ heuriger.address }}</p>
