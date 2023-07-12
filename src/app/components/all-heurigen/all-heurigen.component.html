@@ -1,0 +1,18 @@
+<div class="header">
+    <p>
+        Alle Heurigen
+    </p>  
+</div>
+
+<div class="heurigen-list">
+    <a 
+        *ngFor="let heuriger of heurigen">
+        <img 
+            [src]="'/assets/heurigen/all/' + heuriger.nameId + '.png'"
+            onerror="this.src='./assets/heurigen/all/placeholder.png';">
+        <div class="informations">
+            <h3>{{ heuriger.name }}</h3>
+            <p>{{ heuriger.address }}</p>
+        </div>
+    </a>
+</div>

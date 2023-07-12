@@ -1,0 +1,51 @@
+.header {
+    position: fixed;
+    width: 90%;
+    display: flex;
+    padding: 5vw 5vw 1rem 5vw;
+    gap: 1rem;
+    background-color: #79e975;
+
+    p {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+
+.heurigen-list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 45vw;
+    margin-top: 4rem;
+
+    a {
+        padding: .75rem 1rem;
+        //border-bottom: 1px solid #21212150;
+        box-shadow: 0 .1rem .2rem #21212110;
+        display: flex;
+        color: #000;
+        text-decoration: none;
+        gap: .75rem;
+        align-items: center;
+
+        h3 {
+            font-size: 1.1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #000000bb;
+        }
+
+        img {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: .5rem;
+            object-fit: cover;
+        }
+    }
+}
