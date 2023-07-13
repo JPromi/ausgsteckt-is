@@ -62,3 +62,29 @@ nav {
         
     }
 }
+
+@media screen and (min-width: 400px) {
+    nav {
+        ul {
+            li {
+                a.home {
+                    top: -2rem;
+                    padding: 1rem;
+    
+                    span {
+                        font-size: 3rem;
+                    }
+                }
+
+                a {
+    
+                    span {
+                        font-size: 2rem;
+                    }
+                }
+            }
+    
+            
+        }
+    }
+}
