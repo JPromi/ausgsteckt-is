@@ -1,8 +1,11 @@
 <div class="header">
-    <p>
-        Alle Heurigen
-    </p>  
+    <div class="c">
+        <p class="title">
+            Heurigen
+        </p>
+    </div>
 </div>
+
 <div class="heurigen-list skeleton" *ngIf="!heurigen">
     <a *ngFor="let n of numSequence(6);
                 let i = index;">

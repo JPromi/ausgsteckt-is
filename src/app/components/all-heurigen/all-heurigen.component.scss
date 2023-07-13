@@ -1,19 +1,25 @@
 .header {
     position: fixed;
-    width: 90%;
-    display: flex;
-    padding: 5vw 5vw 1rem 5vw;
-    gap: 1rem;
+    width: 100%;
     background-color: #79e975;
 
-    p {
-        width: 100%;
-        text-align: center;
+    .c {
+        padding: 1rem;
         display: flex;
-        align-items: center;
-        justify-content: center;
         gap: 1rem;
+        height: 1.5rem;
+
+        .title {
+            font-size: 1.2rem;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
     }
+    
 }
 
 .heurigen-list {
