@@ -34,7 +34,7 @@
 .heurigen-list {
     display: flex;
     flex-direction: column;
-    margin-bottom: 45vw;
+    margin-bottom: 7rem;
     margin-top: 4rem;
 
     a {
@@ -99,5 +99,13 @@
     to {
       background-position-x: -200%;
     }
-  }
-  
+}
+
+@media screen and (min-width: 700px) {
+    .heurigen-list {
+        a {
+            margin: 0 auto;
+            width: 700px;
+        }
+    }
+}
