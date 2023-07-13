@@ -1,26 +1,26 @@
 <div class="header">
-
-    <a class="navigation" (click)="lastDate()">
-        <span class="material-symbols-outlined">
-            arrow_back_ios
-        </span>
-    </a>
-
-    <p class="date">
-        <label>
+    <div class="c">
+        <a class="navigation" (click)="lastDate()">
             <span class="material-symbols-outlined">
-                calendar_month
+                arrow_back_ios
             </span>
-        </label>
-        {{ dateDisplay }}
-    </p>
-
-    <a class="navigation" (click)="nextDate()">
-        <span class="material-symbols-outlined">
-            arrow_forward_ios
-        </span>
-    </a>
+        </a>
     
+        <p class="date">
+            <label>
+                <span class="material-symbols-outlined">
+                    calendar_month
+                </span>
+            </label>
+            {{ dateDisplay }}
+        </p>
+    
+        <a class="navigation" (click)="nextDate()">
+            <span class="material-symbols-outlined">
+                arrow_forward_ios
+            </span>
+        </a>
+    </div>
 </div>
 
 <div class="heurigen-list skeleton" *ngIf="!currentHeurigen">
