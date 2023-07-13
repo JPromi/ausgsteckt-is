@@ -89,5 +89,20 @@
     to {
       background-position-x: -200%;
     }
-  }
-  
+}
+
+@media screen and (min-width: 700px) {
+    .content {
+        margin: 3rem auto;
+        width: calc(700px - 4rem);
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .content {
+    
+        .top {
+            flex-direction:column-reverse;
+        }
+    }
+}
