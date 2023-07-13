@@ -38,6 +38,7 @@
     margin-top: 4rem;
 
     a {
+        animation: opacityIn 500ms;
         padding: .75rem 1rem;
         //border-bottom: 1px solid #21212150;
         box-shadow: 0 .1rem .2rem #21212110;
@@ -68,6 +69,8 @@
 // sceleton
 .heurigen-list.skeleton {
     a {
+        animation: opacityIn 0ms;
+
         .informations {
             display: flex;
             flex-direction: column;
@@ -98,6 +101,16 @@
 @keyframes shine {
     to {
       background-position-x: -200%;
+    }
+}
+
+@keyframes opacityIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
 
