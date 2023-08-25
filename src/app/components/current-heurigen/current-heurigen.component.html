@@ -7,10 +7,13 @@
         </a>
     
         <p class="date">
+            <mat-form-field style="width:1px;visibility:hidden;">
+                <input matInput [matDatepicker]="datePicker" [formControl]="selectedDate" (dateChange)="specificDate($event)">
+                <mat-datepicker #datePicker panelClass="selectDate"></mat-datepicker>
+            </mat-form-field>
             <label>
-                <span class="material-symbols-outlined">
-                    calendar_month
-                </span>
+                
+                <mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
             </label>
             {{ dateDisplay }}
         </p>

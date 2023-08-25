@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { CurrentHeurigenService } from "../../services/current-heurigen.service";
 
 @Component({
   selector: 'app-current-heurigen',
   templateUrl: './current-heurigen.component.html',
-  styleUrls: ['./current-heurigen.component.scss']
+  styleUrls: ['./current-heurigen.component.scss'],
 })
 export class CurrentHeurigenComponent {
 
   currentHeurigen:any;
   parameter:any;
   dateDisplay:any;
+  selectedDate = new FormControl('');
   
   constructor(private service:CurrentHeurigenService, private route: ActivatedRoute, private router: Router) {
 
@@ -24,7 +26,6 @@ export class CurrentHeurigenComponent {
   }
   
   ngOnInit(dateP = '') {
-
     var parameter = '';
     if(dateP == '') {
       if(!this.parameter.date) {
@@ -37,20 +38,18 @@ export class CurrentHeurigenComponent {
       }
     } else {
       parameter = dateP;
-    }
-    
+    }    
 
     this.loadContent(parameter);
       
-      if(!this.parameter.date) {
-        const currentDate = new Date();
-        this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
-        console.log(this.dateDisplay);
-      } else {
-        const currentDateT = Date.parse(this.parameter.date);
-        const currentDate = new Date(currentDateT);
-        this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
-      }
+    if(!this.parameter.date) {
+      const currentDate = new Date();
+      this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
+    } else {
+      const currentDateT = Date.parse(this.parameter.date);
+      const currentDate = new Date(currentDateT);
+      this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
+    }
   }
 
   async lastDate() {
@@ -91,6 +90,17 @@ export class CurrentHeurigenComponent {
     this.ngOnInit(parameter);
   }
 
+  specificDate(event: any) {
+    const currentDateT = event.target.value;
+    const currentDate = new Date(currentDateT);
+    var parameter = currentDate.getFullYear() + '-' + this.checkDateZero(currentDate.getMonth() + 1) + '-' +this.checkDateZero(currentDate.getDate());
+
+    this.router.navigate(['/ausgsteckt'], { queryParams: { date: parameter}});
+    
+    
+    this.ngOnInit(parameter);
+  }
+
   checkDateZero(number:number):String {
     let dateNumber = number.toString();
     if(number < 10) {
@@ -102,20 +112,21 @@ export class CurrentHeurigenComponent {
 
   async loadContent(parameter:any) {
     await this.service.getPosts(parameter)
-    .subscribe(response => {
-      this.currentHeurigen = response;
+      .subscribe(response => {
+        this.currentHeurigen = response;
 
-      if(!this.parameter.date) {
-        const currentDate = new Date();
-        this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
-        console.log(this.dateDisplay);
-      } else {
-        const currentDateT = Date.parse(this.parameter.date);
-        const currentDate = new Date(currentDateT);
-        this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
+        if(!this.parameter.date) {
+          const currentDate = new Date();
+          this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
+        } else {
+          const currentDateT = Date.parse(this.parameter.date);
+          const currentDate = new Date(currentDateT);
+          this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
+        }
       }
-    }
-  );
+    );
+
+    this.selectedDate.setValue(parameter);
   }
 
   numSequence(n: number): Array<number> {
