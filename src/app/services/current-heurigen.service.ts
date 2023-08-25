@@ -6,7 +6,7 @@ import cfg from '../../config.json';
   providedIn: 'root'
 })
 export class CurrentHeurigenService {
-  private url = cfg.api + '/v2/ausgesteckt';
+  private url = cfg.api + cfg.apiVersion + '/ausgesteckt';
    
   constructor(private httpClient: HttpClient) {}
   

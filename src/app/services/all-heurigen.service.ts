@@ -7,7 +7,7 @@ import cfg from '../../config.json';
 })
 export class AllHeurigenService {
 
-  private url = cfg.api + '/v2/heurigen';
+  private url = cfg.api + cfg.apiVersion + '/heurigen';
    
   constructor(private httpClient: HttpClient) {}
   

@@ -1,3 +1,4 @@
 {
-    "api": "https://api.jpromi.com/perchtoldsdorf/heurigen"
+    "api": "https://api.jpromi.com/perchtoldsdorf/heurigen",
+    "apiVersion": "/v3"
 }
