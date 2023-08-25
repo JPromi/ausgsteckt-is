@@ -1,3 +1,5 @@
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+
 body, html, app-root {
     width: 100%;
     height: 100%;
@@ -17,3 +19,5 @@ app-root {
 span {
     user-select: none;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
