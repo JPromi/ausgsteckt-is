@@ -6,11 +6,18 @@ import { AppComponent } from './app.component';
 import { AllHeurigenComponent } from './components/all-heurigen/all-heurigen.component';
 import { CurrentHeurigenComponent } from './components/current-heurigen/current-heurigen.component';
 import { NavComponent } from './components/nav/nav.component';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 
-import {HttpClientModule} from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+
+import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { HeurigerComponent } from './components/heuriger/heuriger.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +32,14 @@ import { HeurigerComponent } from './components/heuriger/heuriger.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
