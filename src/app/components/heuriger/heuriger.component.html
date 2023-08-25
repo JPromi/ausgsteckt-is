@@ -73,6 +73,26 @@
             </span>
             <p>Spielplatz Vorhanden</p>
         </a>
+        
+        <a *ngIf="heuriger.daysRemain">
+            <span class="material-symbols-outlined">
+                schedule
+            </span>
+            <p *ngIf="heuriger.daysRemain > 1">Noch {{ heuriger.daysRemain }} Tage geöffnet</p>
+            <p *ngIf="heuriger.daysRemain < 1">Noch heute offen</p>
+        </a>
 
+    </div>
+
+    <div class="calendar">
+        <h3>Das nächste mal geöffnet:</h3>
+        <div class="title">
+            <p><b>Von</b></p>
+            <p><b>Bis</b></p>
+        </div>
+        <div *ngFor="let date of heuriger.ausgsteckt">
+            <p>{{ convertDate(date.from) }}</p>
+            <p>{{ convertDate(date.to) }}</p>
+        </div>
     </div>
 </div>

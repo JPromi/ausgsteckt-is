@@ -28,7 +28,7 @@
     .info {
         display: flex;
         flex-direction: column;
-        margin-bottom: 20vw;
+        margin-bottom: 5vw;
         gap: .25rem;
 
         a {
@@ -52,6 +52,39 @@
                 overflow: hidden;
                 width: 100%;
             }
+        }
+    }
+
+    .calendar {
+        width: fit-content;
+        margin-bottom: 20vw;
+        width: 100%;
+
+        h3 {
+            font-size: .9rem;
+            font-weight: normal;
+        }
+
+        div:not(.title) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            width: 85%;
+            min-width: fit-content;
+            gap: 1rem;
+            margin: 0 auto;
+
+            p {
+                font-weight: lighter;
+            }
+        }
+
+        div.title {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            width: 85%;
+            min-width: fit-content;
+            margin: 0 auto;
         }
     }
 }

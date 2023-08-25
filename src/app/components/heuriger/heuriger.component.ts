@@ -39,4 +39,10 @@ export class HeurigerComponent {
     this.mapsLink = url + this.heuriger.address.replace(" ", "+") + ',' +  '+' + this.heuriger.city.replace(" ", "+");
   }
 
+  convertDate(date: string) {
+    var dateConvert = new Date(date);
+
+    return dateConvert.getDate() + "." + dateConvert.getMonth() + "." + dateConvert.getFullYear();
+  }
+
 }
