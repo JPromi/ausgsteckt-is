@@ -14,10 +14,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './components/home/home.component';
 import { HeurigerComponent } from './components/heuriger/heuriger.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MapsComponent } from './components/maps/maps.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AllHeurigenComponent,
     CurrentHeurigenComponent,
     NavComponent,
-    HomeComponent,
-    HeurigerComponent
+    HeurigerComponent,
+    MapsComponent
   ],
   imports: [
     BrowserModule,

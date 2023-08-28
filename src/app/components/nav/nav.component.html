@@ -1,9 +1,9 @@
 <nav>
     <ul>
         <li>
-            <a routerLink="/ausgsteckt" routerLinkActive="active">
+            <a routerLink="/karte" routerLinkActive="active">
                 <span class="material-symbols-outlined">
-                    event
+                    map
                 </span>
             </a>
         </li>
@@ -14,10 +14,17 @@
                 </span>
             </a>
         </li>
-        <li>
+        <!-- <li>
             <a routerLink="/home" routerLinkActive="active" class="home">
                 <span class="material-symbols-outlined">
                 home
+                </span>
+            </a>
+        </li> -->
+        <li>
+            <a routerLink="/ausgsteckt" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
+                <span class="material-symbols-outlined">
+                    event
                 </span>
             </a>
         </li>
