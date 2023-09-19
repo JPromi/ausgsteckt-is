@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 import { HeurigerService } from "../../services/heuriger.service";
+import { Heuriger } from 'src/app/dtos/heuriger';
 
 @Component({
   selector: 'app-heuriger',
@@ -14,7 +15,7 @@ export class HeurigerComponent {
   heuriger:any = "";
   mapsLink:string = "";
 
-  constructor(private service:HeurigerService, private route: ActivatedRoute, private router: Router) {
+  constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router) {
     
   }
 
@@ -24,8 +25,8 @@ export class HeurigerComponent {
 
   async loadContent(): Promise<Object> {
     return this.route.params.subscribe(async heuriger => {
-      ((this.service.getHeuriger(heuriger["heuriger"])))
-      .subscribe((response: any) => {
+      ((this.heurigenService.getHeuriger(heuriger["heuriger"])))
+      .subscribe((response: Heuriger) => {
         if(!response["id"]) {
           this.router.navigateByUrl("/heurigen");
           return null;

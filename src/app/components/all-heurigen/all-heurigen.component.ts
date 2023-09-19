@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { Heuriger } from 'src/app/dtos/heuriger';
+import { HeurigerService } from 'src/app/services/heuriger.service';
 
-import { AllHeurigenService } from "../../services/all-heurigen.service";
+
 
 @Component({
   selector: 'app-all-heurigen',
@@ -14,7 +16,7 @@ export class AllHeurigenComponent {
   heurigen:any;
   parameter:any;
 
-  constructor(private service:AllHeurigenService, private route: ActivatedRoute, private router: Router) {
+  constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router) {
 
     this.route.queryParams.subscribe(response => {
       this.parameter = response;
@@ -23,8 +25,8 @@ export class AllHeurigenComponent {
   }
 
   ngOnInit() {
-    this.service.getPosts()
-      .subscribe(response => {
+    this.heurigenService.getAllHeurigen()
+      .subscribe((response: Heuriger) => {
         this.heurigen = response;
       }
     );

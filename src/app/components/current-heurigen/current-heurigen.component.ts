@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { CurrentHeurigenService } from "../../services/current-heurigen.service";
+import { HeurigerService } from 'src/app/services/heuriger.service';
+import { Heuriger } from 'src/app/dtos/heuriger';
 
 @Component({
   selector: 'app-current-heurigen',
@@ -17,7 +18,7 @@ export class CurrentHeurigenComponent {
   dateDisplay:any;
   selectedDate = new FormControl('');
   
-  constructor(private service:CurrentHeurigenService, private route: ActivatedRoute, private router: Router) {
+  constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router) {
 
     this.route.queryParams.subscribe(response => {
       this.parameter = response;
@@ -111,8 +112,8 @@ export class CurrentHeurigenComponent {
   }
 
   async loadContent(parameter:any) {
-    await this.service.getPosts(parameter)
-      .subscribe(response => {
+    await this.heurigenService.getHeurigenByDate(parameter)
+      .subscribe((response: Heuriger) => {
         this.currentHeurigen = response;
 
         if(!this.parameter.date) {
