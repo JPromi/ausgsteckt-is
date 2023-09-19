@@ -17,7 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeurigerComponent } from './components/heuriger/heuriger.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MapsComponent } from './components/maps/maps.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { MapsComponent } from './components/maps/maps.component';
     CurrentHeurigenComponent,
     NavComponent,
     HeurigerComponent,
-    MapsComponent
   ],
   imports: [
     BrowserModule,
