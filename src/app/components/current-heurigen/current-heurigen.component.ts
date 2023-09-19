@@ -113,7 +113,7 @@ export class CurrentHeurigenComponent {
 
   async loadContent(parameter:any) {
     await this.heurigenService.getHeurigenByDate(parameter)
-      .subscribe((response: Heuriger) => {
+      .subscribe((response: Heuriger[]) => {
         this.currentHeurigen = response;
 
         if(!this.parameter.date) {

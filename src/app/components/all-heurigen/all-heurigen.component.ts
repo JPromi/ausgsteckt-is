@@ -26,7 +26,7 @@ export class AllHeurigenComponent {
 
   ngOnInit() {
     this.heurigenService.getAllHeurigen()
-      .subscribe((response: Heuriger) => {
+      .subscribe((response: Heuriger[]) => {
         this.heurigen = response;
       }
     );

@@ -16,15 +16,15 @@ export class HeurigerService {
       return this.httpClient.get<Heuriger>(this.url +  '/heurigen?heurigen=' + heurigerName);
   }
 
-  getHeurigenByDate(date:string = ''): Observable<Heuriger> {
+  getHeurigenByDate(date:string = ''): Observable<Heuriger[]> {
     if(date) {
-      return this.httpClient.get<Heuriger>(this.url + '/ausgesteckt?date=' + date);
+      return this.httpClient.get<Heuriger[]>(this.url + '/ausgesteckt?date=' + date);
     } else {
-      return this.httpClient.get<Heuriger>(this.url);
+      return this.httpClient.get<Heuriger[]>(this.url + '/ausgesteckt');
     }
   }
 
-  getAllHeurigen(): Observable<Heuriger> {
-    return this.httpClient.get<Heuriger>(this.url + '/heurigen');
+  getAllHeurigen(): Observable<Heuriger[]> {
+    return this.httpClient.get<Heuriger[]>(this.url + '/heurigen');
 }
 }
