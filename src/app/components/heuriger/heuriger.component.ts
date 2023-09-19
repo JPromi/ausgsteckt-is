@@ -26,6 +26,10 @@ export class HeurigerComponent {
     return this.route.params.subscribe(async heuriger => {
       ((this.service.getHeuriger(heuriger["heuriger"])))
       .subscribe((response: any) => {
+        if(!response["id"]) {
+          this.router.navigateByUrl("/heurigen");
+          return null;
+        }
         this.heuriger = response;
         this.generateMapsLink();
         return heuriger["heuriger"];
