@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeurigerComponent } from './components/heuriger/heuriger.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MapsComponent } from './components/maps/maps.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CurrentHeurigenComponent,
     NavComponent,
     HeurigerComponent,
+    MapsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     BrowserAnimationsModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
