@@ -6,7 +6,7 @@ import { CurrentHeurigenComponent } from './components/current-heurigen/current-
 import { HeurigerComponent } from './components/heuriger/heuriger.component';
 
 const routes: Routes = [
-  { path: '', component: CurrentHeurigenComponent },
+  { path: '', redirectTo: '/ausgsteckt', pathMatch: 'full' },
   { path: 'heurigen', component: AllHeurigenComponent },
   { path: 'heurigen/:heuriger', component: HeurigerComponent },
   { path: 'ausgsteckt', component: CurrentHeurigenComponent },
