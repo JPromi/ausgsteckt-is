@@ -1,0 +1,13 @@
+:host {
+    height: 100%;
+    width: 100%;
+
+    .map {
+        height: calc(100% - 4rem);
+        width: 100%;
+    }
+}
+
+::ng-deep nav {
+    background-color: aqua;
+}
