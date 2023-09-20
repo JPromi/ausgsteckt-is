@@ -3,11 +3,94 @@
     width: 100%;
 
     .map {
-        height: calc(100% - 4rem);
+        height: 100%;
         width: 100%;
+
+        map-info-window {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            .top {
+                margin: 1rem 1rem 0 1rem;
+                max-width: 100%;
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+
+                img {
+                    height: 5rem;
+                    aspect-ratio: 1/1;
+                    object-fit: cover;
+                    box-shadow: 0 0 1rem #21212150;
+                    border-radius: .5rem;
+                }
+
+                .text {
+                    max-width: 60%;
+                    h3, p {
+                        width: 100%;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+
+            .infos {
+                margin: 0 1rem;
+            }
+
+            .buttonNavigation {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                background-color: #555;
+
+                a {
+                    padding: .75rem 0;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    outline: none;
+                    color: #FFF;
+                }
+
+                a:focus {
+                    color: #FFFFFFAA;
+                }
+
+                a:not(:first-child) {
+                    border-left: 1px solid #00000020;
+
+                }
+            }
+        }
     }
 }
 
-::ng-deep nav {
-    background-color: aqua;
+::ng-deep .gm-style .gm-style-iw-c {
+    padding: 0 !important;
+    min-width: 15rem !important;
+    width: 20rem !important;
+    max-width: 20rem !important;
+    overflow: hidden;
+}
+
+::ng-deep .gm-style .gm-style-iw-d {
+    overflow: visible !important;
+}
+
+::ng-deep .gm-style .gm-style-iw-tc::after {
+    background: #555555 !important;
+}
+
+@keyframes opacityin {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

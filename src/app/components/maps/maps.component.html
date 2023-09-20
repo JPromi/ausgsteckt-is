@@ -1,6 +1,46 @@
 <div class="map">
     <google-map
-    height="100%"
-    width="100%">
+        *ngIf="this.heurigenLoaded || true"
+        height="100%"
+        width="100%"
+        [options]="mapOptions"
+    >
+
+        <ng-container *ngFor="let heuriger of heurigenList">
+            <map-marker
+                [position]="{ lat: heuriger.coordinates.lat, lng: heuriger.coordinates.lng }"
+                [options]="generateMerkerIcon('./assets/heurigen/needle/' + heuriger.nameId + '.png')"
+                (mapClick)="openInfoWindow(marker, infoWindow)"
+                #marker="mapMarker"
+            >
+            </map-marker>
+            <map-info-window #infoWindow="mapInfoWindow">
+                <div class="top">
+                    <img
+                        [src]="'/assets/heurigen/' + heuriger.nameId + '.png'"
+                        onerror="this.src='./assets/heurigen/placeholder.png';"
+                    >
+                    <div class="text">
+                        <h3>{{ heuriger.name }}</h3>
+                        <p>{{ heuriger.address }}</p>
+                    </div>
+                </div>
+
+                <div class="infos">
+                    <ng-container *ngIf="heuriger.daysRemain">
+                        <p *ngIf="heuriger.daysRemain > 1">Noch {{ heuriger.daysRemain }} Tage geöffnet</p>
+                        <p *ngIf="heuriger.daysRemain < 0">Noch heute offen</p>
+                    </ng-container>
+                </div>
+
+                <div class="buttonNavigation">
+                    <a [href]="heuriger.link" [target]="'_blank'"><mat-icon>language</mat-icon></a>
+                    <a [href]="'tel:' + heuriger.phone.main"><mat-icon>call</mat-icon></a>
+                    <a [href]="this.generateMapsLink(heuriger)" [target]="'_blank'"><mat-icon>directions_walk</mat-icon></a>
+                    <a [routerLink]="'/heurigen/' + heuriger.nameId"><mat-icon>info_i</mat-icon></a>
+                </div>
+            </map-info-window>
+        </ng-container>
+
     </google-map>
 </div>
