@@ -26,7 +26,7 @@
     </div>
 </div>
 
-<div class="heurigen-list skeleton" *ngIf="!currentHeurigen">
+<div class="heurigen-list skeleton" *ngIf="!requestLoaded">
     <a *ngFor="let n of numSequence(6);
                 let i = index;">
         <span class="img"></span>
@@ -67,4 +67,7 @@
             <p>{{ heuriger.address }}</p>
         </div>
     </a>
+</div>
+<div class="heurigen-list" *ngIf="!currentHeurigen && requestLoaded">
+    <a>Keine Heurigen Gefunden</a>
 </div>

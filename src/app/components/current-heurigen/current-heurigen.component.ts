@@ -16,6 +16,7 @@ export class CurrentHeurigenComponent {
   currentHeurigen:any;
   parameter:any;
   dateDisplay:any;
+  requestLoaded:boolean = false;
   selectedDate = new FormControl('');
   
   constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router) {
@@ -115,6 +116,7 @@ export class CurrentHeurigenComponent {
     await this.heurigenService.getHeurigenByDate(parameter)
       .subscribe((response: Heuriger[]) => {
         this.currentHeurigen = response;
+        this.requestLoaded = true;
 
         if(!this.parameter.date) {
           const currentDate = new Date();
@@ -124,6 +126,10 @@ export class CurrentHeurigenComponent {
           const currentDate = new Date(currentDateT);
           this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
         }
+      },
+      (error: any) => {
+        this.currentHeurigen = null;
+        this.requestLoaded = true;
       }
     );
 
