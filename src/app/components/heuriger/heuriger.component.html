@@ -35,74 +35,76 @@
 </div>
 
 <div class="content" *ngIf="heuriger">
-    <div class="top">
-        <h4>{{ heuriger.name }}</h4>
-        <img [src]="'/assets/heurigen/' + heuriger.nameId + '.png'"
-            onerror="this.src='./assets/heurigen/placeholder.png';">
-    </div>
-
-    <div class="info">
-
-        <a [href]="mapsLink">
-            <span class="material-symbols-outlined">
-                location_on
-            </span>
-            <p target="_blank"> {{ heuriger.address }} </p>
-        </a>
-
-        <a *ngIf="heuriger.phone.main" href="tel:{{ heuriger.phone.main }}">
-            <span class="material-symbols-outlined">
-                call
-            </span>
-            <p> {{ heuriger.phone.main }} </p>
-        </a>
-        <a *ngIf="heuriger.phone.mobile" href="tel:{{ heuriger.phone.mobile }}">
-            <span class="material-symbols-outlined">
-                call
-            </span>
-            <p> {{ heuriger.phone.mobile }} </p>
-        </a>
-
-        <a *ngIf="heuriger.email" href="mailto:{{ heuriger.email }}">
-            <span class="material-symbols-outlined">
-                email
-            </span>
-            <p> {{ heuriger.email }} </p>
-        </a>
-
-        <a *ngIf="heuriger.link" [href]="heuriger.link">
-            <span class="material-symbols-outlined">
-                language
-            </span>
-            <p>Website</p>
-        </a>
-
-        <a *ngIf="heuriger.playground">
-            <span class="material-symbols-outlined">
-                castle
-            </span>
-            <p>Spielplatz Vorhanden</p>
-        </a>
-        
-        <a *ngIf="heuriger.daysRemain">
-            <span class="material-symbols-outlined">
-                schedule
-            </span>
-            <p *ngIf="heuriger.daysRemain > 1">Noch {{ heuriger.daysRemain }} Tage geöffnet</p>
-            <p *ngIf="heuriger.daysRemain < 1">Noch heute offen</p>
-        </a>
-
-    </div>
-
-    <div class="calendar">
-        <h3>Das nächste mal geöffnet:</h3>
-        <div class="title">
-            <p><b>Von</b></p>
-            <p><b>Bis</b></p>
+    <div class="c">
+        <div class="top">
+            <h4>{{ heuriger.name }}</h4>
+            <img [src]="'/assets/heurigen/' + heuriger.nameId + '.png'"
+                onerror="this.src='./assets/heurigen/placeholder.png';">
         </div>
-        <div *ngFor="let date of heuriger.ausgsteckt">
-            <p>{{ convertDate(date.from) }}</p>
-            <p>{{ convertDate(date.to) }}</p>
+    
+        <div class="info">
+    
+            <a [href]="mapsLink">
+                <span class="material-symbols-outlined">
+                    location_on
+                </span>
+                <p target="_blank"> {{ heuriger.address }} </p>
+            </a>
+    
+            <a *ngIf="heuriger.phone.main" href="tel:{{ heuriger.phone.main }}">
+                <span class="material-symbols-outlined">
+                    call
+                </span>
+                <p> {{ heuriger.phone.main }} </p>
+            </a>
+            <a *ngIf="heuriger.phone.mobile" href="tel:{{ heuriger.phone.mobile }}">
+                <span class="material-symbols-outlined">
+                    call
+                </span>
+                <p> {{ heuriger.phone.mobile }} </p>
+            </a>
+    
+            <a *ngIf="heuriger.email" href="mailto:{{ heuriger.email }}">
+                <span class="material-symbols-outlined">
+                    email
+                </span>
+                <p> {{ heuriger.email }} </p>
+            </a>
+    
+            <a *ngIf="heuriger.link" [href]="heuriger.link">
+                <span class="material-symbols-outlined">
+                    language
+                </span>
+                <p>Website</p>
+            </a>
+    
+            <a *ngIf="heuriger.playground">
+                <span class="material-symbols-outlined">
+                    castle
+                </span>
+                <p>Spielplatz Vorhanden</p>
+            </a>
+            
+            <a *ngIf="heuriger.daysRemain">
+                <span class="material-symbols-outlined">
+                    schedule
+                </span>
+                <p *ngIf="heuriger.daysRemain > 1">Noch {{ heuriger.daysRemain }} Tage geöffnet</p>
+                <p *ngIf="heuriger.daysRemain < 1">Noch heute offen</p>
+            </a>
+    
+        </div>
+    
+        <div class="calendar">
+            <h3>Das nächste mal geöffnet:</h3>
+            <div class="title">
+                <p><b>Von</b></p>
+                <p><b>Bis</b></p>
+            </div>
+            <div *ngFor="let date of heuriger.ausgsteckt">
+                <p>{{ convertDate(date.from) }}</p>
+                <p>{{ convertDate(date.to) }}</p>
+            </div>
         </div>
     </div>
 </div>
