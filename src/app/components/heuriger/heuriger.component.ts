@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { HeurigerService } from "../../services/heuriger.service";
 import { Heuriger } from 'src/app/dtos/heuriger';
@@ -15,7 +16,7 @@ export class HeurigerComponent {
   heuriger:any = "";
   mapsLink:string = "";
 
-  constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router) {
+  constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router, private _location: Location) {
     
   }
 
@@ -48,6 +49,10 @@ export class HeurigerComponent {
     var dateConvert = new Date(date);
 
     return dateConvert.getDate() + "." + dateConvert.getMonth() + "." + dateConvert.getFullYear();
+  }
+
+  backClick() {
+    this._location.back();
   }
 
 }
