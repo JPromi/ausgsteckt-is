@@ -1,3 +1,38 @@
+<div class="header">
+    <div class="c">
+        <a (click)="changeSearchType()" class="toggle">
+            <mat-icon *ngIf="!this.searchByDate"> event </mat-icon>
+            <mat-icon *ngIf="this.searchByDate"> storefront </mat-icon>
+        </a>
+
+        <ng-container *ngIf="this.searchByDate">
+            <a class="navigation" (click)="lastDate()">
+                <span class="material-symbols-outlined">
+                    arrow_back_ios
+                </span>
+            </a>
+        
+            <p class="date">
+                <mat-form-field style="width:1px;visibility:hidden;">
+                    <input matInput [matDatepicker]="datePicker" [formControl]="selectedDate" (dateChange)="specificDate($event)">
+                    <mat-datepicker #datePicker panelClass="selectDate"></mat-datepicker>
+                </mat-form-field>
+                <label>
+                    
+                    <mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
+                </label>
+                <a> {{ dateDisplay }} </a>
+            </p>
+        
+            <a class="navigation" (click)="nextDate()">
+                <span class="material-symbols-outlined">
+                    arrow_forward_ios
+                </span>
+            </a>
+        </ng-container>
+    </div>
+</div>
+
 <div class="map">
     <google-map
         *ngIf="this.heurigenLoaded || true"
