@@ -1,92 +1,98 @@
-.header {
-    position: fixed;
-    width: 100%;
-    background-color: #79e975;
-
-    .c {
-        padding: 1rem;
-        display: flex;
-        gap: 1rem;
-        height: 1.5rem;
-
-        .title {
-            font-size: 1.2rem;
-            width: 100%;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-    }
-    
-}
-
-.heurigen-list {
+:host {
     display: flex;
     flex-direction: column;
-    margin-bottom: 7rem;
-    margin-top: 4rem;
+    height: 100%;
 
-    a {
-        animation: opacityIn 500ms;
-        padding: .75rem 1rem;
-        //border-bottom: 1px solid #21212150;
-        box-shadow: 0 .1rem .2rem #21212110;
-        display: flex;
-        color: #000;
-        text-decoration: none;
-        gap: .75rem;
-        align-items: center;
+    .header {
+        position: relative;
+        width: 100%;
+        background-color: #79e975;
 
-        h3 {
-            font-size: 1rem;
-        }
-
-        p {
-            font-size: .9rem;
-            color: #000000bb;
-        }
-
-        img, .img {
-            width: 3.5rem;
-            height: 3.5rem;
-            border-radius: .5rem;
-            object-fit: cover;
-        }
-    }
-}
-
-// sceleton
-.heurigen-list.skeleton {
-    a {
-        animation: opacityIn 0ms;
-
-        .informations {
+        .c {
+            padding: 1rem;
             display: flex;
-            flex-direction: column;
-            gap: .6rem;
-            
-            h3 {
-                width: 35vw;
-                height: 1.1rem;
-            }
-            
-            p {
-                width: 50vw;
-                height: 1rem;
+            gap: 1rem;
+            height: 1.5rem;
+
+            .title {
+                font-size: 1.2rem;
+                width: 100%;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
             }
         }
         
-        .img, .title, .text {
-            background: #eee;
-            background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
-            border-radius: 5px;
-            background-size: 200% 100%;
-            animation: 1.5s shine linear infinite;
+    }
+
+    .heurigen-list {
+        height: 100%;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+
+        a {
+            animation: opacityIn 500ms;
+            padding: .75rem 1rem;
+            //border-bottom: 1px solid #21212150;
+            box-shadow: 0 .1rem .2rem #21212110;
+            display: flex;
+            color: #000;
+            text-decoration: none;
+            gap: .75rem;
+            align-items: center;
+
+            h3 {
+                font-size: 1rem;
+            }
+
+            p {
+                font-size: .9rem;
+                color: #000000bb;
+            }
+
+            img, .img {
+                width: 3.5rem;
+                height: 3.5rem;
+                border-radius: .5rem;
+                object-fit: cover;
+            }
         }
     }
-    
+
+    // sceleton
+    .heurigen-list.skeleton {
+        a {
+            animation: opacityIn 0ms;
+
+            .informations {
+                display: flex;
+                flex-direction: column;
+                gap: .6rem;
+                
+                h3 {
+                    width: 35vw;
+                    height: 1.1rem;
+                }
+                
+                p {
+                    width: 50vw;
+                    height: 1rem;
+                }
+            }
+            
+            .img, .title, .text {
+                background: #eee;
+                background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+                border-radius: 5px;
+                background-size: 200% 100%;
+                animation: 1.5s shine linear infinite;
+            }
+        }
+        
+    }
 }
 
 @keyframes shine {
