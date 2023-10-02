@@ -5,6 +5,7 @@ import { AllHeurigenComponent } from './components/all-heurigen/all-heurigen.com
 import { CurrentHeurigenComponent } from './components/current-heurigen/current-heurigen.component';
 import { HeurigerComponent } from './components/heuriger/heuriger.component';
 import { MapsComponent } from './components/maps/maps.component';
+import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/ausgsteckt', pathMatch: 'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'heurigen/:heuriger', component: HeurigerComponent },
   { path: 'ausgsteckt', component: CurrentHeurigenComponent },
   { path: 'karte', component: MapsComponent },
+  { path: '**', component: ErrorComponent },
 ];
 
 @NgModule({
