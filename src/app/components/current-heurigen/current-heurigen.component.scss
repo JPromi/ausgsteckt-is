@@ -2,13 +2,15 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: var(--background-color);
 }
 .header {
     position: relative;
     width: 100%;
-    background-color: #79e975;
+    background-color: var(--color-header);
 
     .c {
+        color: var(--color-header-text);
         padding: 1rem;
         display: flex;
         gap: 1rem;
@@ -17,6 +19,7 @@
         margin: 0 auto;
 
         .date {
+            color: var(--color-header-text);
             width: 100%;
             text-align: center;
             display: flex;
@@ -39,7 +42,7 @@
         }
         
         .mat-datepicker-toggle {
-            color: #000;
+            color: var(--color-header-text);
         }
 
     }
@@ -92,25 +95,30 @@
     overflow: auto;
     display: flex;
     flex-direction: column;
+    gap: .25rem;
 
     a {
         animation: opacityIn 500ms;
         padding: .75rem 1rem;
         //border-bottom: 1px solid #21212150;
-        box-shadow: 0 .1rem .2rem #21212110;
+        box-shadow: 0 .1rem .2rem var(--color-list-shadow);
         display: flex;
         color: #000;
+        background-color: var(--color-list);
         text-decoration: none;
         gap: .75rem;
         align-items: center;
+        border-radius: .25rem;
 
         h3 {
+            color: var(--color-title);
             font-size: 1rem;
         }
 
         p {
             font-size: .9rem;
-            color: #000000bb;
+            color: var(--color-text);
+            opacity: .8;
         }
 
         img, .img {

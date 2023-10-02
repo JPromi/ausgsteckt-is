@@ -3,7 +3,7 @@ nav {
     // position: fixed;
     // bottom: 0;
     width: 100%;
-    background-color: #F5F5F5;
+    background-color: var(--nav-background);
     box-shadow: .25rem .25rem 1rem #00000050;
     
     ul {
@@ -43,7 +43,7 @@ nav {
 
             a {
                 display: flex;
-                color: #000;
+                color: var(--nav-icon);
                 text-decoration: none;
                 width: fit-content;
                 height: fit-content;
@@ -55,7 +55,7 @@ nav {
             }
 
             a.active {
-                color: #b92121;
+                color: var(--nav-icon-active);
             }
         }
 
