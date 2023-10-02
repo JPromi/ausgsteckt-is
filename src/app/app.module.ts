@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MapsComponent } from './components/maps/maps.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MapsComponent } from './components/maps/maps.component';
     NavComponent,
     HeurigerComponent,
     MapsComponent,
+    ErrorComponent,
     
   ],
   imports: [
