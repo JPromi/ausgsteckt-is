@@ -12,6 +12,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HeurigerComponent } from './components/heuriger/heuriger.component';
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MapsComponent } from './components/maps/maps.component';
 import { ErrorComponent } from './components/error/error.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { ErrorComponent } from './components/error/error.component';
     HeurigerComponent,
     MapsComponent,
     ErrorComponent,
+    SettingsComponent,
     
   ],
   imports: [
@@ -41,6 +44,7 @@ import { ErrorComponent } from './components/error/error.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
+    MatSlideToggleModule,
     BrowserAnimationsModule,
     MatInputModule,
     ReactiveFormsModule,
