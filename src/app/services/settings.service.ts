@@ -58,4 +58,24 @@ export class SettingsService {
 
     }
   }
+
+  checkDarkmode(): boolean {
+    if(this.getSettings().systemTheme) {
+
+      if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return true;
+      } else {
+        return false;
+      }
+
+    } else {
+
+      if(this.getSettings().darkmode) {
+        return true;
+      } else {
+        return false;
+      }
+
+    }
+  }
 }
