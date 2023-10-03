@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<div class="heurigen-list skeleton" *ngIf="!heurigen">
+<div class="heurigen-list skeleton" *ngIf="!requestLoaded">
     <a *ngFor="let n of numSequence(6);
                 let i = index;">
         <span class="img"></span>
@@ -18,7 +18,8 @@
     
 </div>
 
-<div class="heurigen-list" *ngIf="heurigen">
+<div class="heurigen-list" *ngIf="requestLoaded && heurigen">
+
     <a 
         *ngFor="let heuriger of heurigen"
         [routerLink]="['/heurigen', heuriger.nameId]">
@@ -30,4 +31,8 @@
             <p>{{ heuriger.address }}</p>
         </div>
     </a>
+</div>
+
+<div class="heurigen-list" *ngIf="!heurigen && requestLoaded">
+    <a>Ein Fehler ist aufgetreten</a>
 </div>

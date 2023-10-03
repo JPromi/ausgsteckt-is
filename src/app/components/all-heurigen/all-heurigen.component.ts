@@ -15,6 +15,8 @@ export class AllHeurigenComponent {
 
   heurigen:any;
   parameter:any;
+  requestLoaded:boolean = false;
+  error:boolean = false
 
   constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router) {
 
@@ -28,6 +30,11 @@ export class AllHeurigenComponent {
     this.heurigenService.getAllHeurigen()
       .subscribe((response: Heuriger[]) => {
         this.heurigen = response;
+        this.requestLoaded = true;
+      },
+      (error) => {
+        this.requestLoaded = true;
+        this.error = true;
       }
     );
   }
