@@ -1,6 +1,6 @@
 export class Settings {
     constructor(
-        public systemTheme:boolean = true,
+        public systemTheme:boolean = false,
         public darkmode:boolean = false,
     ) {}
 }
