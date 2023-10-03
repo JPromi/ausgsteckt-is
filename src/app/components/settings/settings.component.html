@@ -7,6 +7,7 @@
 </div>
 
 <form class="content" [formGroup]="settingsForm" (change)="updateSettings()">
+    <!-- design -->
     <div class="block">
         <h3>Design</h3>
 
@@ -23,7 +24,7 @@
             <p>Darkmode</p>
             
             <!-- enabled -->
-            <label class="switch" *ngIf="!this.settings.systemTheme">
+            <label class="switch " *ngIf="!this.settings.systemTheme">
                 <input type="checkbox" formControlName="darkmode" name="darkmode" [(ngModel)]="settings.darkmode">
                 <span class="slider"></span>
             </label>
@@ -36,4 +37,19 @@
 
     </div>
     
+    <!-- develop -->
+    <div class="block">
+        <h3>Entwicklung</h3>
+
+        <div>
+            <p>Entwickler:</p>
+            <a class="answer" href="http://jpromi.com/socialmedia" target="_blank" rel="noopener noreferrer">JPromi</a>
+        </div>
+
+        <div>
+            <p>GitHub repository:</p>
+            <a class="answer" href="https://github.com/perchtoldsdorf/ausgsteckt-is" target="_blank" rel="noopener noreferrer">Ausgsteckt Is</a>
+        </div>
+
+    </div>
 </form>
