@@ -13,12 +13,10 @@ export class ErrorComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    if(this.settingsService.getSettings().systemTheme) {
-      if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.getElementById('background')?.classList.add("night");
-      }
-    } else if(this.settingsService.getSettings().darkmode) {
-      document.getElementById('background')?.classList.add('night')
+    if(this.settingsService.checkDarkmode()) {
+      document.getElementById('background')?.classList.add("night");
+    } else {
+      document.getElementById('background')?.classList.remove("night");
     }
   }
 }
