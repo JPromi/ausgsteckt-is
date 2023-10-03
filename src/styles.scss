@@ -10,6 +10,10 @@ body {
     --nav-icon: #000000;
     --nav-icon-active: #b92121;
     --background-color: #FFFFFF;
+    
+    --ghost-background: #EEEEEE;
+    --ghost-shine-1: #ECECEC;
+    --ghost-shine-2: #F5F5F5;
 }
 
 body.darkmode {
@@ -25,6 +29,10 @@ body.darkmode {
     --nav-icon: #FFFFFF;
     --nav-icon-active: #b92121;
     --background-color: #212121;
+
+    --ghost-background: #0e0e0e;
+    --ghost-shine-1: #333333;
+    --ghost-shine-2: #292929;
 }
 
 body, html, app-root {
