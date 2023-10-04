@@ -51,5 +51,20 @@
             <a class="answer" href="https://github.com/JPromi/ausgsteckt-is" target="_blank" rel="noopener noreferrer">Ausgsteckt Is</a>
         </div>
 
+        <div>
+            <p>Build Type:</p>
+            <a class="answer"> {{ envInfo.type }} </a>
+        </div>
+
+        <div>
+            <p>Version:</p>
+            <a class="answer"> {{ envInfo.version }} </a>
+        </div>
+
+        <div (click)="specialMode()">
+            <p>Build date:</p>
+            <a class="answer"> {{ envInfo.buildDate }} </a>
+        </div>
+
     </div>
 </form>
