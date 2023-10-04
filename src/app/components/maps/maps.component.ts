@@ -290,16 +290,22 @@ export class MapsComponent implements OnInit {
   }
 
   loadMapsScript() {
-    let scriptEle = document.createElement("script");
-    scriptEle.setAttribute("src", "https://maps.googleapis.com/maps/api/js?key=" + cfg.googleMapsAPIkey + "&callback=Function.prototype");
-    document.body.appendChild(scriptEle);
-    scriptEle.addEventListener("load", () => {
-      this.scritpLoaded = true;
-    });
+    if(document.getElementById("googleMapsApiScript")) {
+      document.getElementById("googleMapsApiScript")?.remove();
+    }
+      let scriptEle = document.createElement("script");
+      scriptEle.setAttribute("src", "https://maps.googleapis.com/maps/api/js?key=" + cfg.googleMapsAPIkey + "&callback=Function.prototype");
+      scriptEle.setAttribute("id", "googleMapsApiScript");
+      document.body.appendChild(scriptEle);
+      scriptEle.addEventListener("load", () => {
+        this.scritpLoaded = true;
+      });
+      
+      scriptEle.addEventListener("error", (ev) => {
+        this.scritpLoaded = true;
+          console.log("Error on loading file", ev);
+      });
     
-    scriptEle.addEventListener("error", (ev) => {
-      this.scritpLoaded = true;
-        console.log("Error on loading file", ev);
-    });
+    
   }
 }
