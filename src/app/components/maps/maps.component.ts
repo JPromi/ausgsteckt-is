@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Heuriger, ausgsteckt, coordinates, phone } from 'src/app/dtos/heuriger';
 import { HeurigerService } from 'src/app/services/heuriger.service';
 import { SettingsService } from 'src/app/services/settings.service';
+import cfg from '../../../config.json';
 
 @Component({
   selector: 'app-maps',
@@ -40,6 +41,7 @@ export class MapsComponent implements OnInit {
   dateDisplay:any;
   selectedDate = new FormControl('');
   searchByDate = true;
+  scritpLoaded = false;
 
   constructor(
     public heurigerService: HeurigerService, 
@@ -53,7 +55,8 @@ export class MapsComponent implements OnInit {
     );
   }
 
-  ngOnInit(dateP = ''): void {
+  async ngOnInit(dateP = '') {
+    await this.loadMapsScript();
     var parameter = '';
     if(dateP == '') {
       if(!this.parameter.date) {
@@ -284,5 +287,19 @@ export class MapsComponent implements OnInit {
       ];
 
     }
+  }
+
+  loadMapsScript() {
+    let scriptEle = document.createElement("script");
+    scriptEle.setAttribute("src", "https://maps.googleapis.com/maps/api/js?key=" + cfg.googleMapsAPIkey + "&callback=Function.prototype");
+    document.body.appendChild(scriptEle);
+    scriptEle.addEventListener("load", () => {
+      this.scritpLoaded = true;
+    });
+    
+    scriptEle.addEventListener("error", (ev) => {
+      this.scritpLoaded = true;
+        console.log("Error on loading file", ev);
+    });
   }
 }

@@ -37,7 +37,7 @@
     </div>
 </div>
 
-<div class="map">
+<div class="map" *ngIf="this.scritpLoaded">
     <google-map
         *ngIf="this.heurigenLoaded || true"
         height="100%"
