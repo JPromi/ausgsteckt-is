@@ -22,6 +22,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { MapsComponent } from './components/maps/maps.component';
 import { ErrorComponent } from './components/error/error.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { TaxiComponent } from './components/taxi/taxi.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SettingsComponent } from './components/settings/settings.component';
     MapsComponent,
     ErrorComponent,
     SettingsComponent,
+    TaxiComponent,
     
   ],
   imports: [

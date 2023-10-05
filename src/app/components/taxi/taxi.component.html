@@ -1,0 +1,33 @@
+<div class="header">
+    <div class="c">
+        <p class="title">
+            Taxi
+        </p>
+    </div>
+</div>
+
+<div class="taxi-list skeleton" *ngIf="!requestLoaded">
+    <a *ngFor="let n of numSequence(4);
+                let i = index;">
+        <span class="img"></span>
+        <div class="informations">
+            <h3 class="title"></h3>
+            <p class="text"></p>
+        </div>
+    </a>
+    
+</div>
+
+<div class="taxi-list" *ngIf="requestLoaded && taxi">
+    <a 
+        *ngFor="let _taxi of taxi"
+        [href]="'tel:' + _taxi.phone">
+        <img 
+            [src]="'/assets/taxi/' + _taxi.nameId + '.png'"
+            onerror="this.src='./assets/taxi/placeholder.png';">
+        <div class="informations">
+            <h3>{{ _taxi.name }}</h3>
+            <p>{{ _taxi.phone }}</p>
+        </div>
+    </a>
+</div>
