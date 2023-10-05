@@ -7,6 +7,7 @@ import { HeurigerComponent } from './components/heuriger/heuriger.component';
 import { MapsComponent } from './components/maps/maps.component';
 import { ErrorComponent } from './components/error/error.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { TaxiComponent } from './components/taxi/taxi.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/ausgsteckt', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'ausgsteckt', component: CurrentHeurigenComponent },
   { path: 'karte', component: MapsComponent },
   { path: 'settings', component: SettingsComponent },
+  { path: 'taxi', component: TaxiComponent },
   { path: '**', component: ErrorComponent },
 ];
 
