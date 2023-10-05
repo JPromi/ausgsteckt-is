@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +25,7 @@ import { MapsComponent } from './components/maps/maps.component';
 import { ErrorComponent } from './components/error/error.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { TaxiComponent } from './components/taxi/taxi.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 const heurigenDbConfig: DBConfig  = {
   name: 'heurigen',
@@ -89,7 +90,13 @@ const heurigenDbConfig: DBConfig  = {
     MatInputModule,
     ReactiveFormsModule,
     GoogleMapsModule,
-    NgxIndexedDBModule.forRoot(heurigenDbConfig)
+    NgxIndexedDBModule.forRoot(heurigenDbConfig),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
