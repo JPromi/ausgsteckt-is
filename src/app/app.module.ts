@@ -28,25 +28,38 @@ import { TaxiComponent } from './components/taxi/taxi.component';
 
 const heurigenDbConfig: DBConfig  = {
   name: 'heurigen',
-  version: 11,
-  objectStoresMeta: [{
-    store: 'heurigen',
-    storeConfig: { keyPath: 'nameId', autoIncrement: true },
-    storeSchema: [
-      { name: 'name', keypath: 'name', options: { unique: false } },
-      { name: 'nameId', keypath: 'nameId', options: { unique: true } },
-      { name: 'address', keypath: 'address', options: { unique: false } },
-      { name: 'city', keypath: 'city', options: { unique: false } },
-      { name: 'coordinates[]', keypath: 'coordinates', options: { unique: false } },
-      { name: 'playground', keypath: 'playground', options: { unique: false } },
-      { name: 'link', keypath: 'link', options: { unique: false } },
-      { name: 'email', keypath: 'email', options: { unique: false } },
-      { name: 'phone[]', keypath: 'phone[]', options: { unique: false } },
-      { name: 'type', keypath: 'type', options: { unique: false } },
-      { name: 'daysRemain', keypath: 'daysRemain', options: { unique: false } },
-      { name: 'ausgsteckt', keypath: 'ausgsteckt', options: { unique: false } },
-    ]
-  }]
+  version: 2,
+  objectStoresMeta: [
+    {
+      store: 'taxi',
+      storeConfig: { keyPath: 'nameId', autoIncrement: true },
+      storeSchema: [
+        { name: 'name', keypath: 'name', options: { unique: false } },
+        { name: 'nameId', keypath: 'nameId', options: { unique: true } },
+        { name: 'phone', keypath: 'phone', options: { unique: false } },
+        { name: 'website', keypath: 'website', options: { unique: false } },
+      ]
+    },
+    {
+      store: 'heurigen',
+      storeConfig: { keyPath: 'nameId', autoIncrement: true },
+      storeSchema: [
+        { name: 'name', keypath: 'name', options: { unique: false } },
+        { name: 'nameId', keypath: 'nameId', options: { unique: true } },
+        { name: 'address', keypath: 'address', options: { unique: false } },
+        { name: 'city', keypath: 'city', options: { unique: false } },
+        { name: 'coordinates[]', keypath: 'coordinates', options: { unique: false } },
+        { name: 'playground', keypath: 'playground', options: { unique: false } },
+        { name: 'link', keypath: 'link', options: { unique: false } },
+        { name: 'email', keypath: 'email', options: { unique: false } },
+        { name: 'phone[]', keypath: 'phone[]', options: { unique: false } },
+        { name: 'type', keypath: 'type', options: { unique: false } },
+        { name: 'daysRemain', keypath: 'daysRemain', options: { unique: false } },
+        { name: 'ausgsteckt', keypath: 'ausgsteckt', options: { unique: false } },
+      ]
+    }
+    
+  ]
 };
 
 @NgModule({
