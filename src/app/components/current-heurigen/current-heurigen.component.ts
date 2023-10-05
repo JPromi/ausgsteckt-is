@@ -5,6 +5,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 import { HeurigerService } from 'src/app/services/heuriger.service';
 import { Heuriger } from 'src/app/dtos/heuriger';
+import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
   selector: 'app-current-heurigen',
@@ -19,7 +20,7 @@ export class CurrentHeurigenComponent {
   requestLoaded:boolean = false;
   selectedDate = new FormControl('');
   
-  constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router) {
+  constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router, private databaseService: DatabaseService) {
 
     this.route.queryParams.subscribe(response => {
       this.parameter = response;
@@ -128,8 +129,31 @@ export class CurrentHeurigenComponent {
         }
       },
       (error: any) => {
-        this.currentHeurigen = null;
-        this.requestLoaded = true;
+        if(!this.parameter.date) {
+          var searchDate = new Date();
+        } else {
+          const searchDateT = Date.parse(this.parameter.date);
+          var searchDate = new Date(searchDateT);
+        }
+
+        var _currentHeurigen: Heuriger[] = [];
+
+        this.databaseService.getHeurigen().subscribe(
+          async (allHeurigen: Heuriger[]) => {
+            await allHeurigen.forEach(async heuriger => {
+              await heuriger.ausgsteckt.forEach(
+                heurigerDate => {
+                  if(new Date(heurigerDate.from) <= searchDate && new Date(heurigerDate.to) >= searchDate) {
+                    _currentHeurigen.push(heuriger);
+                  }
+                }
+              )
+            });
+
+            this.currentHeurigen = _currentHeurigen
+            this.requestLoaded = true;
+          }
+        )
       }
     );
 

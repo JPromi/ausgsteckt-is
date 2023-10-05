@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 
 import { HeurigerService } from "../../services/heuriger.service";
 import { Heuriger } from 'src/app/dtos/heuriger';
+import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
   selector: 'app-heuriger',
@@ -16,7 +17,7 @@ export class HeurigerComponent {
   heuriger:any = "";
   mapsLink:string = "";
 
-  constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router, private _location: Location) {
+  constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router, private _location: Location, private databaseService: DatabaseService) {
     
   }
 
@@ -35,7 +36,15 @@ export class HeurigerComponent {
         this.heuriger = response;
         this.generateMapsLink();
         return heuriger["heuriger"];
-      })
+      },
+      (err) => {
+        this.databaseService.getHeuriger('brodl').subscribe(
+          (responseDB: Heuriger) => {
+            this.heuriger = responseDB;
+          }
+        )
+      }
+      )
       ;
     });
   }

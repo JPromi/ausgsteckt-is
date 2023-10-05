@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Heuriger } from 'src/app/dtos/heuriger';
+import { DatabaseService } from 'src/app/services/database.service';
 import { HeurigerService } from 'src/app/services/heuriger.service';
 
 
@@ -18,7 +19,7 @@ export class AllHeurigenComponent {
   requestLoaded:boolean = false;
   error:boolean = false
 
-  constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router) {
+  constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router, private databaseService: DatabaseService) {
 
     this.route.queryParams.subscribe(response => {
       this.parameter = response;
@@ -31,10 +32,16 @@ export class AllHeurigenComponent {
       .subscribe((response: Heuriger[]) => {
         this.heurigen = response;
         this.requestLoaded = true;
+        this.databaseService.updateHeurigen(response);
       },
       (error) => {
-        this.requestLoaded = true;
         this.error = true;
+        this.databaseService.getHeurigen().subscribe(
+          (responseDB: Heuriger[]) => {
+            this.heurigen = responseDB;
+            this.requestLoaded = true;
+          }
+        );
       }
     );
   }
