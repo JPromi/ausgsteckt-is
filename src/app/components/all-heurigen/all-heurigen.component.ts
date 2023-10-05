@@ -40,6 +40,9 @@ export class AllHeurigenComponent {
           (responseDB: Heuriger[]) => {
             this.heurigen = responseDB;
             this.requestLoaded = true;
+          },
+          (error) => {
+            this.requestLoaded = true;
           }
         );
       }
