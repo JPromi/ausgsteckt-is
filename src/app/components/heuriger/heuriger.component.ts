@@ -38,7 +38,7 @@ export class HeurigerComponent {
         return heuriger["heuriger"];
       },
       (err) => {
-        this.databaseService.getHeuriger('brodl').subscribe(
+        this.databaseService.getHeuriger(heuriger["heuriger"]).subscribe(
           (responseDB: Heuriger) => {
             this.heuriger = responseDB;
           }
