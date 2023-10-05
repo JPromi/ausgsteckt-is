@@ -37,10 +37,27 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "Z:/jpromi.com/ausgsteckt.pdorf.jpromi.com",
               "budgets": [
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "app": {
+              "outputPath": "dist/",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
                   "maximumError": "1mb"
                 },
                 {
@@ -57,7 +74,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
