@@ -64,4 +64,12 @@ export class HeurigerComponent {
     this._location.back();
   }
 
+  daysRemain(heuriger: Heuriger): number {
+    const today = new Date().getTime();
+    const lastDay = new Date(heuriger.ausgsteckt[0].to).getTime();
+    const diffTime = Math.abs(lastDay - today);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
+  }
+
 }

@@ -89,8 +89,8 @@
                 <span class="material-symbols-outlined">
                     schedule
                 </span>
-                <p *ngIf="heuriger.daysRemain > 1">Noch {{ heuriger.daysRemain }} Tage geöffnet</p>
-                <p *ngIf="heuriger.daysRemain < 1">Noch heute offen</p>
+                <p *ngIf="daysRemain(heuriger) > 1">Noch {{ daysRemain(heuriger) }} Tage geöffnet</p>
+                <p *ngIf="daysRemain(heuriger) < 1">Noch heute offen</p>
             </a>
     
         </div>
