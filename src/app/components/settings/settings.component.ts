@@ -32,6 +32,11 @@ export class SettingsComponent implements OnInit {
       "flag": "america"
     },
     {
+      "name": "Français",
+      "code": "fr-FR",
+      "flag": "france"
+    },
+    {
       "name": "Wienerisch",
       "code": "at-VIE",
       "flag": "vienna"
