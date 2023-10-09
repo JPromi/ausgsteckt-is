@@ -9,10 +9,12 @@
 <div class="taxi-list skeleton" *ngIf="!requestLoaded">
     <a *ngFor="let n of numSequence(4);
                 let i = index;">
-        <span class="img"></span>
-        <div class="informations">
-            <h3 class="title"></h3>
-            <p class="text"></p>
+        <div class="top">
+            <span class="img"></span>
+            <div class="informations">
+                <h3 class="title"></h3>
+                <p class="text"></p>
+            </div>
         </div>
     </a>
     
