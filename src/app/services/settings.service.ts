@@ -11,6 +11,7 @@ export class SettingsService {
   saveSettings(settings: Settings) {
     localStorage.setItem('systemTheme', settings.systemTheme ? "true" : "false");
     localStorage.setItem('darkmode', settings.darkmode ? "true" : "false");
+    localStorage.setItem('language', settings.language);
   }
 
   getSettings(): Settings {
@@ -18,6 +19,7 @@ export class SettingsService {
       return new Settings(
         this.strinToBoolean(localStorage.getItem('systemTheme') || ''),
         this.strinToBoolean(localStorage.getItem('darkmode') || ''),
+        localStorage.getItem('language') || 'de-AT',
       )
     } else {
       return new Settings;
