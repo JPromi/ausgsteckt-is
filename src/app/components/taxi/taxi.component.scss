@@ -54,6 +54,51 @@
             gap: .75rem;
             align-items: center;
             border-radius: .25rem;
+            flex-direction: column;
+
+            .top {
+                width: 100%;
+                display: flex;
+                text-decoration: none;
+                gap: .75rem;
+                align-items: center;
+                cursor: pointer;
+            }
+
+            .expand {
+                width: 100%;
+                display: none;
+
+                .buttons {
+                    width: 100%;
+                    display: flex;
+                    background-color: var(--dropdown-background);
+                    border-radius: .1rem;
+
+                    a {
+                        width: 100%;
+                        text-decoration: none;
+                        background-color: transparent;
+                        border: 0;
+                        display: flex;
+                        justify-content: center;
+                        padding: .5rem;
+
+                        mat-icon {
+                            color: var(--color-text);
+                            opacity: .75;
+                        }
+                    }
+
+                    a:not(:first-child) {
+                        border-left: 1px solid var(--color-text-pale);
+                    }
+                }
+            }
+
+            .expand.expanded {
+                display: flex;
+            }
 
             .informations {
                 width: 100%;
