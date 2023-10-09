@@ -22,9 +22,11 @@
     },
 
     "maps": {
+        "title": "carte",
         "allHeurigen": {
             "title": "Tous les Heurigen"
-        }
+        },
+        "error": "Une erreur s'est produite"
     },
 
     "taxi": {

@@ -22,9 +22,11 @@
     },
 
     "maps": {
+        "title": "Maps",
         "allHeurigen": {
             "title": "All Wine Taverns"
-        }
+        },
+        "error":"An error occurred"
     },
 
     "taxi": {
