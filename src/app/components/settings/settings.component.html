@@ -39,10 +39,10 @@
 
     <!-- language -->
     <div class="block">
-        <h3>Lang</h3>
+        <h3>{{ 'settings.language.title' | translate }}</h3>
 
         <div>
-            <p>Sprache</p>
+            <p>{{ 'settings.language.languages' | translate }}</p>
             <button mat-icon-button [matMenuTriggerFor]="languageMenu" class="lang_select">
                 <p> {{ getLanguage(settings.language).name }} </p>
                 <img
