@@ -115,18 +115,33 @@ export class CurrentHeurigenComponent {
 
   async loadContent(parameter:any) {
     await this.heurigenService.getHeurigenByDate(parameter)
-      .subscribe((response: Heuriger[]) => {
-        this.currentHeurigen = response;
-        this.requestLoaded = true;
+      .subscribe(async (response: Heuriger[]) => {
+
+        var currentDate: Date;
 
         if(!this.parameter.date) {
-          const currentDate = new Date();
+          currentDate = new Date();
           this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
         } else {
           const currentDateT = Date.parse(this.parameter.date);
-          const currentDate = new Date(currentDateT);
+          currentDate = new Date(currentDateT);
           this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
         }
+
+        var _currentHeurigen: Heuriger[] = [];
+        await response.forEach(async heuriger => {
+          await heuriger.ausgsteckt.forEach(
+            heurigerDate => {
+              if(new Date(heurigerDate.from) <= currentDate && new Date(heurigerDate.to) >= currentDate) {
+                heuriger.daysRemain = this.daysRemain(heuriger, currentDate);
+                _currentHeurigen.push(heuriger);
+              }
+            }
+          )
+        });
+
+        this.currentHeurigen = _currentHeurigen;
+        this.requestLoaded = true;
       },
       (error: any) => {
         if(!this.parameter.date) {
@@ -165,8 +180,8 @@ export class CurrentHeurigenComponent {
     return Array(n);
   }
 
-  daysRemain(heuriger: Heuriger): number {
-    const today = new Date();
+  daysRemain(heuriger: Heuriger, date: Date = new Date()): number {
+    const today = date;
     var returnValue = 0;
 
     for (const date of heuriger.ausgsteckt) {
