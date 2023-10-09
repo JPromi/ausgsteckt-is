@@ -51,7 +51,7 @@
         <ng-container *ngFor="let heuriger of heurigenList">
             <map-marker
                 [position]="{ lat: heuriger.coordinates.lat, lng: heuriger.coordinates.lng }"
-                [options]="generateMerkerIcon('./assets/heurigen/needle/' + heuriger.nameId + '.png')"
+                [options]="generateMarkerIcon('./assets/heurigen/needle/' + heuriger.nameId + '.png')"
                 (mapClick)="openInfoWindow(marker, infoWindow)"
                 #marker="mapMarker"
             >
@@ -83,6 +83,13 @@
                 </div>
             </map-info-window>
         </ng-container>
+        
+        <map-marker
+        *ngIf="currentLocation.allowed"
+        [position]="{ lat: currentLocation.lat, lng: currentLocation.lng }"
+        [options]="getCurrentLocationOptions()"
+        >
+    </map-marker>
 
     </google-map>
 </div>

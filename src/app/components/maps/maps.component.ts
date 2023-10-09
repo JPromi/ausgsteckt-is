@@ -35,6 +35,11 @@ export class MapsComponent implements OnInit {
 
   public heurigenList: Heuriger[] = [new Heuriger(0, '', '', '', '', new coordinates(0, 0), false, '', '', new phone('', '') , '', 0, [new ausgsteckt('', '')])];
   public heurigenLoaded = false;
+  public currentLocation = {
+    "allowed": false,
+    "lat": 0,
+    "lng": 0
+  }
 
   currentHeurigen:any;
   parameter:any;
@@ -74,6 +79,7 @@ export class MapsComponent implements OnInit {
 
     // darkmode
     this.mapsDarkmode();
+    this.addCurrentPositin();
 
     this.loadHeurigen(parameter);
 
@@ -130,7 +136,7 @@ export class MapsComponent implements OnInit {
     return url + heuriger.address.replace(" ", "+") + ',' +  '+' + heuriger.city.replace(" ", "+");
   }
 
-  generateMerkerIcon(iconUrl: string): google.maps.MarkerOptions {
+  generateMarkerIcon(iconUrl: string): google.maps.MarkerOptions {
     var retrun: google.maps.MarkerOptions = {
       icon: {
         url: iconUrl,
@@ -315,5 +321,25 @@ export class MapsComponent implements OnInit {
           this.error = true;
       });
     }
+  }
+
+  addCurrentPositin() {
+    navigator.geolocation.getCurrentPosition((position) => {
+        this.currentLocation.lat = position.coords.latitude;
+        this.currentLocation.lng = position.coords.longitude;
+        this.currentLocation.allowed = true;
+      }
+    )
+
+  }
+
+  getCurrentLocationOptions(): google.maps.MarkerOptions {
+    var retrun: google.maps.MarkerOptions = {
+      icon: {
+        url: "/assets/images/location.png",
+        scaledSize: new google.maps.Size(20, 20)
+      }
+    }
+    return retrun; 
   }
 }
