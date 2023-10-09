@@ -42,6 +42,7 @@ export class MapsComponent implements OnInit {
   selectedDate = new FormControl('');
   searchByDate = true;
   scritpLoaded = false;
+  error = false;
 
   constructor(
     public heurigerService: HeurigerService, 
@@ -101,6 +102,9 @@ export class MapsComponent implements OnInit {
             const currentDate = new Date(currentDateT);
             this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
           }
+        },
+        (error) => {
+          this.error = true;
         }
       );
     } else {
@@ -108,6 +112,9 @@ export class MapsComponent implements OnInit {
         (response: Array<Heuriger>) => {
           this.heurigenList = response;
           this.heurigenLoaded = true;
+        },
+        (error) => {
+          this.error = true;
         }
       );
     }
@@ -305,6 +312,7 @@ export class MapsComponent implements OnInit {
       scriptEle.addEventListener("error", (ev) => {
         this.scritpLoaded = true;
           console.log("Error on loading file", ev);
+          this.error = true;
       });
     }
   }
