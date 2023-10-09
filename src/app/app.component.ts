@@ -17,13 +17,15 @@ export class AppComponent implements OnInit {
     private settingsSerive:SettingsService,
     private translate: TranslateService
   ) {
-    translate.addLangs(['de-DE', 'en-US']);
-    translate.setDefaultLang('de-DE');
-    translate.use('de-DE');
+    translate.addLangs(['de-AT', 'en-US', 'at-VIE']);
+    translate.setDefaultLang('de-AT');
+    // translate.use('de-AT');
   }
 
   async ngOnInit() {
     await this.checkSetting();
+
+    this.translate.use(this.settingsSerive.getSettings().language)
 
     // system darkmode
     window.matchMedia("(prefers-color-scheme: dark)").addListener(e => {
@@ -44,6 +46,7 @@ export class AppComponent implements OnInit {
     }
 
     this.settingsSerive.settings_darkmode();
+    this.translate.use(this.settingsSerive.getSettings().language)
   }
 
   
