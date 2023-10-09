@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from './services/settings.service';
 import { Settings } from './dtos/settings';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,12 @@ export class AppComponent implements OnInit {
   settings: Settings = new Settings;
 
   constructor(
-    private settingsSerive:SettingsService
+    private settingsSerive:SettingsService,
+    private translate: TranslateService
   ) {
+    translate.addLangs(['de-DE', 'en-US']);
+    translate.setDefaultLang('de-DE');
+    translate.use('de-DE');
   }
 
   async ngOnInit() {

@@ -16,7 +16,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { NgxIndexedDBModule, DBConfig } from 'ngx-indexed-db';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HeurigerComponent } from './components/heuriger/heuriger.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -26,7 +26,10 @@ import { ErrorComponent } from './components/error/error.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { TaxiComponent } from './components/taxi/taxi.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+//database
 const heurigenDbConfig: DBConfig  = {
   name: 'heurigen',
   version: 2,
@@ -63,6 +66,11 @@ const heurigenDbConfig: DBConfig  = {
   ]
 };
 
+//language
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,6 +98,13 @@ const heurigenDbConfig: DBConfig  = {
     MatInputModule,
     ReactiveFormsModule,
     GoogleMapsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+    }),
     NgxIndexedDBModule.forRoot(heurigenDbConfig),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
