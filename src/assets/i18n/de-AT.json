@@ -40,6 +40,11 @@
             "darkmode": "Darkmode"
         },
 
+        "language": {
+            "title": "Sprachen",
+            "languages": "Sprache"
+        },
+
         "development": {
             "title": "Entwicklung",
             "developer": "Entwickler:",

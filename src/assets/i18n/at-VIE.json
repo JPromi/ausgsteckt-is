@@ -15,7 +15,7 @@
             }
         },
         "dates": {
-            "title": "Des nächste Mal aufg'sperrt:",
+            "title": "Des nächste Mal Aus'gsteckt:",
             "from": "Von",
             "to": "Bis"
         }
@@ -38,6 +38,11 @@
             "title": "Design",
             "systemTheme": "System-Design",
             "darkmode": "Dunkl-Modus"
+        },
+
+        "language": {
+            "title": "Sprachen",
+            "languages": "Sprache"
         },
 
         "development": {
