@@ -1,0 +1,53 @@
+{
+    "heurigen": {
+        "title": "Wine Taverns",
+        "error": "An error occurred"
+    },
+
+    "heuriger": {
+        "informations": {
+            "web": "Website",
+            "playground": "Playground Available",
+            "opened": {
+                "today": "Open Today",
+                "1": "Open for",
+                "2": "Days"
+            }
+        },
+        "dates": {
+            "title": "Next Openings:",
+            "from": "From",
+            "to": "To"
+        }
+    },
+
+    "maps": {
+        "allHeurigen": {
+            "title": "All Wine Taverns"
+        }
+    },
+
+    "taxi": {
+        "title": "Taxi"
+    },
+
+    "settings": {
+        "title": "Settings",
+
+        "design": {
+            "title": "Design",
+            "systemTheme": "System Theme",
+            "darkmode": "Dark Mode"
+        },
+
+        "development": {
+            "title": "Development",
+            "developer": "Developer:",
+            "feedback": "Feedback / Errors:",
+            "repo": "GitHub Repository:",
+            "buildType": "Build Type:",
+            "version": "Version:",
+            "buildDate": "Build Date:"
+        }
+    }
+}
