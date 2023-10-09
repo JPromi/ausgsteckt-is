@@ -10,7 +10,7 @@
 #### Angular
 1. run ```ng serve --port=80``` or ```ng serve --host=HOST_IP --port=80 --disable-host-check``` if you want to connect via network
 2. open https://localhost
-3. build project ```ng build```
+3. build project for website ```ng build``` or ```ng build ng build --configuration=app``` to build the app for Capacitor
 
 #### Capacitor
 1. run ```npx cap sync``` to sync changes to Capacitor project
