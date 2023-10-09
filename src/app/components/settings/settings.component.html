@@ -1,7 +1,7 @@
 <div class="header">
     <div class="c">
         <p class="title">
-            Einstellungen
+            {{ 'settings.title' | translate }}
         </p>
     </div>
 </div>
@@ -9,10 +9,10 @@
 <form class="content" [formGroup]="settingsForm" (change)="updateSettings()">
     <!-- design -->
     <div class="block">
-        <h3>Design</h3>
+        <h3>{{ 'settings.design.title' | translate }}</h3>
 
         <div>
-            <p>System Theme</p>
+            <p>{{ 'settings.design.systemTheme' | translate }}</p>
             
             <label class="switch">
                 <input type="checkbox" formControlName="systemTheme" name="systemTheme" [(ngModel)]="settings.systemTheme">
@@ -21,7 +21,7 @@
         </div>
 
         <div [ngClass]="{'disabled': this.settings.systemTheme }">
-            <p>Darkmode</p>
+            <p>{{ 'settings.design.darkmode' | translate }}</p>
             
             <!-- enabled -->
             <label class="switch " *ngIf="!this.settings.systemTheme">
@@ -39,35 +39,35 @@
     
     <!-- develop -->
     <div class="block">
-        <h3>Entwicklung</h3>
+        <h3>{{ 'settings.development.title' | translate }}</h3>
 
         <div>
-            <p>Entwickler:</p>
+            <p>{{ 'settings.development.developer' | translate }}</p>
             <a class="answer" href="http://jpromi.com/socialmedia" target="_blank" rel="noopener noreferrer">JPromi</a>
         </div>
 
         <div>
-            <p>Feedback / Fehler:</p>
+            <p>{{ 'settings.development.feedback' | translate }}</p>
             <a class="answer" href="mailto:hi@jpromi.com?subject=Ausgsteckt%20Is%20-%20App">hi@jpromi.com</a>
         </div>
 
         <div>
-            <p>GitHub repository:</p>
+            <p>{{ 'settings.development.repo' | translate }}</p>
             <a class="answer" href="https://github.com/JPromi/ausgsteckt-is" target="_blank" rel="noopener noreferrer">Ausgsteckt Is</a>
         </div>
 
         <div>
-            <p>Build Type:</p>
+            <p>{{ 'settings.development.buildType' | translate }}</p>
             <a class="answer"> {{ envInfo.type }} </a>
         </div>
 
         <div>
-            <p>Version:</p>
+            <p>{{ 'settings.development.version' | translate }}</p>
             <a class="answer"> {{ envInfo.version }} </a>
         </div>
 
         <div (click)="specialMode()">
-            <p>Build date:</p>
+            <p>{{ 'settings.development.buildDate' | translate }}</p>
             <a class="answer"> {{ envInfo.buildDate }} </a>
         </div>
 

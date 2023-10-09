@@ -1,7 +1,7 @@
 <div class="header">
     <div class="c">
         <p class="title">
-            Heurigen
+            {{ 'heurigen.title' | translate }}
         </p>
     </div>
 </div>
@@ -34,5 +34,5 @@
 </div>
 
 <div class="heurigen-list" *ngIf="!heurigen && requestLoaded">
-    <a>Ein Fehler ist aufgetreten</a>
+    <a>{{ 'heurigen.error' | translate }}</a>
 </div>

@@ -75,31 +75,31 @@
                 <span class="material-symbols-outlined">
                     language
                 </span>
-                <p>Website</p>
+                <p>{{ 'heuriger.informations.web' | translate }}</p>
             </a>
     
             <a *ngIf="heuriger.playground">
                 <span class="material-symbols-outlined">
                     castle
                 </span>
-                <p>Spielplatz Vorhanden</p>
+                <p>{{ 'heuriger.informations.playground' | translate }}</p>
             </a>
             
             <a *ngIf="heuriger.daysRemain">
                 <span class="material-symbols-outlined">
                     schedule
                 </span>
-                <p *ngIf="heuriger.daysRemain > 1">Noch {{ heuriger.daysRemain }} Tage geöffnet</p>
-                <p *ngIf="heuriger.daysRemain < 1">Noch heute offen</p>
+                <p *ngIf="heuriger.daysRemain > 1">{{ 'heuriger.informations.opened.1' | translate }} {{ heuriger.daysRemain }} {{ 'heuriger.informations.opened.2' | translate }}</p>
+                <p *ngIf="heuriger.daysRemain < 1">{{ 'heuriger.informations.opened.today' | translate }}</p>
             </a>
     
         </div>
     
         <div class="calendar">
-            <h3>Das nächste mal geöffnet:</h3>
+            <h3>{{ 'heuriger.dates.title' | translate }}</h3>
             <div class="title">
-                <p><b>Von</b></p>
-                <p><b>Bis</b></p>
+                <p><b>{{ 'heuriger.dates.from' | translate }}</b></p>
+                <p><b>{{ 'heuriger.dates.to' | translate }}</b></p>
             </div>
             <div *ngFor="let date of heuriger.ausgsteckt">
                 <p>{{ convertDate(date.from) }}</p>
