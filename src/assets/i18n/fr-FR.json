@@ -1,0 +1,58 @@
+{
+    "heurigen": {
+        "title": "Heurigen",
+        "error": "Une erreur s'est produite"
+    },
+
+    "heuriger": {
+        "informations": {
+            "web": "Site Web",
+            "playground": "Aire de jeux disponible",
+            "opened": {
+                "today": "Ouvert aujourd'hui encore",
+                "1": "Ouvert encore",
+                "2": "jours"
+            }
+        },
+        "dates": {
+            "title": "Prochaine ouverture :",
+            "from": "De",
+            "to": "À"
+        }
+    },
+
+    "maps": {
+        "allHeurigen": {
+            "title": "Tous les Heurigen"
+        }
+    },
+
+    "taxi": {
+        "title": "Taxi"
+    },
+
+    "settings": {
+        "title": "Paramètres",
+
+        "design": {
+            "title": "Design",
+            "systemTheme": "Thème du système",
+            "darkmode": "Mode sombre"
+        },
+
+        "language": {
+            "title": "Langues",
+            "languages": "Langue"
+        },
+
+        "development": {
+            "title": "Développement",
+            "developer": "Développeur :",
+            "feedback": "Commentaires / Erreurs :",
+            "repo": "Dépôt GitHub :",
+            "buildType": "Type de build :",
+            "version": "Version :",
+            "buildDate": "Date de build :"
+        }
+    }
+}
