@@ -144,6 +144,7 @@ export class CurrentHeurigenComponent {
               await heuriger.ausgsteckt.forEach(
                 heurigerDate => {
                   if(new Date(heurigerDate.from) <= searchDate && new Date(heurigerDate.to) >= searchDate) {
+                    heuriger.daysRemain = this.daysRemain(heuriger);
                     _currentHeurigen.push(heuriger);
                   }
                 }
@@ -163,5 +164,31 @@ export class CurrentHeurigenComponent {
   numSequence(n: number): Array<number> {
     return Array(n);
   }
+
+  daysRemain(heuriger: Heuriger): number {
+    const today = new Date();
+    var returnValue = 0;
+
+    for (const date of heuriger.ausgsteckt) {
+      const startDate = new Date(date.from);
+      const endDate = new Date(date.to);
+
+      if (today >= startDate && today <= endDate) {
+        const diffTime = Math.abs(endDate.getTime() - today.getTime());
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return diffDays;
+        break;
+      }
+    }
+
+    return returnValue;
+  }
+
+  checkCurrentDate(start: string, end: string) {
+    for(var arr=[],dt=new Date(start); dt<=new Date(end); dt.setDate(dt.getDate()+1)){
+        arr.push(new Date(dt));
+    }
+    return arr;
+};
 
 }

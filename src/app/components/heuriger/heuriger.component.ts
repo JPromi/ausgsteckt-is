@@ -40,6 +40,7 @@ export class HeurigerComponent {
       (err) => {
         this.databaseService.getHeuriger(heuriger["heuriger"]).subscribe(
           (responseDB: Heuriger) => {
+            responseDB.daysRemain = this.daysRemain(responseDB);
             this.heuriger = responseDB;
           }
         )
@@ -65,11 +66,22 @@ export class HeurigerComponent {
   }
 
   daysRemain(heuriger: Heuriger): number {
-    const today = new Date().getTime();
-    const lastDay = new Date(heuriger.ausgsteckt[0].to).getTime();
-    const diffTime = Math.abs(lastDay - today);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays;
+    const today = new Date();
+    var returnValue = 0;
+
+    for (const date of heuriger.ausgsteckt) {
+      const startDate = new Date(date.from);
+      const endDate = new Date(date.to);
+
+      if (today >= startDate && today <= endDate) {
+        const diffTime = Math.abs(endDate.getTime() - today.getTime());
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return diffDays;
+        break;
+      }
+    }
+
+    return returnValue;
   }
 
 }
