@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { NgxIndexedDBModule, DBConfig } from 'ngx-indexed-db';
 
@@ -96,6 +97,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatSlideToggleModule,
     BrowserAnimationsModule,
     MatInputModule,
+    MatMenuModule,
     ReactiveFormsModule,
     GoogleMapsModule,
     TranslateModule.forRoot({
