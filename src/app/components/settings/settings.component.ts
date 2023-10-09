@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { Settings } from 'src/app/dtos/settings';
 import { SettingsService } from 'src/app/services/settings.service';
 import { environment } from 'src/environments/environment';
+import { TranslateService } from '@ngx-translate/core';
+import { Language } from 'src/app/dtos/language';
 
 @Component({
   selector: 'app-settings',
@@ -13,8 +16,27 @@ export class SettingsComponent implements OnInit {
 
   constructor(
     public settingsService: SettingsService,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    private translate: TranslateService
   ) {}
+
+  languages = [
+    {
+      "name": "Deutsch",
+      "code": "de-AT",
+      "flag": "germany"
+    },
+    {
+      "name": "English",
+      "code": "en-US",
+      "flag": "america"
+    },
+    {
+      "name": "Wienerisch",
+      "code": "at-VIE",
+      "flag": "vienna"
+    },
+  ]
 
   settings = new Settings();
   clickCount = 0;
@@ -62,5 +84,26 @@ export class SettingsComponent implements OnInit {
       this.clickCount = 0;
       document.getElementsByTagName("body")[0].classList.toggle("invert");
     }
+  }
+
+  setLanguage(language: string) {
+    this.settings.language = language;
+    this.translate.use(language)
+    this.updateSettings();
+  }
+
+  getLanguage(code: string): Language {
+    for(var i = 0; i < this.languages.length; i++) {
+      if(this.languages[i]["code"] == code){
+          return this.languages[i];
+      }
+    }
+    return new Language;
+  }
+
+  @ViewChild(MatMenuTrigger)
+  trigger!: MatMenuTrigger;
+  someMethod() {
+    this.trigger.openMenu();
   }
 }

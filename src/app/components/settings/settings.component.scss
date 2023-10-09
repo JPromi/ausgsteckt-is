@@ -130,3 +130,39 @@ input:focus + .slider {
 input:checked + .slider:before {
     transform: translateX(1.5rem);
 }
+
+.lang_select {
+    background-color: transparent;
+    display: flex;
+    border: 0;
+    gap: .5rem;
+    cursor: pointer;
+    align-items: center;
+
+    img {
+        height: 1.5rem;
+    }
+
+    p {
+        color: var(--color-text);
+        opacity: .5;
+        font-size: 1rem;
+    }
+}
+
+::ng-deep .lang_menu button > span {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem;
+    
+    span {
+        color: var(--color-text) !important;
+    }
+    img {
+        height: 1.5rem;
+    }
+}
+
+::ng-deep .mat-mdc-menu-panel {
+    background-color: var(--dropdown-background) !important;
+}

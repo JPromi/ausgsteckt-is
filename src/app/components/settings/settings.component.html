@@ -36,7 +36,36 @@
         </div>
 
     </div>
-    
+
+    <!-- language -->
+    <div class="block">
+        <h3>Lang</h3>
+
+        <div>
+            <p>Sprache</p>
+            <button mat-icon-button [matMenuTriggerFor]="languageMenu" class="lang_select">
+                <p> {{ getLanguage(settings.language).name }} </p>
+                <img
+                    [src]="'/assets/flags/' + getLanguage(settings.language).flag + '.png'"
+                    onerror="this.src='./assets/flags/placeholder.png';"
+                >
+            </button>
+
+            <mat-menu #languageMenu="matMenu" [xPosition]="'before'" class="lang_menu">
+                <ng-container *ngFor="let lang of languages">
+                    <button mat-menu-item (click)="setLanguage(lang.code)">
+                        <img
+                            [src]="'/assets/flags/' + lang.flag + '.png'"
+                            onerror="this.src='./assets/flags/placeholder.png';"
+                        >
+                        <span> {{lang.name}} </span>
+                    </button>
+                </ng-container>
+            </mat-menu>
+        </div>
+
+    </div>
+
     <!-- develop -->
     <div class="block">
         <h3>{{ 'settings.development.title' | translate }}</h3>
