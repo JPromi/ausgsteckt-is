@@ -56,7 +56,7 @@ export class MapsComponent implements OnInit {
   }
 
   async ngOnInit(dateP = '') {
-    await this.loadMapsScript();
+    await this.loadMapsScript(true);
     var parameter = '';
     if(dateP == '') {
       if(!this.parameter.date) {
@@ -289,10 +289,11 @@ export class MapsComponent implements OnInit {
     }
   }
 
-  loadMapsScript() {
-    if(document.getElementById("googleMapsApiScript")) {
+  loadMapsScript(onInit: boolean = false) {
+    if(onInit) {
       document.getElementById("googleMapsApiScript")?.remove();
     }
+    if(!document.getElementById("googleMapsApiScript") || onInit) {
       let scriptEle = document.createElement("script");
       scriptEle.setAttribute("src", "https://maps.googleapis.com/maps/api/js?key=" + cfg.googleMapsAPIkey + "&callback=Function.prototype");
       scriptEle.setAttribute("id", "googleMapsApiScript");
@@ -305,7 +306,6 @@ export class MapsComponent implements OnInit {
         this.scritpLoaded = true;
           console.log("Error on loading file", ev);
       });
-    
-    
+    }
   }
 }
