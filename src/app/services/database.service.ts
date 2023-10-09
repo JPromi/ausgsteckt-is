@@ -27,13 +27,21 @@ export class DatabaseService {
     //run updat only if last update was not today
     if(!this.isToday(lastUpdate)) {
       heurigen.forEach(async heuriger => {
-        await this.dbService.add('heurigen', heuriger).subscribe(
-          (res) => {
-            localStorage.setItem('database_heurigen_update', new Date().toString());
+        await this.dbService.clear('heurigen').subscribe(
+          async () => {
+            await this.dbService.add('heurigen', heuriger).subscribe(
+              (res) => {
+                localStorage.setItem('database_heurigen_update', new Date().toString());
+              },
+              (error) => {
+                console.error(error)
+              }
+            )
           },
           (error) => {
+            console.error(error)
           }
-        )
+        );
       });
     }
   }
