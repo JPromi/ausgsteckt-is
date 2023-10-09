@@ -108,7 +108,10 @@
         text-decoration: none;
         gap: .75rem;
         align-items: center;
-        border-radius: .25rem;
+
+        .informations {
+            width: 100%;
+        }
 
         h3 {
             color: var(--color-title);
@@ -116,6 +119,7 @@
         }
 
         p {
+            width: 100%;
             font-size: .9rem;
             color: var(--color-text);
             opacity: .8;
@@ -126,6 +130,17 @@
             height: 3.75rem;
             border-radius: .5rem;
             object-fit: cover;
+        }
+
+        p.daysRemain {
+            text-align: right;
+            margin-left: -11rem;
+            margin-top: 0rem;
+            font-size: 4.5rem;
+            opacity: 0.05;
+            height: 4rem;
+            overflow: hidden;
+            color: var(--color-text);
         }
     }
 }

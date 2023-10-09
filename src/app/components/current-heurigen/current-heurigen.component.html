@@ -66,6 +66,7 @@
             <h3>{{ heuriger.name }}</h3>
             <p>{{ heuriger.address }}</p>
         </div>
+        <p class="daysRemain">{{ heuriger.daysRemain }}</p>
     </a>
 </div>
 <div class="heurigen-list" *ngIf="!currentHeurigen && requestLoaded">
