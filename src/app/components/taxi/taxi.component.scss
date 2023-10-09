@@ -37,10 +37,12 @@
         flex-direction: column;
         gap: .25rem;
         width: 100%;
-        max-width: 700px;
         margin: 0 auto;
 
         > a {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
             animation: opacityIn 500ms;
             padding: .75rem 1rem;
             //border-bottom: 1px solid #21212150;
