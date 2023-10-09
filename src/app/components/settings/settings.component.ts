@@ -24,7 +24,7 @@ export class SettingsComponent implements OnInit {
     {
       "name": "Deutsch",
       "code": "de-AT",
-      "flag": "germany"
+      "flag": "austria"
     },
     {
       "name": "English",
