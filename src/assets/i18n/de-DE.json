@@ -1,0 +1,54 @@
+{
+    "heurigen": {
+        "title": "Heurigen",
+        "error": "Ein Fehler ist aufgetreten"
+    },
+
+    "heuriger": {
+        "informations": {
+            "web": "Website",
+            "playground": "Spielplatz Vorhanden",
+            "opened": {
+                "today": "Noch heute offen",
+                "1": "Noch",
+                "2": "Tage geöffnet"
+            }
+        },
+        "dates": {
+            "title": "Das nächste mal geöffnet:",
+            "from": "Von",
+            "to": "Bis"
+        }
+    },
+
+    "maps": {
+        "allHeurigen": {
+            "title": "Alle Heurigen"
+        }
+    },
+
+    "taxi": {
+        "title": "Taxi"
+    },
+
+    "settings": {
+        "title": "Einstellungen",
+
+        "design": {
+            "title": "Design",
+            "systemTheme": "System Theme",
+            "darkmode": "Darkmode"
+        },
+
+        "development": {
+            "title": "Entwicklung",
+            "developer": "Entwickler:",
+            "feedback": "Feedback / Fehler:",
+            "repo": "GitHub repository:",
+            "buildType": "Build Type:",
+            "version": "Version:",
+            "buildDate": "Build date:"
+        }
+
+    }
+}
