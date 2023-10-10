@@ -90,7 +90,7 @@
                     schedule
                 </span>
                 <p *ngIf="heuriger.daysRemain > 1">{{ 'heuriger.informations.opened.1' | translate }} {{ heuriger.daysRemain }} {{ 'heuriger.informations.opened.2' | translate }}</p>
-                <p *ngIf="heuriger.daysRemain < 1">{{ 'heuriger.informations.opened.today' | translate }}</p>
+                <p *ngIf="heuriger.daysRemain <= 1">{{ 'heuriger.informations.opened.today' | translate }}</p>
             </a>
     
         </div>
