@@ -1,4 +1,12 @@
 {
+    "nav": {
+        "maps": "Maps",
+        "heurigen": "Wine Taverns",
+        "ausgsteckt": "Ausgsteckt",
+        "taxi": "Taxi",
+        "settings": "Settings"
+    },
+
     "heurigen": {
         "title": "Wine Taverns",
         "error": "An error occurred"

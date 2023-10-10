@@ -1,4 +1,12 @@
 {
+    "nav": {
+        "maps": "Karte",
+        "heurigen": "Heurigen",
+        "ausgsteckt": "Ausgsteckt",
+        "taxi": "Taxi",
+        "settings": "Einstellungen"
+    },
+
     "heurigen": {
         "title": "Heurigen",
         "error": "A Fehler is aufg'treten"
