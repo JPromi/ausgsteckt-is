@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Heuriger, ausgsteckt, coordinates, phone } from 'src/app/dtos/heuriger';
 import { HeurigerService } from 'src/app/services/heuriger.service';
 import { SettingsService } from 'src/app/services/settings.service';
-import cfg from '../../../config.json';
 
 @Component({
   selector: 'app-maps',
@@ -46,8 +45,8 @@ export class MapsComponent implements OnInit {
   dateDisplay:any;
   selectedDate = new FormControl('');
   searchByDate = true;
-  scritpLoaded = false;
   error = false;
+  scriptLoaded: boolean = false;
 
   constructor(
     public heurigerService: HeurigerService, 
@@ -61,8 +60,11 @@ export class MapsComponent implements OnInit {
     );
   }
 
-  async ngOnInit(dateP = '') {
-    await this.loadMapsScript(true);
+  ngOnInit(dateP = '') {    
+    setTimeout(() => {
+      this.checkMapsScript();
+    }, 200);
+
     var parameter = '';
     if(dateP == '') {
       if(!this.parameter.date) {
@@ -302,27 +304,6 @@ export class MapsComponent implements OnInit {
     }
   }
 
-  loadMapsScript(onInit: boolean = false) {
-    if(onInit) {
-      document.getElementById("googleMapsApiScript")?.remove();
-    }
-    if(!document.getElementById("googleMapsApiScript") || onInit) {
-      let scriptEle = document.createElement("script");
-      scriptEle.setAttribute("src", "https://maps.googleapis.com/maps/api/js?key=" + cfg.googleMapsAPIkey + "&callback=Function.prototype");
-      scriptEle.setAttribute("id", "googleMapsApiScript");
-      document.body.appendChild(scriptEle);
-      scriptEle.addEventListener("load", () => {
-        this.scritpLoaded = true;
-      });
-      
-      scriptEle.addEventListener("error", (ev) => {
-        this.scritpLoaded = true;
-          console.log("Error on loading file", ev);
-          this.error = true;
-      });
-    }
-  }
-
   addCurrentPositin() {
     navigator.geolocation.getCurrentPosition((position) => {
         this.currentLocation.lat = position.coords.latitude;
@@ -341,5 +322,14 @@ export class MapsComponent implements OnInit {
       }
     }
     return retrun; 
+  }
+
+  @HostListener('window:storage', ['$event'])
+  checkMapsScript() {
+    if(localStorage.getItem("googleMapsScriptLoaded") == "true") {
+      this.scriptLoaded = true;
+    } else if(localStorage.getItem("googleMapsScriptLoaded") == "error") {
+      this.error = true;
+    }
   }
 }

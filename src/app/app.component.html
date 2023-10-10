@@ -1,5 +1,5 @@
 <div class="router">
-    <router-outlet></router-outlet>
+    <router-outlet *ngIf="scriptLoaded || router.url !== '/karte'"></router-outlet>
 </div>
 
 <app-nav></app-nav>
