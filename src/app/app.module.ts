@@ -33,7 +33,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 //database
 const heurigenDbConfig: DBConfig  = {
   name: 'heurigen',
-  version: 4,
+  version: 5,
   objectStoresMeta: [
     {
       store: 'taxi',
