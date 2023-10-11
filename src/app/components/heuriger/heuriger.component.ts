@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { HeurigerService } from "../../services/heuriger.service";
-import { Heuriger } from 'src/app/dtos/heuriger';
+import { Heuriger, ausgsteckt, coordinates, phone } from 'src/app/dtos/heuriger';
 import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
@@ -14,7 +14,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 })
 export class HeurigerComponent {
 
-  heuriger:any = "";
+  heuriger:Heuriger = new Heuriger(0, '', '', false, '', '', new coordinates(0, 0), false, '', '', new phone('', '') , '', 0, [new ausgsteckt('', '')]);
   mapsLink:string = "";
 
   constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router, private _location: Location, private databaseService: DatabaseService) {
@@ -34,6 +34,7 @@ export class HeurigerComponent {
           return null;
         }
         this.heuriger = response;
+        this.getFavourite();
         this.generateMapsLink();
         return heuriger["heuriger"];
       },
@@ -42,6 +43,7 @@ export class HeurigerComponent {
           (responseDB: Heuriger) => {
             responseDB.daysRemain = this.daysRemain(responseDB);
             this.heuriger = responseDB;
+            this.getFavourite();
           }
         )
       }
@@ -82,6 +84,26 @@ export class HeurigerComponent {
     }
 
     return returnValue;
+  }
+
+  getFavourite() {
+    this.databaseService.getSingleHeurigenFavourites(this.heuriger.nameId).subscribe(
+      (favourite) => {
+        if(favourite && favourite.favourite) {
+          this.heuriger.favourite = true;
+        }
+      }
+    );
+  }
+
+  toggleFavourite() {
+    if(this.heuriger.favourite) {
+      this.heuriger.favourite = false;
+    } else {
+      this.heuriger.favourite = true;
+    }
+
+    this.databaseService.heurigenFavouritesToggle(this.heuriger.nameId)
   }
 
 }

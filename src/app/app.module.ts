@@ -33,7 +33,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 //database
 const heurigenDbConfig: DBConfig  = {
   name: 'heurigen',
-  version: 2,
+  version: 4,
   objectStoresMeta: [
     {
       store: 'taxi',
@@ -61,6 +61,14 @@ const heurigenDbConfig: DBConfig  = {
         { name: 'type', keypath: 'type', options: { unique: false } },
         { name: 'daysRemain', keypath: 'daysRemain', options: { unique: false } },
         { name: 'ausgsteckt', keypath: 'ausgsteckt', options: { unique: false } },
+      ]
+    },
+    {
+      store: 'favourites_heurigen',
+      storeConfig: { keyPath: 'nameId', autoIncrement: true },
+      storeSchema: [
+        { name: 'nameId', keypath: 'nameId', options: { unique: true } },
+        { name: 'favourite', keypath: 'favourite', options: { unique: false } },
       ]
     }
     

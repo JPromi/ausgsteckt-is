@@ -4,6 +4,7 @@ import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Taxi } from '../dtos/taxi';
+import { HeurigerFavourite } from '../dtos/heuriger-favourite';
 
 @Injectable({
   providedIn: 'root'
@@ -90,5 +91,27 @@ export class DatabaseService {
     } else {
       return false;
     }
+  }
+
+  getHeurigenFavourites(): Observable<HeurigerFavourite[]> {
+    return this.dbService.getAll('favourites_heurigen')
+  }
+
+  getSingleHeurigenFavourites(heurigerName: string): Observable<HeurigerFavourite> {
+    return this.dbService.getByKey('favourites_heurigen', heurigerName)
+  }
+
+  heurigenFavouritesToggle(heurigerName: string): void {
+    this.dbService.getByKey('favourites_heurigen', heurigerName).subscribe(
+      (response) => {
+        if(response) {
+          this.dbService.delete('favourites_heurigen', heurigerName).subscribe();
+          return false
+        } else {
+          this.dbService.add('favourites_heurigen', new HeurigerFavourite(heurigerName, true)).subscribe();
+          return true
+        }
+      }
+    );
   }
 }

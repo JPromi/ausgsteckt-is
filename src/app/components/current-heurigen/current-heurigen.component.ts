@@ -6,6 +6,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { HeurigerService } from 'src/app/services/heuriger.service';
 import { Heuriger } from 'src/app/dtos/heuriger';
 import { DatabaseService } from 'src/app/services/database.service';
+import { HeurigerFavourite } from 'src/app/dtos/heuriger-favourite';
 
 @Component({
   selector: 'app-current-heurigen',
@@ -14,11 +15,12 @@ import { DatabaseService } from 'src/app/services/database.service';
 })
 export class CurrentHeurigenComponent {
 
-  currentHeurigen:any;
+  currentHeurigen:Heuriger[] = [];
   parameter:any;
   dateDisplay:any;
   requestLoaded:boolean = false;
   selectedDate = new FormControl('');
+  favouriteHeurige: HeurigerFavourite[] = [];
   
   constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router, private databaseService: DatabaseService) {
 
@@ -141,6 +143,7 @@ export class CurrentHeurigenComponent {
         });
 
         this.currentHeurigen = _currentHeurigen;
+        this.getFavourite();
         this.requestLoaded = true;
       },
       (error: any) => {
@@ -204,6 +207,33 @@ export class CurrentHeurigenComponent {
         arr.push(new Date(dt));
     }
     return arr;
-};
+  };
+
+  getFavourite() {
+    this.databaseService.getHeurigenFavourites().subscribe(
+      (favourites) => {
+        for (let i = 0; i < favourites.length; i++) {
+          this.currentHeurigen = this.currentHeurigen.map(item => {
+            if (item.nameId === favourites[i].nameId) {
+              item.favourite = true;
+            }
+            return item;
+          });
+        }
+        this.orderByFavourites();
+        console.log(this.currentHeurigen);
+      }
+    )
+  }
+
+  orderByFavourites() {
+    this.currentHeurigen.sort((a, b) => {
+      if (a.favourite === b.favourite) {
+        return a.name.localeCompare(b.name); // order by name
+      } else {
+        return a.favourite ? -1 : 1;
+      }
+    });
+  }
 
 }

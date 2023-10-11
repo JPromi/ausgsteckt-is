@@ -42,6 +42,7 @@
     <a 
         *ngFor="let heuriger of currentHeurigen"
         [routerLink]="['/heurigen', heuriger.nameId]"
+        [ngClass]="{'favourite': heuriger.favourite}"
         >
 
         <img 

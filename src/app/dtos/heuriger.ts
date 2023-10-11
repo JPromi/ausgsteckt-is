@@ -3,6 +3,7 @@ export class Heuriger {
         public id: number,
         public name: string,
         public nameId: string,
+        public favourite: boolean = false,
         public address: string,
         public city: string,
         public coordinates: coordinates,

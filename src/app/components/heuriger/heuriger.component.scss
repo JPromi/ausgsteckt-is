@@ -45,10 +45,37 @@
             align-items: center;
             gap: 1rem;
     
-            h4 {
+            .information {
                 width: 100%;
-                color: var(--color-title);
-                font-size: 1.25rem;
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+
+                h4 {
+                    color: var(--color-title);
+                    font-size: 1.25rem;
+                }
+
+                .buttons {
+                    display: flex;
+                    flex-direction: row;
+                    gap: .75rem;
+
+                    button {
+                        background-color: transparent;
+                        border: 0;
+                        cursor: pointer;
+                        width: 2rem;
+                        height: 2rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        mat-icon {
+                            color: var(--color-text-pale);
+                        }
+                    }
+                }
             }
     
             img, .img {

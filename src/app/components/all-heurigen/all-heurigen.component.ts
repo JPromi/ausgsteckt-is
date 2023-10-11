@@ -14,7 +14,7 @@ import { HeurigerService } from 'src/app/services/heuriger.service';
 })
 export class AllHeurigenComponent {
 
-  heurigen:any;
+  heurigen:Heuriger[] = [];
   parameter:any;
   requestLoaded:boolean = false;
   error:boolean = false
@@ -31,6 +31,7 @@ export class AllHeurigenComponent {
     this.heurigenService.getAllHeurigen()
       .subscribe((response: Heuriger[]) => {
         this.heurigen = response;
+        this.getFavourite();
         this.requestLoaded = true;
         this.databaseService.updateHeurigen(response);
       },
@@ -39,6 +40,7 @@ export class AllHeurigenComponent {
         this.databaseService.getHeurigen().subscribe(
           (responseDB: Heuriger[]) => {
             this.heurigen = responseDB;
+            this.getFavourite();
             this.requestLoaded = true;
           },
           (error) => {
@@ -51,5 +53,32 @@ export class AllHeurigenComponent {
 
   numSequence(n: number): Array<number> {
     return Array(n);
+  }
+
+  getFavourite() {
+    this.databaseService.getHeurigenFavourites().subscribe(
+      (favourites) => {
+        for (let i = 0; i < favourites.length; i++) {
+          this.heurigen = this.heurigen.map(item => {
+            if (item.nameId === favourites[i].nameId) {
+              item.favourite = true;
+            }
+            return item;
+          });
+        }
+        this.orderByFavourites();
+        console.log(this.heurigen);
+      }
+    )
+  }
+
+  orderByFavourites() {
+    this.heurigen.sort((a, b) => {
+      if (a.favourite === b.favourite) {
+        return a.name.localeCompare(b.name); // order by name
+      } else {
+        return a.favourite ? -1 : 1;
+      }
+    });
   }
 }

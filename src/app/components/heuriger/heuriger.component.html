@@ -37,7 +37,17 @@
 <div class="content" *ngIf="heuriger">
     <div class="c">
         <div class="top">
-            <h4>{{ heuriger.name }}</h4>
+            <div class="information">
+                <h4>{{ heuriger.name }}</h4>
+
+                <div class="buttons">
+                    <button (click)="toggleFavourite()">
+                        <mat-icon *ngIf="this.heuriger.favourite">bookmark</mat-icon>
+                        <mat-icon *ngIf="!this.heuriger.favourite" class="material-symbols-outlined">bookmark_outlined</mat-icon>
+                    </button>
+                </div>
+
+            </div>
             <img [src]="'/assets/heurigen/' + heuriger.nameId + '.png'"
                 onerror="this.src='./assets/heurigen/placeholder.png';">
         </div>
