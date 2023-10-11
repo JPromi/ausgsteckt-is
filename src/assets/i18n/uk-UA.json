@@ -1,0 +1,61 @@
+{
+    "heurigen": {
+        "title": "Гойдалка",
+        "error": "Сталася помилка"
+    },
+
+    "heuriger": {
+        "informations": {
+            "web": "Веб-сайт",
+            "playground": "Є гойдалки",
+            "opened": {
+                "today": "Ще сьогодні відкрито",
+                "1": "Відкрито ще",
+                "2": "днів"
+            }
+        },
+        "dates": {
+            "title": "Наступний відкритий:",
+            "from": "З",
+            "to": "До"
+        }
+    },
+
+    "maps": {
+        "title": "Карта",
+        "allHeurigen": {
+            "title": "Усі гойдалки"
+        },
+        "error": "Сталася помилка"
+    },
+
+    "taxi": {
+        "title": "Таксі"
+    },
+
+    "settings": {
+        "title": "Налаштування",
+
+        "design": {
+            "title": "Дизайн",
+            "systemTheme": "Системна тема",
+            "darkmode": "Темний режим"
+        },
+
+        "language": {
+            "title": "Мови",
+            "languages": "Мова"
+        },
+
+        "development": {
+            "title": "Розробка",
+            "developer": "Розробник:",
+            "feedback": "Зворотній зв'язок / Помилки:",
+            "repo": "Репозиторій GitHub:",
+            "buildType": "Тип збірки:",
+            "version": "Версія:",
+            "buildDate": "Дата збірки:"
+        }
+
+    }
+}

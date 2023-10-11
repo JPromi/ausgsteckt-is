@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     private translate: TranslateService,
     public router: Router
   ) {
-    translate.addLangs(['de-AT', 'en-US', 'at-VIE']);
+    translate.addLangs(['de-AT', 'en-US', 'fr-FR', 'uk-UA', 'at-VIE']);
     translate.setDefaultLang('de-AT');
     // translate.use('de-AT');
   }
