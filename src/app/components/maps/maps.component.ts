@@ -142,7 +142,7 @@ export class MapsComponent implements OnInit {
     var retrun: google.maps.MarkerOptions = {
       icon: {
         url: iconUrl,
-        scaledSize: new google.maps.Size(35, 50)
+        scaledSize: new google.maps.Size(40, 55)
       }
     }
     return retrun; 
