@@ -221,7 +221,6 @@ export class CurrentHeurigenComponent {
           });
         }
         this.orderByFavourites();
-        console.log(this.currentHeurigen);
       }
     )
   }

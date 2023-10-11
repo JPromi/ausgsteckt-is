@@ -67,7 +67,6 @@ export class AllHeurigenComponent {
           });
         }
         this.orderByFavourites();
-        console.log(this.heurigen);
       }
     )
   }

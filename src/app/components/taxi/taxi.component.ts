@@ -41,7 +41,6 @@ export class TaxiComponent implements OnInit {
 
   expand(event: MouseEvent) {
     const targetElement = event.currentTarget as HTMLElement;
-    console.log(targetElement.lastChild);
     targetElement.lastElementChild?.classList.toggle("expanded")
   }
 
