@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { HeurigerService } from "../../services/heuriger.service";
 import { Heuriger, ausgsteckt, coordinates, phone } from 'src/app/dtos/heuriger';
 import { DatabaseService } from 'src/app/services/database.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-heuriger',
@@ -17,7 +18,14 @@ export class HeurigerComponent {
   heuriger:Heuriger = new Heuriger(0, '', '', false, '', '', new coordinates(0, 0), false, '', '', new phone('', '') , '', 0, [new ausgsteckt('', '')]);
   mapsLink:string = "";
 
-  constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router, private _location: Location, private databaseService: DatabaseService) {
+  constructor(
+    private heurigenService:HeurigerService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private _location: Location,
+    private databaseService: DatabaseService,
+    private translate: TranslateService
+  ) {
     
   }
 
@@ -104,6 +112,30 @@ export class HeurigerComponent {
     }
 
     this.databaseService.heurigenFavouritesToggle(this.heuriger.nameId)
+  }
+
+  share() {
+    var shareData = {
+      title: this.heuriger.name,
+      text: `
+${this.heuriger.name}
+
+📍 ${this.heuriger.address}, ${this.heuriger.city}
+📞 ${this.heuriger.phone.main}
+📧 ${this.heuriger.email}
+🌍 ${this.heuriger.link}
+
+${this.translate.instant('heuriger.dates.title')}
+`
+    }
+
+    for (let i = 0; i < this.heuriger.ausgsteckt.length; i++) {
+      shareData.text += `
+  ${this.convertDate(this.heuriger.ausgsteckt[i].from)} - ${this.convertDate(this.heuriger.ausgsteckt[i].to)}`;
+      
+    }
+
+    navigator.share(shareData);
   }
 
 }
