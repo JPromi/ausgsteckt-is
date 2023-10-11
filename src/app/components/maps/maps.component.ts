@@ -26,7 +26,7 @@ export class MapsComponent implements OnInit {
           ]
       },
     ],
-    // fullscreenControl: false,
+    fullscreenControl: false,
 
     center: { lat: 48.1227629, lng: 16.2609432},
     zoom: 14,
