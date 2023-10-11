@@ -164,6 +164,10 @@ input:checked + .slider:before {
     }
 }
 
+::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel {
+    max-height: 25rem;
+}
+
 ::ng-deep .mat-mdc-menu-panel {
     background-color: var(--dropdown-background) !important;
 }
