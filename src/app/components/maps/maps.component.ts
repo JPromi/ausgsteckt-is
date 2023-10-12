@@ -101,14 +101,18 @@ export class MapsComponent implements OnInit {
         (response: Array<Heuriger>) => {
           this.heurigenList = response;
           this.heurigenLoaded = true;
+          var currentDate: Date;
   
           if(!this.parameter.date) {
-            const currentDate = new Date();
+            currentDate = new Date();
             this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
           } else {
             const currentDateT = Date.parse(this.parameter.date);
-            const currentDate = new Date(currentDateT);
+            currentDate = new Date(currentDateT);
             this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
+          }
+          for (let i = 0; i < this.heurigenList.length; i++) {
+            this.heurigenList[i].daysRemain = this.daysRemain(this.heurigenList[i], currentDate)
           }
         },
         (error) => {
@@ -127,6 +131,25 @@ export class MapsComponent implements OnInit {
       );
     }
     
+  }
+
+  daysRemain(heuriger: Heuriger, date: Date = new Date()): number {
+    const today = date;
+    var returnValue = 0;
+
+    for (const date of heuriger.ausgsteckt) {
+      const startDate = new Date(date.from);
+      const endDate = new Date(date.to);
+
+      if (today >= startDate && today <= endDate) {
+        const diffTime = Math.abs(endDate.getTime() - today.getTime());
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+        return diffDays;
+        break;
+      }
+    }
+
+    return returnValue;
   }
 
   openInfoWindow(marker: MapMarker, infoWindow: MapInfoWindow) {
