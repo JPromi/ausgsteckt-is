@@ -125,10 +125,12 @@
                 <p><b>{{ 'heuriger.dates.from' | translate }}</b></p>
                 <p><b>{{ 'heuriger.dates.to' | translate }}</b></p>
             </div>
-            <div *ngFor="let date of heuriger.ausgsteckt">
-                <p>{{ convertDate(date.from) }}</p>
-                <p>{{ convertDate(date.to) }}</p>
-            </div>
+            <ng-container *ngFor="let date of heuriger.ausgsteckt">
+                <div *ngIf="checkIfFuture(date.to)">
+                    <p>{{ convertDate(date.from) }}</p>
+                    <p>{{ convertDate(date.to) }}</p>
+                </div>
+            </ng-container>
         </div>
     </div>
 </div>

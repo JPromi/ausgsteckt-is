@@ -19,6 +19,7 @@ export class HeurigerComponent {
   heuriger:Heuriger = new Heuriger(0, '', '', false, '', '', new coordinates(0, 0), false, false, '', '', new phone('', '') , '', 0, [new ausgsteckt('', '')]);
   mapsLink:string = "";
   heurigerLoading = false;
+  today: Date = new Date();
 
   constructor(
     private heurigenService:HeurigerService,
@@ -118,6 +119,18 @@ export class HeurigerComponent {
     }
 
     this.databaseService.heurigenFavouritesToggle(this.heuriger.nameId)
+  }
+
+  checkIfFuture(date: string): boolean {
+    var checkdate = new Date(date);
+    console.log(checkdate.toDateString())
+    if(checkdate >= this.today) {
+      console.log("true")
+      return true;
+    } else {
+      console.log("false")
+      return false;
+    }
   }
 
   async share() {
