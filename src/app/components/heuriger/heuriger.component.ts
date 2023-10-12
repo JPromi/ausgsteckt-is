@@ -123,7 +123,7 @@ export class HeurigerComponent {
 
   checkIfFuture(date: string): boolean {
     var checkdate = new Date(date);
-    console.log(checkdate.toDateString())
+    
     if(checkdate >= this.today) {
       return true;
     } else {
