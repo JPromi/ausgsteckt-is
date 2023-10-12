@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div class="content skeleton" *ngIf="!heuriger">
+<div class="content skeleton" *ngIf="heurigerLoading">
     <div class="top">
         <h4></h4>
         <span class="img"></span>
@@ -34,7 +34,7 @@
     </div>
 </div>
 
-<div class="content" *ngIf="heuriger">
+<div class="content" *ngIf="!heurigerLoading">
     <div class="c">
         <div class="top">
             <div class="information">

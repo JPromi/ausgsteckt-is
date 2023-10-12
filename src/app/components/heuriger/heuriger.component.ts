@@ -17,6 +17,7 @@ export class HeurigerComponent {
 
   heuriger:Heuriger = new Heuriger(0, '', '', false, '', '', new coordinates(0, 0), false, '', '', new phone('', '') , '', 0, [new ausgsteckt('', '')]);
   mapsLink:string = "";
+  heurigerLoading = false;
 
   constructor(
     private heurigenService:HeurigerService,
@@ -34,6 +35,7 @@ export class HeurigerComponent {
   }
 
   async loadContent(): Promise<Object> {
+    this.heurigerLoading = true;
     return this.route.params.subscribe(async heuriger => {
       ((this.heurigenService.getHeuriger(heuriger["heuriger"])))
       .subscribe((response: Heuriger) => {
@@ -42,6 +44,7 @@ export class HeurigerComponent {
           return null;
         }
         this.heuriger = response;
+        this.heurigerLoading = false;
         this.getFavourite();
         this.generateMapsLink();
         return heuriger["heuriger"];
@@ -51,7 +54,9 @@ export class HeurigerComponent {
           (responseDB: Heuriger) => {
             responseDB.daysRemain = this.daysRemain(responseDB);
             this.heuriger = responseDB;
+            this.heurigerLoading = false;
             this.getFavourite();
+            this.generateMapsLink();
           }
         )
       }
