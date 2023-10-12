@@ -140,8 +140,7 @@ ${this.convertDate(this.heuriger.ausgsteckt[i].from)} - ${this.convertDate(this.
 
       
     }
-
-    console.log(shareData)
+    
     navigator.share(shareData);
   }
 
