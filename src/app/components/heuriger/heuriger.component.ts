@@ -68,7 +68,7 @@ export class HeurigerComponent {
   convertDate(date: string) {
     var dateConvert = new Date(date);
 
-    return dateConvert.getDate() + "." + dateConvert.getMonth() + "." + dateConvert.getFullYear();
+    return dateConvert.getDate() + "." + (dateConvert.getMonth() + 1)  + "." + dateConvert.getFullYear();
   }
 
   backClick() {
@@ -129,12 +129,19 @@ ${this.translate.instant('heuriger.dates.title')}
 `
     }
 
+    var today = new Date();
+
     for (let i = 0; i < this.heuriger.ausgsteckt.length; i++) {
-      shareData.text += `
-  ${this.convertDate(this.heuriger.ausgsteckt[i].from)} - ${this.convertDate(this.heuriger.ausgsteckt[i].to)}`;
+      var heurigenEnd = new Date(this.heuriger.ausgsteckt[i].to);
+      if(heurigenEnd >= today) {
+        shareData.text += `
+${this.convertDate(this.heuriger.ausgsteckt[i].from)} - ${this.convertDate(this.heuriger.ausgsteckt[i].to)}`;
+      }
+
       
     }
 
+    console.log(shareData)
     navigator.share(shareData);
   }
 
