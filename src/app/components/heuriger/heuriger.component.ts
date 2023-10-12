@@ -125,10 +125,8 @@ export class HeurigerComponent {
     var checkdate = new Date(date);
     console.log(checkdate.toDateString())
     if(checkdate >= this.today) {
-      console.log("true")
       return true;
     } else {
-      console.log("false")
       return false;
     }
   }
