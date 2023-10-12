@@ -8,6 +8,7 @@ export class Heuriger {
         public city: string,
         public coordinates: coordinates,
         public playground: boolean,
+        public wheelchairAccessible: boolean,
         public link: string,
         public email: string,
         public phone: phone,
