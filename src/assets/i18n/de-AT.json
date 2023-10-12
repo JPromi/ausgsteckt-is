@@ -16,6 +16,7 @@
         "informations": {
             "web": "Website",
             "playground": "Spielplatz Vorhanden",
+            "wheelchairAccessible": "Behindertengerecht",
             "opened": {
                 "today": "Noch heute offen",
                 "1": "Noch",
