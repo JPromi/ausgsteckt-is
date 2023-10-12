@@ -123,25 +123,30 @@ export class HeurigerComponent {
   async share() {
     var shareData = {
       title: this.heuriger.name,
-      text: `
-${this.heuriger.name}
-
-📍 ${this.heuriger.address}, ${this.heuriger.city}
-📞 ${this.heuriger.phone.main}
-📧 ${this.heuriger.email}
-🌍 ${this.heuriger.link}
-
-${this.translate.instant('heuriger.dates.title')}
-`
+      text: `${this.heuriger.name}\n`
     }
+
+    if(this.heuriger.address) {
+      shareData.text += `\n📍 ${this.heuriger.address}, ${this.heuriger.city}`
+    }
+    if(this.heuriger.phone.main) {
+      shareData.text += `\n📞 ${this.heuriger.phone.main}`
+    }
+    if(this.heuriger.email) {
+      shareData.text += `\n📧 ${this.heuriger.email}`
+    }
+    if(this.heuriger.link) {
+      shareData.text += `\n🌍 ${this.heuriger.link}`
+    }
+
+    shareData.text += `\n\n${this.translate.instant('heuriger.dates.title')}`;
 
     var today = new Date();
 
     for (let i = 0; i < this.heuriger.ausgsteckt.length; i++) {
       var heurigenEnd = new Date(this.heuriger.ausgsteckt[i].to);
       if(heurigenEnd >= today) {
-        shareData.text += `
-${this.convertDate(this.heuriger.ausgsteckt[i].from)} - ${this.convertDate(this.heuriger.ausgsteckt[i].to)}`;
+        shareData.text += `\n📅 ${this.convertDate(this.heuriger.ausgsteckt[i].from)} - ${this.convertDate(this.heuriger.ausgsteckt[i].to)}`;
       }
 
       
