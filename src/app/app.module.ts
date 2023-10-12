@@ -120,7 +120,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:1'
+      registrationStrategy: 'registerWhenStable:30000'
     })
   ],
   providers: [],
