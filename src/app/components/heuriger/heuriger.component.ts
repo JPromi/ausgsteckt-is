@@ -7,6 +7,7 @@ import { HeurigerService } from "../../services/heuriger.service";
 import { Heuriger, ausgsteckt, coordinates, phone } from 'src/app/dtos/heuriger';
 import { DatabaseService } from 'src/app/services/database.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Share } from '@capacitor/share';
 
 @Component({
   selector: 'app-heuriger',
@@ -119,7 +120,7 @@ export class HeurigerComponent {
     this.databaseService.heurigenFavouritesToggle(this.heuriger.nameId)
   }
 
-  share() {
+  async share() {
     var shareData = {
       title: this.heuriger.name,
       text: `
@@ -146,7 +147,12 @@ ${this.convertDate(this.heuriger.ausgsteckt[i].from)} - ${this.convertDate(this.
       
     }
     
-    navigator.share(shareData);
+    // navigator.share(shareData);
+    try {
+      await Share.share(shareData);
+    } catch (error) {
+      console.error('Fehler beim Teilen: ', error);
+    }
   }
 
 }
