@@ -53,11 +53,11 @@ const heurigenDbConfig: DBConfig  = {
         { name: 'nameId', keypath: 'nameId', options: { unique: true } },
         { name: 'address', keypath: 'address', options: { unique: false } },
         { name: 'city', keypath: 'city', options: { unique: false } },
-        { name: 'coordinates[]', keypath: 'coordinates', options: { unique: false } },
+        { name: 'coordinates', keypath: 'coordinates', options: { unique: false } },
         { name: 'playground', keypath: 'playground', options: { unique: false } },
         { name: 'link', keypath: 'link', options: { unique: false } },
         { name: 'email', keypath: 'email', options: { unique: false } },
-        { name: 'phone[]', keypath: 'phone[]', options: { unique: false } },
+        { name: 'phone', keypath: 'phone', options: { unique: false } },
         { name: 'type', keypath: 'type', options: { unique: false } },
         { name: 'daysRemain', keypath: 'daysRemain', options: { unique: false } },
         { name: 'ausgsteckt', keypath: 'ausgsteckt', options: { unique: false } },
@@ -120,7 +120,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:1'
     })
   ],
   providers: [],
