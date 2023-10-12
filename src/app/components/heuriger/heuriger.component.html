@@ -101,6 +101,13 @@
                 </span>
                 <p>{{ 'heuriger.informations.playground' | translate }}</p>
             </a>
+
+            <a *ngIf="heuriger.wheelchairAccessible">
+                <span class="material-symbols-outlined">
+                    accessible
+                </span>
+                <p>{{ 'heuriger.informations.wheelchairAccessible' | translate }}</p>
+            </a>
             
             <a *ngIf="heuriger.daysRemain">
                 <span class="material-symbols-outlined">

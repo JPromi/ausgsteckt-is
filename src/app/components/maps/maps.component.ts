@@ -32,7 +32,7 @@ export class MapsComponent implements OnInit {
     zoom: 14,
   }
 
-  public heurigenList: Heuriger[] = [new Heuriger(0, '', '', false, '', '', new coordinates(0, 0), false, '', '', new phone('', '') , '', 0, [new ausgsteckt('', '')])];
+  public heurigenList: Heuriger[] = [new Heuriger(0, '', '', false, '', '', new coordinates(0, 0), false, false, '', '', new phone('', '') , '', 0, [new ausgsteckt('', '')])];
   public heurigenLoaded = false;
   public currentLocation = {
     "allowed": false,

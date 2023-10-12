@@ -15,7 +15,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeurigerComponent {
 
-  heuriger:Heuriger = new Heuriger(0, '', '', false, '', '', new coordinates(0, 0), false, '', '', new phone('', '') , '', 0, [new ausgsteckt('', '')]);
+  heuriger:Heuriger = new Heuriger(0, '', '', false, '', '', new coordinates(0, 0), false, false, '', '', new phone('', '') , '', 0, [new ausgsteckt('', '')]);
   mapsLink:string = "";
   heurigerLoading = false;
 
