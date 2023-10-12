@@ -57,6 +57,10 @@
                     cursor: default;
                 }
             }
+
+            p.linebutton {
+                cursor: pointer;
+            }
         }
 
         .block > div {

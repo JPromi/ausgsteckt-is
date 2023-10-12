@@ -50,6 +50,14 @@
             "darkmode": "Darkmode"
         },
 
+        "storage": {
+            "title": "Speicher",
+            "deleteFavourites": "Favouriten zurücksetzn",
+            "deleteHeurigen": "Heurigen zurücksetzn",
+            "deleteTaxi": "Taxi zurücksetzn",
+            "deleteAll": "Alle Daten zurücksetzn"
+        },
+
         "language": {
             "title": "Sprachen",
             "languages": "Sprache"

@@ -37,6 +37,23 @@
 
     </div>
 
+    <div class="block">
+        <h3>{{ 'settings.storage.title' | translate }}</h3>
+
+        <div>
+            <p (click)="resetStorage('favourite')" class="linebutton">{{ 'settings.storage.deleteFavourites' | translate }}</p>
+        </div>
+        <div>
+            <p (click)="resetStorage('heurigen')" class="linebutton">{{ 'settings.storage.deleteHeurigen' | translate }}</p>
+        </div>
+        <div>
+            <p (click)="resetStorage('taxi')" class="linebutton">{{ 'settings.storage.deleteTaxi' | translate }}</p>
+        </div>
+        <div>
+            <p (click)="resetStorage('all')" class="linebutton">{{ 'settings.storage.deleteAll' | translate }}</p>
+        </div>
+    </div>
+
     <!-- language -->
     <div class="block">
         <h3>{{ 'settings.language.title' | translate }}</h3>
