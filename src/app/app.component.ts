@@ -44,7 +44,6 @@ export class AppComponent implements OnInit {
   }
 
   checkSetting() {
-    this.checkOS();
     if(!localStorage.length) {
       this.settingsSerive.saveSettings(this.settings);
     } else {
@@ -53,14 +52,6 @@ export class AppComponent implements OnInit {
 
     this.settingsSerive.settings_darkmode();
     this.translate.use(this.settingsSerive.getSettings().language)
-  }
-
-  checkOS() {
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    if (userAgent.includes("iphone")) {
-      document.getElementsByTagName("body")[0].classList.add("iOS");
-      console.log("iPhone");
-    }
   }
 
   async loadGoogleMapsScript() {
