@@ -53,10 +53,12 @@
 
         "storage": {
             "title": "Speicher",
-            "deleteFavourites": "Favouriten zurücksetzn",
-            "deleteHeurigen": "Heurigen zurücksetzn",
-            "deleteTaxi": "Taxi zurücksetzn",
-            "deleteAll": "Alle Daten zurücksetzn"
+            "delete": {
+                "favourites": "Favouriten zurücksetzn",
+                "heurigen": "Heurigen zurücksetzn",
+                "taxi": "Taxi zurücksetzn",
+                "all": "Alle Daten zurücksetzn"
+            }
         },
 
         "language": {
@@ -74,5 +76,36 @@
             "buildDate": "Build date:"
         }
 
+    },
+
+    "popup": {
+        "settings": {
+            "storage": {
+                "buttons": {
+                    "delete": {
+                        "cancle": "Abbrechen",
+                        "delete": "Löschen"
+                    }
+                },
+
+                "delete": {
+                    "favourites": {
+                        "message": "Willst du Favouriten wirklich zurücksetzen?"
+                    },
+                    
+                    "heurigen": {
+                        "message": "Willst du Heurigen wirklich zurücksetzen?"
+                    },
+                    
+                    "taxi": {
+                        "message": "Willst du Taxi wirklich zurücksetzen?"
+                    },
+                    
+                    "all": {
+                        "message": "Willst du Alle Daten wirklich zurücksetzen?"
+                    }
+                }
+            }
+        }
     }
 }

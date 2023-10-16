@@ -1,0 +1,9 @@
+<h3> {{ 'settings.storage.delete.' + data.deleteType | translate }} </h3>
+
+<p>{{ 'popup.settings.storage.delete.' + data.deleteType + '.message' | translate }}</p>
+
+
+<div class="btn">
+    <button (click)="closeDialog(false)">{{ 'popup.settings.storage.buttons.delete.cancle' | translate }}</button>
+    <button (click)="closeDialog(true)" class="delete">{{ 'popup.settings.storage.buttons.delete.delete' | translate }}</button>
+</div>

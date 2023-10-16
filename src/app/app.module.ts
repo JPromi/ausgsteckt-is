@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AllHeurigenComponent } from './components/all-heurigen/all-heurigen.component';
 import { CurrentHeurigenComponent } from './components/current-heurigen/current-heurigen.component';
 import { NavComponent } from './components/nav/nav.component';
+import { SettingsConfirmComponent } from './components/settings-confirm/settings-confirm.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -14,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { NgxIndexedDBModule, DBConfig } from 'ngx-indexed-db';
 
@@ -91,6 +93,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ErrorComponent,
     SettingsComponent,
     TaxiComponent,
+    SettingsConfirmComponent,
     
   ],
   imports: [
@@ -106,6 +109,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     MatInputModule,
     MatMenuModule,
+    MatDialogModule,
     ReactiveFormsModule,
     GoogleMapsModule,
     TranslateModule.forRoot({

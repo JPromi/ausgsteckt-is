@@ -7,6 +7,8 @@ import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { Language } from 'src/app/dtos/language';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
+import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import { SettingsConfirmComponent } from 'src/app/components/settings-confirm/settings-confirm.component';
 
 @Component({
   selector: 'app-settings',
@@ -18,6 +20,7 @@ export class SettingsComponent implements OnInit {
   constructor(
     public settingsService: SettingsService,
     public formBuilder: FormBuilder,
+    public dialog: MatDialog,
     private translate: TranslateService,
     private dbService: NgxIndexedDBService
   ) {}
@@ -120,20 +123,32 @@ export class SettingsComponent implements OnInit {
   }
 
   resetStorage(type: string) {
-    if(type == 'favourite') {
-      this.dbService.clear("favourites_heurigen").subscribe();
-    } else if(type == 'heurigen') {
-      this.dbService.clear("heurigen").subscribe();
-      localStorage.removeItem("database_heurigen_update");
-    } else if(type == 'taxi') {
-      this.dbService.clear("taxi").subscribe();
-      localStorage.removeItem("database_taxi_update");
-    } else {
-      this.dbService.clear("heurigen").subscribe();
-      localStorage.removeItem("database_heurigen_update");
-      this.dbService.clear("favourites_heurigen").subscribe();
-      this.dbService.clear("taxi").subscribe();
-      localStorage.removeItem("database_taxi_update");
-    }
+    var deleteData = false;
+    let dialogRef = this.dialog.open(SettingsConfirmComponent, {
+      data: {
+        deleteType: type,
+        deleteData: deleteData
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        if(type == 'favourites') {
+          this.dbService.clear("favourites_heurigen").subscribe();
+        } else if(type == 'heurigen') {
+          this.dbService.clear("heurigen").subscribe();
+          localStorage.removeItem("database_heurigen_update");
+        } else if(type == 'taxi') {
+          this.dbService.clear("taxi").subscribe();
+          localStorage.removeItem("database_taxi_update");
+        } else {
+          this.dbService.clear("heurigen").subscribe();
+          localStorage.removeItem("database_heurigen_update");
+          this.dbService.clear("favourites_heurigen").subscribe();
+          this.dbService.clear("taxi").subscribe();
+          localStorage.removeItem("database_taxi_update");
+        }
+      }
+    });
   }
 }
