@@ -22,6 +22,7 @@ export class HeurigerComponent {
   heurigerLoading = false;
   today: Date = new Date();
   shareSupported: boolean = false;
+  indexeddbSupported: boolean = false;
 
   constructor(
     private heurigenService:HeurigerService,
@@ -36,8 +37,8 @@ export class HeurigerComponent {
   }
 
   ngOnInit() {
+    this.checkSupports();
     this.loadContent();
-    this.checkShare();
   }
 
   async loadContent(): Promise<Object> {
@@ -135,7 +136,8 @@ export class HeurigerComponent {
     }
   }
 
-  async checkShare() {
+  async checkSupports() {
+    // share
     this.shareSupported = (await Share.canShare()).value;
   }
 
