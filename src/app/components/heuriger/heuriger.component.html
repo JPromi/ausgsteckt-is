@@ -49,7 +49,7 @@
                         <mat-icon *ngIf="!this.heuriger.favourite" class="material-symbols-outlined">bookmark_outlined</mat-icon>
                     </button>
 
-                    <button (click)="share()">
+                    <button (click)="share()" *ngIf="shareSupported">
                         <mat-icon>share</mat-icon>
                     </button>
                 </div>
