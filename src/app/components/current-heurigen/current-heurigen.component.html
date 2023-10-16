@@ -71,5 +71,5 @@
     </a>
 </div>
 <div class="heurigen-list" *ngIf="currentHeurigen.length == 0 && requestLoaded">
-    <a class="error">Keine Heurigen Gefunden</a>
+    <a class="error"> {{ 'ausgsteckt.error' | translate }} </a>
 </div>

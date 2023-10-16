@@ -12,6 +12,10 @@
         "error": "Ein Fehler ist aufgetreten"
     },
 
+    "ausgsteckt": {
+        "error": "Keien Heurigen gefunden"
+    },
+
     "heuriger": {
         "informations": {
             "web": "Website",
