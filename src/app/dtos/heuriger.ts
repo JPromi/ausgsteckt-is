@@ -9,6 +9,8 @@ export class Heuriger {
         public coordinates: coordinates,
         public playground: boolean,
         public wheelchairAccessible: boolean,
+        public sale: boolean,
+        public wineMachine: boolean,
         public link: string,
         public email: string,
         public phone: phone,
