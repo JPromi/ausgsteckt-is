@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/ausgsteckt', pathMatch: 'full' },
   { path: 'heurigen', component: AllHeurigenComponent },
   { path: 'heurigen/:heuriger', component: HeurigerComponent },
+  { path: 'event/:heuriger', component: HeurigerComponent },
   { path: 'ausgsteckt', component: CurrentHeurigenComponent },
   { path: 'karte', component: MapsComponent },
   { path: 'settings', component: SettingsComponent },

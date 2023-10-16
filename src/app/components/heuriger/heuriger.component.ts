@@ -52,6 +52,7 @@ export class HeurigerComponent {
         }
         this.heuriger = response;
         this.heurigerLoading = false;
+        this.checkDataType();
         this.getFavourite();
         this.generateMapsLink();
         return heuriger["heuriger"];
@@ -179,6 +180,21 @@ export class HeurigerComponent {
     } catch (error) {
       console.error('Fehler beim Teilen: ', error);
     }
+  }
+
+  checkDataType() {
+    this.route.url.subscribe(
+      (url) => {
+        if(
+          (url[0].path == 'event' && this.heuriger.type == 'event') ||
+          (url[0].path == 'heurigen' && this.heuriger.type == 'heuriger') ||
+          (url[0].path == 'heurigen' && this.heuriger.type == 'weinrat')
+          ) {
+        } else {
+          this.router.navigateByUrl("/heurigen");
+        }
+      }
+    );
   }
 
 }
