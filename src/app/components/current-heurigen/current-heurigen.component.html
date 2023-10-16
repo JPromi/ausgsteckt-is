@@ -38,7 +38,7 @@
     
 </div>
 
-<div class="heurigen-list" *ngIf="currentHeurigen">
+<div class="heurigen-list" *ngIf="currentHeurigen && requestLoaded">
     <a 
         *ngFor="let heuriger of currentHeurigen"
         [routerLink]="[generateSingleViewLink(heuriger)]"
@@ -70,6 +70,6 @@
         <p class="daysRemain">{{ heuriger.daysRemain }}</p>
     </a>
 </div>
-<div class="heurigen-list" *ngIf="!currentHeurigen && requestLoaded">
-    <a>Keine Heurigen Gefunden</a>
+<div class="heurigen-list" *ngIf="currentHeurigen.length == 0 && requestLoaded">
+    <a class="error">Keine Heurigen Gefunden</a>
 </div>

@@ -131,16 +131,21 @@ export class CurrentHeurigenComponent {
         }
 
         var _currentHeurigen: Heuriger[] = [];
-        await response.forEach(async heuriger => {
-          await heuriger.ausgsteckt.forEach(
-            heurigerDate => {
-              if(new Date(heurigerDate.from) <= currentDate && new Date(heurigerDate.to) >= currentDate) {
-                heuriger.daysRemain = this.daysRemain(heuriger, currentDate);
-                _currentHeurigen.push(heuriger);
+        console.log(response)
+        if(response) {
+          await response.forEach(async heuriger => {
+            await heuriger.ausgsteckt.forEach(
+              heurigerDate => {
+                if(new Date(heurigerDate.from) <= currentDate && new Date(heurigerDate.to) >= currentDate) {
+                  heuriger.daysRemain = this.daysRemain(heuriger, currentDate);
+                  _currentHeurigen.push(heuriger);
+                }
               }
-            }
-          )
-        });
+            )
+          });
+        } else {
+          this.requestLoaded = true;
+        }
 
         this.currentHeurigen = _currentHeurigen;
         this.getFavourite();
