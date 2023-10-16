@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Heuriger, ausgsteckt, coordinates, phone } from 'src/app/dtos/heuriger';
+import { EmptyObjectService } from 'src/app/services/empty-object.service';
 import { HeurigerService } from 'src/app/services/heuriger.service';
 import { SettingsService } from 'src/app/services/settings.service';
 
@@ -32,7 +33,7 @@ export class MapsComponent implements OnInit {
     zoom: 14,
   }
 
-  public heurigenList: Heuriger[] = [new Heuriger(0, '', '', false, '', '', new coordinates(0, 0), false, false, '', '', new phone('', '') , '', 0, [new ausgsteckt('', '')])];
+  public heurigenList: Heuriger[] = [this.emptyObjectService.heuriger()];
   public heurigenLoaded = false;
   public currentLocation = {
     "allowed": false,
@@ -51,6 +52,7 @@ export class MapsComponent implements OnInit {
   constructor(
     public heurigerService: HeurigerService, 
     public settingsService: SettingsService,
+    public emptyObjectService: EmptyObjectService,
     private route: ActivatedRoute, 
     private router: Router
   ) {

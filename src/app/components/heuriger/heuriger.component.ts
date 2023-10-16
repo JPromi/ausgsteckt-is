@@ -8,6 +8,7 @@ import { Heuriger, ausgsteckt, coordinates, phone } from 'src/app/dtos/heuriger'
 import { DatabaseService } from 'src/app/services/database.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Share } from '@capacitor/share';
+import { EmptyObjectService } from 'src/app/services/empty-object.service';
 
 @Component({
   selector: 'app-heuriger',
@@ -16,7 +17,7 @@ import { Share } from '@capacitor/share';
 })
 export class HeurigerComponent {
 
-  heuriger:Heuriger = new Heuriger(0, '', '', false, '', '', new coordinates(0, 0), false, false, '', '', new phone('', '') , '', 0, [new ausgsteckt('', '')]);
+  heuriger:Heuriger = this.emptyObjectService.heuriger();
   mapsLink:string = "";
   heurigerLoading = false;
   today: Date = new Date();
@@ -27,7 +28,8 @@ export class HeurigerComponent {
     private router: Router,
     private _location: Location,
     private databaseService: DatabaseService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private emptyObjectService: EmptyObjectService
   ) {
     
   }
