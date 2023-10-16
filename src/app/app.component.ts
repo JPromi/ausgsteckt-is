@@ -4,6 +4,7 @@ import { Settings } from './dtos/settings';
 import { TranslateService } from '@ngx-translate/core';
 import cfg from '../config.json';
 import { Router } from '@angular/router';
+import { App as CapacitorApp } from '@capacitor/app';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +30,15 @@ export class AppComponent implements OnInit {
   async ngOnInit() {
     await this.loadGoogleMapsScript();
     await this.checkSetting();
+
+    //backbutton Android
+    CapacitorApp.addListener('backButton', ({canGoBack}) => {
+      if(!canGoBack){
+        CapacitorApp.exitApp();
+      } else {
+        window.history.back();
+      }
+    });
 
     this.translate.use(this.settingsSerive.getSettings().language)
 
