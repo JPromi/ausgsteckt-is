@@ -73,6 +73,7 @@
             display: flex;
             flex-direction: column;
             gap: .5rem;
+            background-color: var(--background-color);
 
             .top {
                 margin: 1rem 1rem 0 1rem;
@@ -92,6 +93,7 @@
                 .text {
                     max-width: 60%;
                     h3, p {
+                        color: var(--color-text);
                         width: 100%;
                         white-space: nowrap;
                         overflow: hidden;
@@ -102,6 +104,7 @@
 
             .infos {
                 margin: 0 1rem;
+                color: var(--color-text);
             }
 
             .buttonNavigation {
@@ -146,6 +149,10 @@
 
 ::ng-deep .gm-style .gm-style-iw-tc::after {
     background: #555555 !important;
+}
+
+::ng-deep .gm-style-iw-c > button > span {
+    background-color: var(--color-text-pale) !important;
 }
 
 @keyframes opacityin {
