@@ -22,7 +22,7 @@
 
     <a 
         *ngFor="let heuriger of heurigen"
-        [routerLink]="['/heurigen', heuriger.nameId]"
+        [routerLink]="[generateSingleViewLink(heuriger)]"
         [ngClass]="{'favourite': heuriger.favourite}">
         <img 
             [src]="'/assets/heurigen/' + heuriger.nameId + '.png'"

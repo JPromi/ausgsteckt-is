@@ -41,7 +41,7 @@
 <div class="heurigen-list" *ngIf="currentHeurigen">
     <a 
         *ngFor="let heuriger of currentHeurigen"
-        [routerLink]="['/heurigen', heuriger.nameId]"
+        [routerLink]="[generateSingleViewLink(heuriger)]"
         [ngClass]="{'favourite': heuriger.favourite}"
         >
 

@@ -235,4 +235,12 @@ export class CurrentHeurigenComponent {
     });
   }
 
+  generateSingleViewLink(heuriger: Heuriger): string {
+    if(heuriger.type == 'event') {
+      return '/event/' + heuriger.nameId
+    } else {
+      return '/heurigen/' + heuriger.nameId
+    }
+  }
+
 }

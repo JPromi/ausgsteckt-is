@@ -357,4 +357,12 @@ export class MapsComponent implements OnInit {
       this.error = true;
     }
   }
+
+  generateSingleViewLink(heuriger: Heuriger): string {
+    if(heuriger.type == 'event') {
+      return '/event/' + heuriger.nameId
+    } else {
+      return '/heurigen/' + heuriger.nameId
+    }
+  }
 }

@@ -81,7 +81,7 @@
                     <a [href]="'tel:' + heuriger.phone.main" *ngIf="heuriger.phone.main"><mat-icon>call</mat-icon></a>
                     <a *ngIf="!heuriger.phone.main"></a>
                     <a [href]="this.generateMapsLink(heuriger)" [target]="'_blank'"><mat-icon>directions_walk</mat-icon></a>
-                    <a [routerLink]="'/heurigen/' + heuriger.nameId"><mat-icon>info_i</mat-icon></a>
+                    <a [routerLink]="generateSingleViewLink(heuriger)"><mat-icon>info_i</mat-icon></a>
                 </div>
             </map-info-window>
         </ng-container>
