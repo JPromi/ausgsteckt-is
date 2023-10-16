@@ -69,6 +69,7 @@ export class AppComponent implements OnInit {
     if(!document.getElementById("googleMapsApiScript")) {
         let scriptEle = document.createElement("script");
         scriptEle.setAttribute("src", "https://maps.googleapis.com/maps/api/js?key=" + cfg.googleMapsAPIkey + "&callback=Function.prototype");
+        // scriptEle.setAttribute("src", "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=Function.prototype");
         scriptEle.setAttribute("id", "googleMapsApiScript");
         document.body.appendChild(scriptEle);
         // scriptEle.addEventListener("load",
