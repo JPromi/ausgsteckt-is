@@ -131,7 +131,6 @@ export class CurrentHeurigenComponent {
         }
 
         var _currentHeurigen: Heuriger[] = [];
-        console.log(response)
         if(response) {
           await response.forEach(async heuriger => {
             await heuriger.ausgsteckt.forEach(

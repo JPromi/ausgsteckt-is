@@ -61,6 +61,7 @@
                 "favourites": "Favouriten zurücksetzn",
                 "heurigen": "Heurigen zurücksetzn",
                 "taxi": "Taxi zurücksetzn",
+                "notes": "Notizen zurücksetzen",
                 "all": "Alle Daten zurücksetzn"
             }
         },
@@ -96,6 +97,10 @@
                     "favourites": {
                         "message": "Willst du Favouriten wirklich zurücksetzen?"
                     },
+
+                    "notes": {
+                        "message": "Willst du Notizen wirklich zurücksetzen?"
+                    },
                     
                     "heurigen": {
                         "message": "Willst du Heurigen wirklich zurücksetzen?"
@@ -110,6 +115,9 @@
                     }
                 }
             }
+        },
+        "notes": {
+            "title": "Notizen"
         }
     }
 }

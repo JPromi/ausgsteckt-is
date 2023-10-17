@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Taxi } from '../dtos/taxi';
 import { HeurigerFavourite } from '../dtos/heuriger-favourite';
+import { Note } from '../dtos/note';
 
 @Injectable({
   providedIn: 'root'
@@ -113,5 +114,9 @@ export class DatabaseService {
         }
       }
     );
+  }
+
+  getNote(heuriger: string): Observable<Note> {
+    return this.dbService.getByKey('notes_heurigen', heuriger)
   }
 }
