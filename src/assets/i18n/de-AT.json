@@ -115,6 +115,9 @@
                     }
                 }
             }
+        },
+        "notes": {
+            "title": "Notizen"
         }
     }
 }
