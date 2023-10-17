@@ -1,0 +1,12 @@
+<h3> {{ data.heuriger.name }} </h3>
+
+<textarea class="form-control" 
+          name="message"
+          rows="8"
+          [(ngModel)]="data.note.note">
+</textarea>
+
+<div class="btn">
+    <button (click)="closeDialog(false)">{{ 'popup.settings.storage.buttons.delete.cancle' | translate }}</button>
+    <button (click)="closeDialog(true)" class="delete">{{ 'popup.settings.storage.buttons.delete.delete' | translate }}</button>
+</div>

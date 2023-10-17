@@ -9,6 +9,10 @@ import { DatabaseService } from 'src/app/services/database.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Share } from '@capacitor/share';
 import { EmptyObjectService } from 'src/app/services/empty-object.service';
+import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import { NotesComponent } from '../notes/notes.component';
+import { Note } from 'src/app/dtos/note';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
 
 @Component({
   selector: 'app-heuriger',
@@ -18,6 +22,7 @@ import { EmptyObjectService } from 'src/app/services/empty-object.service';
 export class HeurigerComponent {
 
   heuriger:Heuriger = this.emptyObjectService.heuriger();
+  heurigenNote:Note = new Note();
   mapsLink:string = "";
   heurigerLoading = false;
   today: Date = new Date();
@@ -31,7 +36,9 @@ export class HeurigerComponent {
     private _location: Location,
     private databaseService: DatabaseService,
     private translate: TranslateService,
-    private emptyObjectService: EmptyObjectService
+    private emptyObjectService: EmptyObjectService,
+    public dialog: MatDialog,
+    private dbService: NgxIndexedDBService
   ) {
     
   }
@@ -54,6 +61,7 @@ export class HeurigerComponent {
         this.heurigerLoading = false;
         this.checkDataType();
         this.getFavourite();
+        this.getNote();
         this.generateMapsLink();
         return heuriger["heuriger"];
       },
@@ -64,6 +72,7 @@ export class HeurigerComponent {
             this.heuriger = responseDB;
             this.heurigerLoading = false;
             this.getFavourite();
+            this.getNote();
             this.generateMapsLink();
           }
         )
@@ -115,6 +124,18 @@ export class HeurigerComponent {
         }
       }
     );
+  }
+
+  getNote() {
+    this.databaseService.getNote(this.heuriger.nameId).subscribe(
+      (note: Note) => {
+        if(note) {
+          this.heurigenNote = note;
+        } else {
+          this.heurigenNote = new Note(this.heuriger.nameId, '')
+        }
+      }
+    )
   }
 
   toggleFavourite() {
@@ -195,6 +216,51 @@ export class HeurigerComponent {
         }
       }
     );
+  }
+
+  note() {
+    let dialogRef = this.dialog.open(NotesComponent, {
+      height: '500px',
+      width: '500px',
+      data: {
+        heuriger: this.heuriger,
+        note: this.heurigenNote
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      
+      if(dialogResult) {
+
+        if(dialogResult.saveData === true) {
+
+          this.heurigenNote = dialogResult.note
+
+          this.databaseService.getNote(this.heuriger.nameId).subscribe(
+            (getNote: Note) => {
+
+              if(getNote) {
+                this.dbService.update('notes_heurigen', dialogResult.note).subscribe(
+                  (response) => {
+                    console.log(response)
+                  }
+                );
+              } else {
+                this.dbService.add('notes_heurigen', dialogResult.note).subscribe(
+                  (response) => {
+                    console.log(response)
+                  }
+                );
+              }
+              
+            }
+          );
+
+        }
+
+      }
+
+    })
   }
 
 }
