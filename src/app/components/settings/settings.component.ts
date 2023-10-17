@@ -138,6 +138,9 @@ export class SettingsComponent implements OnInit {
         } else if(type == 'heurigen') {
           this.dbService.clear("heurigen").subscribe();
           localStorage.removeItem("database_heurigen_update");
+        } else if(type == 'notes') {
+          this.dbService.clear("notes_heurigen").subscribe();
+          localStorage.removeItem("notes_heurigen");
         } else if(type == 'taxi') {
           this.dbService.clear("taxi").subscribe();
           localStorage.removeItem("database_taxi_update");
@@ -145,6 +148,7 @@ export class SettingsComponent implements OnInit {
           this.dbService.clear("heurigen").subscribe();
           localStorage.removeItem("database_heurigen_update");
           this.dbService.clear("favourites_heurigen").subscribe();
+          this.dbService.clear("notes_heurigen").subscribe();
           this.dbService.clear("taxi").subscribe();
           localStorage.removeItem("database_taxi_update");
         }
