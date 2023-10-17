@@ -1,12 +1,31 @@
-<h3> {{ data.heuriger.name }} </h3>
+<button class="back" (click)="closeDialog()">
+    <mat-icon>arrow_back</mat-icon>
+</button>
 
-<textarea class="form-control" 
-          name="message"
-          rows="8"
-          [(ngModel)]="data.note.note">
-</textarea>
+<h3> {{ data.heuriger.name }} Notizen</h3>
 
-<div class="btn">
-    <button (click)="closeDialog(false)">{{ 'popup.settings.storage.buttons.delete.cancle' | translate }}</button>
-    <button (click)="closeDialog(true)" class="delete">{{ 'popup.settings.storage.buttons.delete.delete' | translate }}</button>
+<div class="edit">
+    <div class="settings">
+        <button *ngIf="!edit" (click)="editNote()">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button *ngIf="edit" (click)="saveNote(true)">
+            <mat-icon>save</mat-icon>
+        </button>
+        <button *ngIf="edit" (click)="saveNote()">
+            <mat-icon>close</mat-icon>
+        </button>
+        <button *ngIf="edit" (click)="deleteNote()">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+    
+    <textarea class="form-control" 
+              name="message"
+              rows="8"
+              [(ngModel)]="data.note.note"
+              *ngIf="edit">
+    </textarea>
+    
+    <textarea *ngIf="!edit" disabled> {{data.note.note}} </textarea>
 </div>

@@ -220,8 +220,6 @@ export class HeurigerComponent {
 
   note() {
     let dialogRef = this.dialog.open(NotesComponent, {
-      height: '500px',
-      width: '500px',
       data: {
         heuriger: this.heuriger,
         note: this.heurigenNote
@@ -231,33 +229,9 @@ export class HeurigerComponent {
     dialogRef.afterClosed().subscribe(dialogResult => {
       
       if(dialogResult) {
-
         if(dialogResult.saveData === true) {
-
-          this.heurigenNote = dialogResult.note
-
-          this.databaseService.getNote(this.heuriger.nameId).subscribe(
-            (getNote: Note) => {
-
-              if(getNote) {
-                this.dbService.update('notes_heurigen', dialogResult.note).subscribe(
-                  (response) => {
-                    console.log(response)
-                  }
-                );
-              } else {
-                this.dbService.add('notes_heurigen', dialogResult.note).subscribe(
-                  (response) => {
-                    console.log(response)
-                  }
-                );
-              }
-              
-            }
-          );
-
+          this.heurigenNote = dialogResult.note;
         }
-
       }
 
     })

@@ -1,0 +1,80 @@
+:host {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    
+    .back {
+        width: fit-content;
+        padding: .25rem;
+        display: flex;
+        border: 0;
+        color: var(--color-text-pale);
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    h3 {
+        color: var(--color-text);
+        font-size: 1.35rem;
+    }
+
+    .edit {
+        display: flex;
+        flex-direction: column;
+        gap: .25rem;
+        min-width: 200px;
+        width: 100%;
+
+        .settings {
+            display: flex;
+            gap: .5rem;
+
+            button {
+                color: var(--color-text-pale);
+                background-color: transparent;
+                border: 0;
+                padding: .15rem;
+            }
+        }
+
+        textarea {
+            color: var(--color-text);
+            background-color: transparent;
+            box-sizing: border-box;
+            width: 100%;
+            resize: none;
+            font-size: 1rem;
+            border: 1px solid var(--color-text-pale);
+            padding: .25rem;
+            border-radius: .1rem;
+        }
+
+        textarea:focus {
+            outline: #2c2c2c50 solid 1px;
+        }
+    
+        textarea:disabled {
+            opacity: 1;
+            border: 0;
+        }
+    }
+}
+
+
+@media screen and (min-width: 700px) {
+    :host {
+        width: 700px;
+        height: 60vh;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    :host {
+        width: 80vw;
+        max-width: 700px;
+        height: 60vh;
+    }
+}
