@@ -1,5 +1,6 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,11 +32,12 @@ import { TaxiComponent } from './components/taxi/taxi.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NotesComponent } from './components/notes/notes.component';
 
 //database
 const heurigenDbConfig: DBConfig  = {
   name: 'heurigen',
-  version: 5,
+  version: 6,
   objectStoresMeta: [
     {
       store: 'taxi',
@@ -72,6 +74,14 @@ const heurigenDbConfig: DBConfig  = {
         { name: 'nameId', keypath: 'nameId', options: { unique: true } },
         { name: 'favourite', keypath: 'favourite', options: { unique: false } },
       ]
+    },
+    {
+      store: 'notes_heurigen',
+      storeConfig: { keyPath: 'nameId', autoIncrement: true },
+      storeSchema: [
+        { name: 'nameId', keypath: 'nameId', options: { unique: true } },
+        { name: 'note', keypath: 'note', options: { unique: false } },
+      ]
     }
     
   ]
@@ -94,6 +104,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SettingsComponent,
     TaxiComponent,
     SettingsConfirmComponent,
+    NotesComponent,
     
   ],
   imports: [
@@ -110,6 +121,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatInputModule,
     MatMenuModule,
     MatDialogModule,
+    FormsModule,
     ReactiveFormsModule,
     GoogleMapsModule,
     TranslateModule.forRoot({
