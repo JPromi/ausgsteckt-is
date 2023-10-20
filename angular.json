@@ -43,7 +43,7 @@
           },
           "configurations": {
             "production": {
-              "outputPath": "Z:/jpromi.com/ausgsteckt.pdorf.jpromi.com",
+              "outputPath": "Z:/ausgsteckt-is.at/app.ausgsteckt-is.at",
               "budgets": [
                 {
                   "type": "initial",
