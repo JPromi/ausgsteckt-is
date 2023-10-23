@@ -83,7 +83,7 @@ export class MapsComponent implements OnInit {
 
     // darkmode
     this.mapsDarkmode();
-    this.addCurrentPositin();
+    // this.addCurrentPositin();
 
     this.loadHeurigen(parameter);
 
