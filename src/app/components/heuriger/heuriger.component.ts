@@ -13,6 +13,7 @@ import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dial
 import { NotesComponent } from '../notes/notes.component';
 import { Note } from 'src/app/dtos/note';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-heuriger',
@@ -38,7 +39,8 @@ export class HeurigerComponent {
     private translate: TranslateService,
     private emptyObjectService: EmptyObjectService,
     public dialog: MatDialog,
-    private dbService: NgxIndexedDBService
+    private dbService: NgxIndexedDBService,
+    private titleService: Title
   ) {
     
   }
@@ -58,6 +60,7 @@ export class HeurigerComponent {
           return null;
         }
         this.heuriger = response;
+        this.titleService.setTitle(response.name + ' - Ausgsteckt Is');
         this.heurigerLoading = false;
         this.checkDataType();
         this.getFavourite();
@@ -70,10 +73,14 @@ export class HeurigerComponent {
           (responseDB: Heuriger) => {
             responseDB.daysRemain = this.daysRemain(responseDB);
             this.heuriger = responseDB;
+            this.titleService.setTitle(responseDB.name + ' - Ausgsteckt Is');
             this.heurigerLoading = false;
             this.getFavourite();
             this.getNote();
             this.generateMapsLink();
+          },
+          (error) => {
+            this.router.navigateByUrl("/ausgsteckt");
           }
         )
       }
