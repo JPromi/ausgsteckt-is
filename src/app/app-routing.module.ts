@@ -9,16 +9,18 @@ import { ErrorComponent } from './components/error/error.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { TaxiComponent } from './components/taxi/taxi.component';
 
+const title = "Ausgsteckt Is"
+
 const routes: Routes = [
   { path: '', redirectTo: '/ausgsteckt', pathMatch: 'full' },
-  { path: 'heurigen', component: AllHeurigenComponent },
+  { path: 'heurigen', component: AllHeurigenComponent, title: 'Heurigen - ' + title },
   { path: 'heurigen/:heuriger', component: HeurigerComponent },
   { path: 'event/:heuriger', component: HeurigerComponent },
-  { path: 'ausgsteckt', component: CurrentHeurigenComponent },
-  { path: 'karte', component: MapsComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'taxi', component: TaxiComponent },
-  { path: '**', component: ErrorComponent },
+  { path: 'ausgsteckt', component: CurrentHeurigenComponent, title: 'Ausgsteckt Heurigen - ' + title },
+  { path: 'karte', component: MapsComponent, title: 'Karte - ' + title },
+  { path: 'settings', component: SettingsComponent, title: 'Einstellungen - ' + title },
+  { path: 'taxi', component: TaxiComponent, title: 'Taxi - ' + title },
+  { path: '**', component: ErrorComponent, title: 'Error - ' + title },
 ];
 
 @NgModule({
