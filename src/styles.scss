@@ -72,5 +72,9 @@ app-root {
 span {
     user-select: none;
 }
-html, body { height: 100%; }
+
+html {
+    font-size: 16px;
+}
+
 body { margin: 0; font-family: Poppins, "Helvetica Neue", sans-serif; }
