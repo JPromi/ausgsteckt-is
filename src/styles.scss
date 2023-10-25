@@ -1,21 +1,21 @@
 body, body.LSD {
-    --color-header: #79e975 !important;
-    --color-header-text: #000000 !important;
-    --color-title: #161616 !important;
-    --color-text: #000000 !important;
-    --color-text-pale: #cecece !important;
-    --color-icons: #000000 !important;
-    --color-list: #FFFFFF !important;
-    --color-list-shadow: #21212110 !important;
-    --background-list-favourite: #cafff8 !important;
-    --nav-background: #F5F5F5 !important;
-    --nav-icon: #000000 !important;
-    --nav-icon-active: #b92121 !important;
-    --background-color: #FFFFFF !important;
+    --color-header: #79e975;
+    --color-header-text: #000000;
+    --color-title: #161616;
+    --color-text: #000000;
+    --color-text-pale: #cecece;
+    --color-icons: #000000;
+    --color-list: #FFFFFF;
+    --color-list-shadow: #21212110;
+    --background-list-favourite: #cafff8;
+    --nav-background: #F5F5F5;
+    --nav-icon: #000000;
+    --nav-icon-active: #b92121;
+    --background-color: #FFFFFF;
     
-    --ghost-background: #EEEEEE !important;
-    --ghost-shine-1: #ECECEC !important;
-    --ghost-shine-2: #F5F5F5 !important;
+    --ghost-background: #EEEEEE;
+    --ghost-shine-1: #ECECEC;
+    --ghost-shine-2: #F5F5F5;
     
     --dropdown-background: #f0f0f0;
 }
@@ -57,6 +57,8 @@ body.LSD {
     animation-iteration-count: infinite;
     --background-color: #00ff62 !important;
     --color-list: #dcff5c !important;
+    
+    --dropdown-background: #f0f0f0;
 }
 
 body, html, app-root {
