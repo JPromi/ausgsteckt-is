@@ -1,45 +1,45 @@
 {
     "nav": {
-        "maps": "Landkortn",
-        "heurigen": "Heurign",
+        "maps": "Karte",
+        "heurigen": "Heurigen",
         "ausgsteckt": "Ausgsteckt",
         "taxi": "Taxi",
-        "settings": "Oidwexl"
+        "settings": "Einstellungen"
     },
 
     "heurigen": {
-        "title": "Heurign",
-        "error": "Es is wos schiefgangen"
+        "title": "Heurigen",
+        "error": "Ein Fehler ist aufgetreten"
     },
 
     "ausgsteckt": {
-        "error": "Koan Heurign is da dabei"
+        "error": "Keine Heurigen gefunden"
     },
 
     "heuriger": {
         "informations": {
-            "web": "Websiten",
-            "playground": "Kindaspielplätz gibts",
-            "wheelchairAccessible": "Auch für Rollstuhlfahrer",
+            "web": "Website",
+            "playground": "Spielplatz vorhanden",
+            "wheelchairAccessible": "Behindertengerecht",
             "opened": {
-                "today": "Heid no offen",
-                "1": "No",
-                "2": "Tåg offen"
+                "today": "Noch heute geöffnet",
+                "1": "Noch",
+                "2": "Tage geöffnet"
             }
         },
         "dates": {
-            "title": "Des nächste Moi offen:",
+            "title": "Das nächste Mal geöffnet:",
             "from": "Von",
             "to": "Bis"
         }
     },
 
     "maps": {
-        "title": "Landkortn",
+        "title": "Karte",
         "allHeurigen": {
-            "title": "Oid Heurign"
+            "title": "Alle Heurigen"
         },
-        "error": "Es is wos schiefgangen"
+        "error": "Ein Fehler ist aufgetreten"
     },
 
     "taxi": {
@@ -47,37 +47,38 @@
     },
 
     "settings": {
-        "title": "Oidwexl",
+        "title": "Einstellungen",
 
         "design": {
             "title": "Design",
-            "systemTheme": "Systemdesign",
-            "darkmode": "Dunkler Modus"
+            "systemTheme": "System Theme",
+            "darkmode": "Darkmode"
         },
 
         "storage": {
             "title": "Speicher",
             "delete": {
-                "favourites": "Favoriten zrücksetzen",
-                "notes": "Notizen zrücksetzen",
-                "all": "Olls zrücksetzen"
+                "favourites": "Favoriten zurücksetzen",
+                "notes": "Notizen zurücksetzen",
+                "all": "Alle Daten zurücksetzen"
             }
         },
 
         "language": {
-            "title": "Språchn",
-            "languages": "Språch"
+            "title": "Sprachen",
+            "languages": "Sprache"
         },
 
         "development": {
             "title": "Entwicklung",
-            "developer": "Entwickla:",
+            "developer": "Entwickler:",
             "feedback": "Feedback / Fehler:",
-            "repo": "GitHub Depo:",
-            "buildType": "Build Typ:",
-            "version": "Versåh:",
-            "buildDate": "Build-Dåtum:"
+            "repo": "GitHub Repository:",
+            "buildType": "Build Type:",
+            "version": "Version:",
+            "buildDate": "Build Datum:"
         }
+
     },
 
     "popup": {
@@ -85,22 +86,22 @@
             "storage": {
                 "buttons": {
                     "delete": {
-                        "cancel": "Abbrecha",
+                        "cancel": "Abbrechen",
                         "delete": "Löschen"
                     }
                 },
 
                 "delete": {
                     "favourites": {
-                        "message": "Wüst wirkli de Favoriten zrücksetzen?"
+                        "message": "Willst du Favoriten wirklich zurücksetzen?"
                     },
 
                     "notes": {
-                        "message": "Wüst wirkli de Notizen zrücksetzen?"
+                        "message": "Willst du Notizen wirklich zurücksetzen?"
                     },
 
                     "all": {
-                        "message": "Wüst wirkli olls zrücksetzen?"
+                        "message": "Willst du wirklich alle Daten zurücksetzen?"
                     }
                 }
             }

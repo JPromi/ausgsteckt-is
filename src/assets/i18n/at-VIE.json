@@ -1,40 +1,45 @@
 {
     "nav": {
-        "maps": "Karte",
-        "heurigen": "Heurigen",
+        "maps": "Landkortn",
+        "heurigen": "Heurign",
         "ausgsteckt": "Ausgsteckt",
         "taxi": "Taxi",
-        "settings": "Einstellungen"
+        "settings": "Oidwexl"
     },
 
     "heurigen": {
-        "title": "Heurigen",
-        "error": "A Fehler is aufg'treten"
+        "title": "Heurign",
+        "error": "Es is wos schiefgangen"
+    },
+
+    "ausgsteckt": {
+        "error": "Koan Heurign is da dabei"
     },
 
     "heuriger": {
         "informations": {
-            "web": "Webseit'n",
-            "playground": "Spielplatz Vorhand'n",
+            "web": "Websiten",
+            "playground": "Kindaspielplätz gibts",
+            "wheelchairAccessible": "Auch für Rollstuhlfahrer",
             "opened": {
-                "today": "Noch heit offen",
-                "1": "Noch",
-                "2": "Tage aufg'sperrt"
+                "today": "Heid no offen",
+                "1": "No",
+                "2": "Tåg offen"
             }
         },
         "dates": {
-            "title": "Des nächste Mal Aus'gsteckt:",
+            "title": "Des nächste Moi offen:",
             "from": "Von",
             "to": "Bis"
         }
     },
 
     "maps": {
-        "title": "Karte",
+        "title": "Landkortn",
         "allHeurigen": {
-            "title": "Alle Heurigen"
+            "title": "Oid Heurign"
         },
-        "error": "A Fehler is aufg'treten"
+        "error": "Es is wos schiefgangen"
     },
 
     "taxi": {
@@ -42,28 +47,66 @@
     },
 
     "settings": {
-        "title": "Einstellungen",
+        "title": "Oidwexl",
 
         "design": {
             "title": "Design",
-            "systemTheme": "System-Design",
-            "darkmode": "Dunkl-Modus"
+            "systemTheme": "Systemdesign",
+            "darkmode": "Dunkler Modus"
+        },
+
+        "storage": {
+            "title": "Speicher",
+            "delete": {
+                "favourites": "Favoriten zrücksetzen",
+                "notes": "Notizen zrücksetzen",
+                "all": "Olls zrücksetzen"
+            }
         },
 
         "language": {
-            "title": "Sprachen",
-            "languages": "Sprache"
+            "title": "Språchn",
+            "languages": "Språch"
         },
 
         "development": {
             "title": "Entwicklung",
-            "developer": "Entwickler:",
+            "developer": "Entwickla:",
             "feedback": "Feedback / Fehler:",
-            "repo": "GitHub Repository:",
-            "buildType": "Build Type:",
-            "version": "Version:",
-            "buildDate": "Build Date:"
+            "repo": "GitHub Depo:",
+            "buildType": "Build Typ:",
+            "version": "Versåh:",
+            "buildDate": "Build-Dåtum:"
         }
+    },
 
+    "popup": {
+        "settings": {
+            "storage": {
+                "buttons": {
+                    "delete": {
+                        "cancel": "Abbrecha",
+                        "delete": "Löschen"
+                    }
+                },
+
+                "delete": {
+                    "favourites": {
+                        "message": "Wüst wirkli de Favoriten zrücksetzen?"
+                    },
+
+                    "notes": {
+                        "message": "Wüst wirkli de Notizen zrücksetzen?"
+                    },
+
+                    "all": {
+                        "message": "Wüst wirkli olls zrücksetzen?"
+                    }
+                }
+            }
+        },
+        "notes": {
+            "title": "Notizen"
+        }
     }
 }
