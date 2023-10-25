@@ -110,7 +110,7 @@
             <a class="answer"> {{ envInfo.type }} </a>
         </div>
 
-        <div>
+        <div (click)="specialMode('LSD')">
             <p>{{ 'settings.development.version' | translate }}</p>
             <a class="answer"> {{ envInfo.version }} </a>
         </div>

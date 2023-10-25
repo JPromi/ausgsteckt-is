@@ -88,16 +88,23 @@ export class SettingsComponent implements OnInit {
     this.settingsService.reloadSettings();
   }
 
-  specialMode() {
+  specialMode(type: string = 'invert') {
     this.clickCount++;
 
     setTimeout(() => {
         this.clickCount = 0;
     }, 1500)
 
-    if (this.clickCount == 5) {
-      this.clickCount = 0;
-      document.getElementsByTagName("body")[0].classList.toggle("invert");
+    if(type == 'invert') {
+      if (this.clickCount == 5) {
+        this.clickCount = 0;
+        document.getElementsByTagName("body")[0].classList.toggle("invert");
+      }
+    } else if(type == 'LSD') {
+      if (this.clickCount == 5 && this.settingsService.checkDarkmode() && this.settings.language == 'at-VIE') {
+        this.clickCount = 0;
+        document.getElementsByTagName("body")[0].classList.toggle("LSD");
+      }
     }
   }
 
