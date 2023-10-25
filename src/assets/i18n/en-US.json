@@ -12,18 +12,23 @@
         "error": "An error occurred"
     },
 
+    "ausgsteckt": {
+        "error": "No wine taverns found"
+    },
+
     "heuriger": {
         "informations": {
             "web": "Website",
             "playground": "Playground Available",
+            "wheelchairAccessible": "Wheelchair Accessible",
             "opened": {
-                "today": "Open Today",
-                "1": "Open for",
-                "2": "Days"
+                "today": "Still open today",
+                "1": "Still",
+                "2": "Days open"
             }
         },
         "dates": {
-            "title": "Next Openings:",
+            "title": "Next openings:",
             "from": "From",
             "to": "To"
         }
@@ -34,7 +39,7 @@
         "allHeurigen": {
             "title": "All Wine Taverns"
         },
-        "error":"An error occurred"
+        "error": "An error occurred"
     },
 
     "taxi": {
@@ -50,19 +55,58 @@
             "darkmode": "Dark Mode"
         },
 
+        "storage": {
+            "title": "Storage",
+            "delete": {
+                "favourites": "Reset Favorites",
+                "notes": "Reset Notes",
+                "all": "Reset All Data"
+            }
+        },
+
         "language": {
-            "title": "Language",
+            "title": "Languages",
             "languages": "Language"
         },
 
         "development": {
             "title": "Development",
             "developer": "Developer:",
-            "feedback": "Feedback / Errors:",
+            "feedback": "Feedback / Bugs:",
             "repo": "GitHub Repository:",
             "buildType": "Build Type:",
             "version": "Version:",
             "buildDate": "Build Date:"
+        }
+    },
+
+    "popup": {
+        "settings": {
+            "storage": {
+                "buttons": {
+                    "delete": {
+                        "cancel": "Cancel",
+                        "delete": "Delete"
+                    }
+                },
+
+                "delete": {
+                    "favourites": {
+                        "message": "Do you really want to reset favorites?"
+                    },
+
+                    "notes": {
+                        "message": "Do you really want to reset notes?"
+                    },
+
+                    "all": {
+                        "message": "Do you really want to reset all data?"
+                    }
+                }
+            }
+        },
+        "notes": {
+            "title": "Notes"
         }
     }
 }

@@ -1,17 +1,30 @@
 {
+    "nav": {
+        "maps": "Carte",
+        "heurigen": "Tavernes à vin",
+        "ausgsteckt": "Ouvertures de Tavernes à Vin",
+        "taxi": "Taxi",
+        "settings": "Paramètres"
+    },
+
     "heurigen": {
-        "title": "Heurigen",
+        "title": "Tavernes à Vin",
         "error": "Une erreur s'est produite"
+    },
+
+    "ausgsteckt": {
+        "error": "Aucune taverne à vin trouvée"
     },
 
     "heuriger": {
         "informations": {
             "web": "Site Web",
             "playground": "Aire de jeux disponible",
+            "wheelchairAccessible": "Accessible aux fauteuils roulants",
             "opened": {
-                "today": "Ouvert aujourd'hui encore",
-                "1": "Ouvert encore",
-                "2": "jours"
+                "today": "Encore ouvert aujourd'hui",
+                "1": "Encore",
+                "2": "Jours d'ouverture"
             }
         },
         "dates": {
@@ -22,9 +35,9 @@
     },
 
     "maps": {
-        "title": "carte",
+        "title": "Carte",
         "allHeurigen": {
-            "title": "Tous les Heurigen"
+            "title": "Toutes les tavernes à vin"
         },
         "error": "Une erreur s'est produite"
     },
@@ -42,6 +55,15 @@
             "darkmode": "Mode sombre"
         },
 
+        "storage": {
+            "title": "Stockage",
+            "delete": {
+                "favourites": "Réinitialiser les favoris",
+                "notes": "Réinitialiser les notes",
+                "all": "Réinitialiser toutes les données"
+            }
+        },
+
         "language": {
             "title": "Langues",
             "languages": "Langue"
@@ -50,11 +72,41 @@
         "development": {
             "title": "Développement",
             "developer": "Développeur :",
-            "feedback": "Commentaires / Erreurs :",
+            "feedback": "Commentaires / Bugs :",
             "repo": "Dépôt GitHub :",
             "buildType": "Type de build :",
             "version": "Version :",
             "buildDate": "Date de build :"
+        }
+    },
+
+    "popup": {
+        "settings": {
+            "storage": {
+                "buttons": {
+                    "delete": {
+                        "cancel": "Annuler",
+                        "delete": "Supprimer"
+                    }
+                },
+
+                "delete": {
+                    "favourites": {
+                        "message": "Voulez-vous vraiment réinitialiser les favoris ?"
+                    },
+
+                    "notes": {
+                        "message": "Voulez-vous vraiment réinitialiser les notes ?"
+                    },
+
+                    "all": {
+                        "message": "Voulez-vous vraiment réinitialiser toutes les données ?"
+                    }
+                }
+            }
+        },
+        "notes": {
+            "title": "Notes"
         }
     }
 }

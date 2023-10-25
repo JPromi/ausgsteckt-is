@@ -1,45 +1,45 @@
 {
     "nav": {
-        "maps": "Karte",
-        "heurigen": "Heurigen",
+        "maps": "Landkortn",
+        "heurigen": "Heurign",
         "ausgsteckt": "Ausgsteckt",
         "taxi": "Taxi",
-        "settings": "Einstellungen"
+        "settings": "Oidwexl"
     },
 
     "heurigen": {
-        "title": "Heurigen",
-        "error": "Ein Fehler ist aufgetreten"
+        "title": "Heurign",
+        "error": "Es is wos schiefgangen"
     },
 
     "ausgsteckt": {
-        "error": "Keien Heurigen gefunden"
+        "error": "Koan Heurign is da dabei"
     },
 
     "heuriger": {
         "informations": {
-            "web": "Website",
-            "playground": "Spielplatz Vorhanden",
-            "wheelchairAccessible": "Behindertengerecht",
+            "web": "Websiten",
+            "playground": "Kindaspielplätz gibts",
+            "wheelchairAccessible": "Auch für Rollstuhlfahrer",
             "opened": {
-                "today": "Noch heute offen",
-                "1": "Noch",
-                "2": "Tage geöffnet"
+                "today": "Heid no offen",
+                "1": "No",
+                "2": "Tåg offen"
             }
         },
         "dates": {
-            "title": "Das nächste mal geöffnet:",
+            "title": "Des nächste Moi offen:",
             "from": "Von",
             "to": "Bis"
         }
     },
 
     "maps": {
-        "title": "Karte",
+        "title": "Landkortn",
         "allHeurigen": {
-            "title": "Alle Heurigen"
+            "title": "Oid Heurign"
         },
-        "error":"Ein Fehler ist aufgetreten"
+        "error": "Es is wos schiefgangen"
     },
 
     "taxi": {
@@ -47,40 +47,37 @@
     },
 
     "settings": {
-        "title": "Einstellungen",
+        "title": "Oidwexl",
 
         "design": {
             "title": "Design",
-            "systemTheme": "System Theme",
-            "darkmode": "Darkmode"
+            "systemTheme": "Systemdesign",
+            "darkmode": "Dunkler Modus"
         },
 
         "storage": {
             "title": "Speicher",
             "delete": {
-                "favourites": "Favouriten zurücksetzn",
-                "heurigen": "Heurigen zurücksetzn",
-                "taxi": "Taxi zurücksetzn",
-                "notes": "Notizen zurücksetzen",
-                "all": "Alle Daten zurücksetzn"
+                "favourites": "Favoriten zrücksetzen",
+                "notes": "Notizen zrücksetzen",
+                "all": "Olls zrücksetzen"
             }
         },
 
         "language": {
-            "title": "Sprachen",
-            "languages": "Sprache"
+            "title": "Språchn",
+            "languages": "Språch"
         },
 
         "development": {
             "title": "Entwicklung",
-            "developer": "Entwickler:",
+            "developer": "Entwickla:",
             "feedback": "Feedback / Fehler:",
-            "repo": "GitHub repository:",
-            "buildType": "Build Type:",
-            "version": "Version:",
-            "buildDate": "Build date:"
+            "repo": "GitHub Depo:",
+            "buildType": "Build Typ:",
+            "version": "Versåh:",
+            "buildDate": "Build-Dåtum:"
         }
-
     },
 
     "popup": {
@@ -88,30 +85,22 @@
             "storage": {
                 "buttons": {
                     "delete": {
-                        "cancle": "Abbrechen",
+                        "cancel": "Abbrecha",
                         "delete": "Löschen"
                     }
                 },
 
                 "delete": {
                     "favourites": {
-                        "message": "Willst du Favouriten wirklich zurücksetzen?"
+                        "message": "Wüst wirkli de Favoriten zrücksetzen?"
                     },
 
                     "notes": {
-                        "message": "Willst du Notizen wirklich zurücksetzen?"
+                        "message": "Wüst wirkli de Notizen zrücksetzen?"
                     },
-                    
-                    "heurigen": {
-                        "message": "Willst du Heurigen wirklich zurücksetzen?"
-                    },
-                    
-                    "taxi": {
-                        "message": "Willst du Taxi wirklich zurücksetzen?"
-                    },
-                    
+
                     "all": {
-                        "message": "Willst du Alle Daten wirklich zurücksetzen?"
+                        "message": "Wüst wirkli olls zrücksetzen?"
                     }
                 }
             }
