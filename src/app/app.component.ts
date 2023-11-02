@@ -67,8 +67,34 @@ export class AppComponent implements OnInit {
   async loadGoogleMapsScript() {
     localStorage.setItem("googleMapsScriptLoaded", "false")
     if(!document.getElementById("googleMapsApiScript")) {
+      var scriptLanguage = "de-AT";
+      switch(localStorage.getItem("language")) {
+        case 'de-AT':
+          scriptLanguage = "de"
+          break;
+
+        case 'at-VIE':
+          scriptLanguage = "de"
+          break;
+    
+        case 'en-US':
+          scriptLanguage = "en"
+          break;
+
+        case 'fr-FR':
+          scriptLanguage = "fr"
+          break;
+        
+        case 'uk-UA':
+          scriptLanguage = "uk"
+          break;
+
+        default:
+          scriptLanguage = "at"
+          break;
+      }
         let scriptEle = document.createElement("script");
-        scriptEle.setAttribute("src", "https://maps.googleapis.com/maps/api/js?key=" + cfg.googleMapsAPIkey + "&callback=Function.prototype");
+        scriptEle.setAttribute("src", "https://maps.googleapis.com/maps/api/js?key=" + cfg.googleMapsAPIkey + "&callback=Function.prototype&language=" + scriptLanguage);
         // scriptEle.setAttribute("src", "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=Function.prototype");
         scriptEle.setAttribute("id", "googleMapsApiScript");
         document.body.appendChild(scriptEle);
