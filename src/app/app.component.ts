@@ -140,7 +140,6 @@ export class AppComponent implements OnInit {
     }
 
     // taxi
-    // heurigen
     if(localStorage.getItem('database_taxi_update')) {
       var lastTaxiUpdate = new Date(localStorage.getItem('database_taxi_update') || "");
     } else {
