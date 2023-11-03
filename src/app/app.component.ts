@@ -5,6 +5,11 @@ import { TranslateService } from '@ngx-translate/core';
 import cfg from '../config.json';
 import { Router } from '@angular/router';
 import { App as CapacitorApp } from '@capacitor/app';
+import { DatabaseService } from './services/database.service';
+import { HeurigerService } from './services/heuriger.service';
+import { Heuriger } from './dtos/heuriger';
+import { TaxiService } from './services/taxi.service';
+import { Taxi } from './dtos/taxi';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +25,10 @@ export class AppComponent implements OnInit {
   constructor(
     private settingsSerive:SettingsService,
     private translate: TranslateService,
-    public router: Router
+    public router: Router,
+    public databaseService: DatabaseService,
+    private heurigenService: HeurigerService,
+    private taxiService: TaxiService
   ) {
     translate.addLangs(['de-AT', 'en-US', 'fr-FR', 'uk-UA', 'at-VIE']);
     translate.setDefaultLang('de-AT');
@@ -30,6 +38,7 @@ export class AppComponent implements OnInit {
   async ngOnInit() {
     await this.loadGoogleMapsScript();
     await this.checkSetting();
+    await this.loadOfflineData();
 
     //backbutton Android
     CapacitorApp.addListener('backButton', ({canGoBack}) => {
@@ -111,6 +120,50 @@ export class AppComponent implements OnInit {
         scriptEle.onerror = () => {
           localStorage.setItem("googleMapsScriptLoaded", "error")
         }
+    }
+  }
+
+  loadOfflineData() {
+    // heurigen
+    if(localStorage.getItem('database_heurigen_update')) {
+      var lastHeurigenUpdate = new Date(localStorage.getItem('database_heurigen_update') || "");
+    } else {
+      var lastHeurigenUpdate = new Date(localStorage.getItem('database_heurigen_update') || "2000-01-01");
+    }
+    if(!this.isToday(lastHeurigenUpdate)) {
+      this.heurigenService.getAllHeurigen()
+      .subscribe((response: Heuriger[]) => {
+        this.databaseService.updateHeurigen(response);
+      },
+      (error) => {}
+      );
+    }
+
+    // taxi
+    // heurigen
+    if(localStorage.getItem('database_taxi_update')) {
+      var lastTaxiUpdate = new Date(localStorage.getItem('database_taxi_update') || "");
+    } else {
+      var lastTaxiUpdate = new Date(localStorage.getItem('database_taxi_update') || "2000-01-01");
+    }
+    if(!this.isToday(lastTaxiUpdate)) {
+      this.taxiService.getTaxi()
+      .subscribe((response: Taxi[]) => {
+        this.databaseService.updateTaxi(response);
+      },
+      (error) => {}
+      );
+    }
+  }
+
+  private isToday(date: Date): boolean {
+    var today = new Date()
+    if(date.getDate() == today.getDate() &&
+    date.getMonth() == today.getMonth() &&
+    date.getFullYear() == today.getFullYear()) {
+      return true;
+    } else {
+      return false;
     }
   }
 
