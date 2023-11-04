@@ -59,6 +59,17 @@ nav {
                     font-size: 6.75vw;
                 }
 
+                svg {
+                    width: 24px;
+                    height: 24px;
+                    .cls-1 {
+                        fill: var(--nav-icon);
+                        opacity: .75;
+                        transition: fill ease-in-out 150ms,
+                                    opacity ease-in-out 150ms;
+                    }
+                }
+
                 p {
                     font-size: .4rem;
                     max-width: 100%;
@@ -69,6 +80,16 @@ nav {
 
             a.active {
                 color: var(--nav-icon-active);
+
+                svg {
+                    width: 24px;
+                    height: 24px;
+
+                    .cls-1 {
+                        opacity: 1;
+                        fill: var(--nav-icon-active);
+                    }
+                }
             }
         }
 
