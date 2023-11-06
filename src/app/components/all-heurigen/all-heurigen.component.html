@@ -34,6 +34,6 @@
     </a>
 </div>
 
-<div class="heurigen-list" *ngIf="!heurigen && requestLoaded">
+<div class="heurigen-list" *ngIf="!heurigen.length && requestLoaded">
     <a>{{ 'heurigen.error' | translate }}</a>
 </div>
