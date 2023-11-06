@@ -60,8 +60,8 @@ nav {
                 }
 
                 svg {
-                    width: 24px;
-                    height: 24px;
+                    width: 26px;
+                    height: 26px;
                     .cls-1 {
                         fill: var(--nav-icon);
                         opacity: .75;
@@ -82,9 +82,6 @@ nav {
                 color: var(--nav-icon-active);
 
                 svg {
-                    width: 24px;
-                    height: 24px;
-
                     .cls-1 {
                         opacity: 1;
                         fill: var(--nav-icon-active);
