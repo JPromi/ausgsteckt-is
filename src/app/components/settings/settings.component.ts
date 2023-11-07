@@ -9,6 +9,7 @@ import { Language } from 'src/app/dtos/language';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { SettingsConfirmComponent } from 'src/app/components/settings-confirm/settings-confirm.component';
+import { LanguageService } from 'src/app/services/language.service';
 
 @Component({
   selector: 'app-settings',
@@ -22,35 +23,17 @@ export class SettingsComponent implements OnInit {
     public formBuilder: FormBuilder,
     public dialog: MatDialog,
     private translate: TranslateService,
-    private dbService: NgxIndexedDBService
+    private dbService: NgxIndexedDBService,
+    private languageService: LanguageService
   ) {}
 
   languages = [
     {
       "name": "Deutsch",
       "code": "de-AT",
+      "realCode": "de",
       "flag": "austria"
-    },
-    {
-      "name": "English",
-      "code": "en-US",
-      "flag": "america"
-    },
-    {
-      "name": "Français",
-      "code": "fr-FR",
-      "flag": "france"
-    },
-    {
-      "name": "українська",
-      "code": "uk-UA",
-      "flag": "ukraine"
-    },
-    {
-      "name": "Wienerisch",
-      "code": "at-VIE",
-      "flag": "vienna"
-    },
+    }
   ]
 
   settings = new Settings();
@@ -70,6 +53,7 @@ export class SettingsComponent implements OnInit {
   envInfo = environment.informations;
 
   ngOnInit() {
+    this.loadLanguages();
     this.loadSettings();
   }
 
@@ -161,5 +145,9 @@ export class SettingsComponent implements OnInit {
         }
       }
     });
+  }
+
+  loadLanguages() {
+    this.languages = this.languageService.getLanguages();
   }
 }

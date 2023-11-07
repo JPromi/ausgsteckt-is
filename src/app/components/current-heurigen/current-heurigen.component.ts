@@ -7,6 +7,8 @@ import { HeurigerService } from 'src/app/services/heuriger.service';
 import { Heuriger } from 'src/app/dtos/heuriger';
 import { DatabaseService } from 'src/app/services/database.service';
 import { HeurigerFavourite } from 'src/app/dtos/heuriger-favourite';
+import { DateAdapter } from '@angular/material/core';
+import { LanguageService } from 'src/app/services/language.service';
 
 @Component({
   selector: 'app-current-heurigen',
@@ -22,12 +24,20 @@ export class CurrentHeurigenComponent {
   selectedDate = new FormControl('');
   favouriteHeurige: HeurigerFavourite[] = [];
   
-  constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router, private databaseService: DatabaseService) {
+  constructor(
+    private heurigenService:HeurigerService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private databaseService: DatabaseService,
+    private languageService: LanguageService,
+    private dateAdapter: DateAdapter<Date>
+    ) {
 
     this.route.queryParams.subscribe(response => {
       this.parameter = response;
     }
     );
+    this.datePickerLanguage();
   }
   
   ngOnInit(dateP = '') {
@@ -245,6 +255,10 @@ export class CurrentHeurigenComponent {
     } else {
       return '/heurigen/' + heuriger.nameId
     }
+  }
+
+  datePickerLanguage() {
+    this.dateAdapter.setLocale(this.languageService.getCurrentLanguage().realCode);
   }
 
 }

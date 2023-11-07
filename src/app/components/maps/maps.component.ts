@@ -1,10 +1,12 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { DateAdapter } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Heuriger, ausgsteckt, coordinates, phone } from 'src/app/dtos/heuriger';
 import { EmptyObjectService } from 'src/app/services/empty-object.service';
 import { HeurigerService } from 'src/app/services/heuriger.service';
+import { LanguageService } from 'src/app/services/language.service';
 import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
@@ -54,12 +56,16 @@ export class MapsComponent implements OnInit {
     public settingsService: SettingsService,
     public emptyObjectService: EmptyObjectService,
     private route: ActivatedRoute, 
-    private router: Router
+    private router: Router,
+    private languageService: LanguageService,
+    private dateAdapter: DateAdapter<Date>
   ) {
     this.route.queryParams.subscribe(response => {
       this.parameter = response;
     }
     );
+
+    this.datePickerLanguage();
   }
 
   ngOnInit(dateP = '') {    
@@ -364,5 +370,9 @@ export class MapsComponent implements OnInit {
     } else {
       return '/heurigen/' + heuriger.nameId
     }
+  }
+
+  datePickerLanguage() {
+    this.dateAdapter.setLocale(this.languageService.getCurrentLanguage().realCode);
   }
 }

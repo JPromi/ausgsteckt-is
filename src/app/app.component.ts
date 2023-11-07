@@ -10,6 +10,7 @@ import { HeurigerService } from './services/heuriger.service';
 import { Heuriger } from './dtos/heuriger';
 import { TaxiService } from './services/taxi.service';
 import { Taxi } from './dtos/taxi';
+import { LanguageService } from './services/language.service';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,8 @@ export class AppComponent implements OnInit {
     public router: Router,
     public databaseService: DatabaseService,
     private heurigenService: HeurigerService,
-    private taxiService: TaxiService
+    private taxiService: TaxiService,
+    private languageService: LanguageService
   ) {
     translate.addLangs(['de-AT', 'en-US', 'fr-FR', 'uk-UA', 'at-VIE']);
     translate.setDefaultLang('de-AT');
@@ -76,50 +78,27 @@ export class AppComponent implements OnInit {
   async loadGoogleMapsScript() {
     localStorage.setItem("googleMapsScriptLoaded", "false")
     if(!document.getElementById("googleMapsApiScript")) {
-      var scriptLanguage = "de-AT";
-      switch(localStorage.getItem("language")) {
-        case 'de-AT':
-          scriptLanguage = "de"
-          break;
 
-        case 'at-VIE':
-          scriptLanguage = "de"
-          break;
-    
-        case 'en-US':
-          scriptLanguage = "en"
-          break;
-
-        case 'fr-FR':
-          scriptLanguage = "fr"
-          break;
-        
-        case 'uk-UA':
-          scriptLanguage = "uk"
-          break;
-
-        default:
-          scriptLanguage = "at"
-          break;
+      const language = this.languageService.getCurrentLanguage();
+      
+      let scriptEle = document.createElement("script");
+      scriptEle.setAttribute("src", "https://maps.googleapis.com/maps/api/js?key=" + cfg.googleMapsAPIkey + "&callback=Function.prototype&language=" + language.realCode);
+      // scriptEle.setAttribute("src", "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=Function.prototype");
+      scriptEle.setAttribute("id", "googleMapsApiScript");
+      document.body.appendChild(scriptEle);
+      // scriptEle.addEventListener("load",
+      //   () => {
+      //     // this.scriptLoaded = true;
+      //     console.log(this.scriptLoaded)
+      //   }
+      // );
+      scriptEle.onload = () => {
+        this.scriptLoaded = true;
+        localStorage.setItem("googleMapsScriptLoaded", "true")
       }
-        let scriptEle = document.createElement("script");
-        scriptEle.setAttribute("src", "https://maps.googleapis.com/maps/api/js?key=" + cfg.googleMapsAPIkey + "&callback=Function.prototype&language=" + scriptLanguage);
-        // scriptEle.setAttribute("src", "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=Function.prototype");
-        scriptEle.setAttribute("id", "googleMapsApiScript");
-        document.body.appendChild(scriptEle);
-        // scriptEle.addEventListener("load",
-        //   () => {
-        //     // this.scriptLoaded = true;
-        //     console.log(this.scriptLoaded)
-        //   }
-        // );
-        scriptEle.onload = () => {
-          this.scriptLoaded = true;
-          localStorage.setItem("googleMapsScriptLoaded", "true")
-        }
-        scriptEle.onerror = () => {
-          localStorage.setItem("googleMapsScriptLoaded", "error")
-        }
+      scriptEle.onerror = () => {
+        localStorage.setItem("googleMapsScriptLoaded", "error")
+      }
     }
   }
 
