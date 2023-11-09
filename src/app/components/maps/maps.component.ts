@@ -165,7 +165,7 @@ export class MapsComponent implements OnInit {
   }
 
   generateMapsLink(heuriger: Heuriger) {
-    var url = "http://maps.google.com/maps?t=h&q=";
+    var url = "http://maps.google.com/maps?q=";
     return url + heuriger.address.replace(" ", "+") + ',' +  '+' + heuriger.city.replace(" ", "+");
   }
 

@@ -90,7 +90,7 @@ export class HeurigerComponent {
   }
 
   generateMapsLink() {
-    var url = "http://maps.google.com/maps?t=h&q=";
+    var url = "http://maps.google.com/maps?q=";
     this.mapsLink = url + this.heuriger.address.replace(" ", "+") + ',' +  '+' + this.heuriger.city.replace(" ", "+");
   }
 
