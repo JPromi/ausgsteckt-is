@@ -10,7 +10,6 @@ import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { SettingsConfirmComponent } from 'src/app/components/settings-confirm/settings-confirm.component';
 import { LanguageService } from 'src/app/services/language.service';
-import { SettingsExportComponent } from '../settings-export/settings-export.component';
 
 @Component({
   selector: 'app-settings',
@@ -152,81 +151,4 @@ export class SettingsComponent implements OnInit {
     this.languages = this.languageService.getLanguages();
   }
 
-  exportDatabase() {
-    let dialogRef = this.dialog.open(SettingsExportComponent, {});
-
-    dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-        this.exportDatabaseAction();
-      }
-    }
-    );
-
-    
-  }
-
-  exportDatabaseAction() {
-    const date = new Date();
-    var fileTypeEnding = "jsais";
-    var fileName = "ausgsteckt-is_data-" + date.getFullYear() + '-' + (('0' + date.getMonth()).slice(-2)) + '-' + (('0' + date.getDate()).slice(-2)) + "." + fileTypeEnding;
-    this.dbService.getAll('favourites_heurigen').subscribe(
-      (favourites) => {
-        this.dbService.getAll('notes_heurigen').subscribe(
-          (notes) => {
-            var data = {
-              "favourites": favourites,
-              "notes": notes
-            }
-            var blob = new Blob([JSON.stringify(data)], {type: 'application/json'});
-            this.saveAs(blob, fileName);
-          }
-        )
-      }
-    )
-  }
-
-  importDatabase() {
-    var input = document.createElement('input');
-    input.type = 'file';
-    input.accept = '.jsais, application/json';
-    input.onchange = (e: any) => {
-      var file = e.target.files[0];
-      var reader = new FileReader();
-      reader.readAsText(file,'UTF-8');
-      reader.onload = (readerEvent) => {
-        var content = readerEvent.target?.result;
-        var data = JSON.parse(content as string);
-        console.log(data);
-        this.dbService.clear('favourites_heurigen').subscribe(
-          () => {
-            this.dbService.clear('notes_heurigen').subscribe(
-              () => {
-                this.dbService.add('favourites_heurigen', data.favourites[0]).subscribe(
-                  () => {
-                    this.dbService.add('notes_heurigen', data.notes[0]).subscribe(
-                      () => {
-                        this.settingsService.reloadSettings();
-                      }
-                    )
-                  }
-                )
-              }
-            )
-          }
-        )
-      }
-    }
-    input.click();
-  }
-
-  saveAs(blob: Blob, fileName: string) {
-    var a = document.createElement("a");
-    document.body.appendChild(a);
-    a.style.display = "none";
-    var url = window.URL.createObjectURL(blob);
-    a.href = url;
-    a.download = fileName;
-    a.click();
-    window.URL.revokeObjectURL(url);
-  }
 }

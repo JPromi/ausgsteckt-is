@@ -69,12 +69,6 @@
             "languages": "Sprache"
         },
 
-        "dataExportImport": {
-            "title": "Daten Exportieren / Importieren",
-            "export": "Daten Exportieren",
-            "import": "Daten Importieren"
-        },
-
         "development": {
             "title": "Entwicklung",
             "developer": "Entwickler:",
@@ -109,16 +103,6 @@
                     "all": {
                         "message": "Willst du wirklich alle Daten zurücksetzen?"
                     }
-                }
-            },
-            "dataExportImport": {
-                "export": {
-                    "title": "Daten Exportieren",
-                    "buttons": {
-                        "cancel": "Abbrechen",
-                        "export": "Exportieren"
-                    },
-                    "message": "Wenn du die App-Daten exportierst, werden sowohl deine Notizen als auch deine Favoriten in der exportierten Datei gespeichert. Du kannst diese Datei dann in die mobile App hochladen oder sie auf der Website importieren."
                 }
             }
         },

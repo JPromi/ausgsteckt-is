@@ -67,13 +67,7 @@
         "language": {
             "title": "Langues",
             "languages": "Langue"
-        },
-
-        "dataExportImport": {
-            "title": "Exporter/Importer les données",
-            "export": "Exporter les données",
-            "import": "Importer les données"
-        },        
+        },     
 
         "development": {
             "title": "Développement",
@@ -109,18 +103,7 @@
                         "message": "Voulez-vous vraiment réinitialiser toutes les données ?"
                     }
                 }
-            },
-            "dataExportImport": {
-                "export": {
-                    "title": "Exporter les données",
-                    "buttons": {
-                        "cancel": "Annuler",
-                        "export": "Exporter"
-                    },
-                    "message": "Lorsque vous exportez les données de l'application, à la fois vos notes et vos favoris seront enregistrés dans le fichier exporté. Vous pouvez ensuite télécharger ce fichier dans l'application mobile ou l'importer sur le site web."
-                }
-            }
-            
+            }            
         },
         "notes": {
             "title": "Notes"
