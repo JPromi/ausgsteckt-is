@@ -69,6 +69,12 @@
             "languages": "Language"
         },
 
+        "dataExportImport": {
+            "title": "Export/Import Data",
+            "export": "Export Data",
+            "import": "Import Data"
+        },
+
         "development": {
             "title": "Development",
             "developer": "Developer:",
@@ -103,7 +109,18 @@
                         "message": "Do you really want to reset all data?"
                     }
                 }
+            },
+            "dataExportImport": {
+                "export": {
+                    "title": "Export Data",
+                    "buttons": {
+                        "cancel": "Cancel",
+                        "export": "Export"
+                    },
+                    "message": "When you export the app data, both your notes and favorites will be saved in the exported file. You can then upload this file to the mobile app or import it on the website."
+                }
             }
+            
         },
         "notes": {
             "title": "Notes"

@@ -69,6 +69,12 @@
             "languages": "Språch"
         },
 
+        "dataExportImport": {
+            "title": "Dåten Exportiern / Eilodan",
+            "export": "Dåten Exportiern",
+            "import": "Dåten Eilodan"
+        },
+
         "development": {
             "title": "Entwicklung",
             "developer": "Entwickla:",
@@ -103,7 +109,18 @@
                         "message": "Wüst wirkli olls zrücksetzen?"
                     }
                 }
+            },
+            "dataExportImport": {
+                "export": {
+                    "title": "Dåten Exportiern",
+                    "buttons": {
+                        "cancel": "Oidln",
+                        "export": "Exportiern"
+                    },
+                    "message": "Wånn du de App-Dåtn exportierst, wern sowohl dei Nochtzn ois a dei Lieblingssåchn in da exportiern Datei gspeichert. Du kannst dann die Datei in de Mobile App hi'lådn oder sie auf da Websit einladn."
+                }
             }
+            
         },
         "notes": {
             "title": "Notizen"
