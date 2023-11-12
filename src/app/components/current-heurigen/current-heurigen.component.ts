@@ -132,7 +132,8 @@ export class CurrentHeurigenComponent {
         var currentDate: Date;
 
         if(!this.parameter.date) {
-          currentDate = new Date();
+          var _currentDate = new Date();
+          currentDate = new Date(_currentDate.getFullYear(), _currentDate.getMonth(), _currentDate.getDate(), 1, 0, 0, 0);
           this.dateDisplay = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
         } else {
           const currentDateT = Date.parse(this.parameter.date);
@@ -162,7 +163,8 @@ export class CurrentHeurigenComponent {
       },
       (error: any) => {
         if(!this.parameter.date) {
-          var searchDate = new Date();
+          var _searchDate = new Date();
+          var searchDate = new Date(_searchDate.getFullYear(), _searchDate.getMonth(), _searchDate.getDate(), 1, 0, 0, 0);
         } else {
           const searchDateT = Date.parse(this.parameter.date);
           var searchDate = new Date(searchDateT);
@@ -176,7 +178,7 @@ export class CurrentHeurigenComponent {
               await heuriger.ausgsteckt.forEach(
                 heurigerDate => {
                   if(new Date(heurigerDate.from) <= searchDate && new Date(heurigerDate.to) >= searchDate) {
-                    heuriger.daysRemain = this.daysRemain(heuriger);
+                    heuriger.daysRemain = this.daysRemain(heuriger, searchDate);
                     _currentHeurigen.push(heuriger);
                   }
                 }
@@ -208,6 +210,7 @@ export class CurrentHeurigenComponent {
       if (today >= startDate && today <= endDate) {
         const diffTime = Math.abs(endDate.getTime() - today.getTime());
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+        console.log(diffDays);
         return diffDays;
         break;
       }
