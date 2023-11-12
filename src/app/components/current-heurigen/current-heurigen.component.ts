@@ -210,7 +210,6 @@ export class CurrentHeurigenComponent {
       if (today >= startDate && today <= endDate) {
         const diffTime = Math.abs(endDate.getTime() - today.getTime());
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
-        console.log(diffDays);
         return diffDays;
         break;
       }
