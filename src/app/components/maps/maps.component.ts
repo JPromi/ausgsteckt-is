@@ -130,7 +130,14 @@ export class MapsComponent implements OnInit {
     } else {
       this.heurigerService.getAllHeurigen().subscribe(
         (response: Array<Heuriger>) => {
-          this.heurigenList = response;
+          var _heurigenList: Heuriger[] = [];
+          response.forEach(heuriger => {
+            if(heuriger.type == 'weinrat' || heuriger.type == 'heuriger') {
+              _heurigenList.push(heuriger);
+            }
+          });
+          this.heurigenList = _heurigenList;
+          console.log(this.heurigenList);
           this.heurigenLoaded = true;
         },
         (error) => {

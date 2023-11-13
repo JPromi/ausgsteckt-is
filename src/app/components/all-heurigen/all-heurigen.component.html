@@ -19,19 +19,21 @@
 </div>
 
 <div class="heurigen-list" *ngIf="requestLoaded && heurigen">
-
-    <a 
-        *ngFor="let heuriger of heurigen"
+    <ng-container *ngFor="let heuriger of heurigen">
+        <a 
         [routerLink]="[generateSingleViewLink(heuriger)]"
-        [ngClass]="{'favourite': heuriger.favourite}">
-        <img 
-            [src]="'/assets/heurigen/' + heuriger.nameId + '.png'"
-            onerror="this.src='./assets/heurigen/placeholder.png';">
-        <div class="informations">
-            <h3>{{ heuriger.name }}</h3>
-            <p>{{ heuriger.address }}</p>
-        </div>
-    </a>
+        [ngClass]="{'favourite': heuriger.favourite}"
+        *ngIf="heuriger.type == 'heuriger' || heuriger.type == 'weinrat'">
+            <img 
+                [src]="'/assets/heurigen/' + heuriger.nameId + '.png'"
+                onerror="this.src='./assets/heurigen/placeholder.png';">
+            <div class="informations">
+                <h3>{{ heuriger.name }}</h3>
+                <p>{{ heuriger.address }}</p>
+            </div>
+        </a>
+    </ng-container>
+    
 </div>
 
 <div class="heurigen-list" *ngIf="!heurigen.length && requestLoaded">
