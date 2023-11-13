@@ -40,8 +40,12 @@ export class HeurigerService {
     }
   }
 
-  getAllHeurigen(): Observable<Heuriger[]> {
-    return this.httpClient.get<Heuriger[]>(this.url + '/heurigen').pipe(
+  getAllHeurigen(all: boolean = false): Observable<Heuriger[]> {
+    var parameter = '?';
+    if(all) {
+      parameter += 'data=all';
+    }
+    return this.httpClient.get<Heuriger[]>(this.url + '/heurigen' + parameter).pipe(
       timeout(cfg.api.timeout),
       catchError(e => {
         throw new Error('Timeout exceeded!');

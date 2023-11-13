@@ -110,7 +110,7 @@ export class AppComponent implements OnInit {
       var lastHeurigenUpdate = new Date(localStorage.getItem('database_heurigen_update') || "2000-01-01");
     }
     if(!this.isToday(lastHeurigenUpdate)) {
-      this.heurigenService.getAllHeurigen()
+      this.heurigenService.getAllHeurigen(true)
       .subscribe((response: Heuriger[]) => {
         this.databaseService.updateHeurigen(response);
       },
