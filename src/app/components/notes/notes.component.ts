@@ -94,6 +94,8 @@ export class NotesComponent {
               this.data.note.note = '';
               this.originalNote = '';
             }
+
+            this.closeDialog();
             
           }
         );
