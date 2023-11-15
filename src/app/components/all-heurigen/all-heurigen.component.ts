@@ -15,10 +15,12 @@ import { HeurigerService } from 'src/app/services/heuriger.service';
 export class AllHeurigenComponent {
 
   heurigen:Heuriger[] = [];
+  _allHeurigen:Heuriger[] = [];
   heurigenNotes:string[] = [];
   parameter:any;
   requestLoaded:boolean = false;
   error:boolean = false
+  viewListType:string = 'all';
 
   constructor(private heurigenService:HeurigerService, private route: ActivatedRoute, private router: Router, private databaseService: DatabaseService) {
 
@@ -29,7 +31,7 @@ export class AllHeurigenComponent {
   }
 
   ngOnInit() {
-    this.heurigenService.getAllHeurigen()
+    this.heurigenService.getAllHeurigen(true)
       .subscribe((response: Heuriger[]) => {
         this.heurigen = response;
         this.getFavourite();
@@ -107,6 +109,40 @@ export class AllHeurigenComponent {
       if (heuriger.nameId == this.heurigenNotes[i]) {
         return true;
       }
+    }
+    return false;
+  }
+
+  toggleView(type:string = 'all') {
+    if(type == 'all') {
+      this.viewListType = 'all';
+      // this.ngOnInit();
+      this.heurigen = this._allHeurigen;
+    } else if(type == 'notes') {
+      this.viewListType = 'notes';
+      this.loadListNotes();
+    }
+  }
+
+  loadListNotes() {
+    this._allHeurigen = []
+    for (let i = 0; i < this.heurigen.length; i++) {
+      this._allHeurigen.push(this.heurigen[i]);
+      if (!this.checkIfHasNotes(this.heurigen[i])) {
+        this.heurigen.splice(i, 1);
+        i--;
+      }
+    }
+  }
+
+  checkIfHeurigerIsVisible(heuriger:Heuriger): boolean {
+    if(this.viewListType == 'all') {
+      console.log(heuriger.type);
+      if(heuriger.type == 'heuriger' || heuriger.type == 'weinrat') {
+        return true;
+      }
+    } else if(this.viewListType == 'notes') {
+      return true;
     }
     return false;
   }
