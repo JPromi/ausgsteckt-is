@@ -137,7 +137,6 @@ export class AllHeurigenComponent {
 
   checkIfHeurigerIsVisible(heuriger:Heuriger): boolean {
     if(this.viewListType == 'all') {
-      console.log(heuriger.type);
       if(heuriger.type == 'heuriger' || heuriger.type == 'weinrat') {
         return true;
       }

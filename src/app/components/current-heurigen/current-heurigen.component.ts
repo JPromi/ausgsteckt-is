@@ -280,7 +280,6 @@ export class CurrentHeurigenComponent {
   checkIfHasNotes(heuriger: Heuriger): boolean {
     for (let i = 0; i < this.heurigenNotes.length; i++) {
       if (heuriger.nameId == this.heurigenNotes[i]) {
-        console.log(heuriger.nameId);
         return true;
       }
     }
