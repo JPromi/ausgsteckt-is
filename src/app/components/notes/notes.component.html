@@ -13,7 +13,7 @@
         <button *ngIf="edit" (click)="saveNote(true)">
             <mat-icon>save</mat-icon>
         </button>
-        <button *ngIf="edit" (click)="saveNote()">
+        <button *ngIf="edit" (click)="saveNote(false)">
             <mat-icon>close</mat-icon>
         </button>
         <button *ngIf="edit" (click)="deleteNote()">

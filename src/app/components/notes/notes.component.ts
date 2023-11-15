@@ -26,10 +26,15 @@ export class NotesComponent {
 
   ) {
     this.originalNote = this.data.note.note;
+
+    dialogRef.backdropClick().subscribe(() => {
+      this.closeDialog(true);
+    })
   }
 
-  closeDialog(save: boolean = false) {
-    this.data.note.note = this.originalNote
+  async closeDialog(save: boolean = true) {
+    await this.saveNote(save);
+    this.data.note.note = this.originalNote;
     this.dialogRef.close({
       saveData: save,
       note: this.data.note
@@ -40,7 +45,7 @@ export class NotesComponent {
     this.edit = true;
   }
 
-  saveNote(saveData = false) {
+  async saveNote(saveData = false) {
     if(saveData) {
       this.originalNote = this.data.note.note;
       this.databaseService.getNote(this.data.heuriger.nameId).subscribe(
