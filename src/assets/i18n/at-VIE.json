@@ -112,7 +112,11 @@
 
         },
         "notes": {
-            "title": "Notizen"
+            "title": "Notizen",
+            "delete": {
+                "title": "Notiz löschen",
+                "message": "Wüst wirkli de Notiz löschen?"
+            }
         }
     }
 }
