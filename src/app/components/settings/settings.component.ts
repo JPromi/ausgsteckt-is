@@ -135,6 +135,11 @@ export class SettingsComponent implements OnInit {
         } else if(type == 'taxi') {
           this.dbService.clear("taxi").subscribe();
           localStorage.removeItem("database_taxi_update");
+        } else if(type == 'cache') {
+          this.dbService.clear("heurigen").subscribe();
+          localStorage.removeItem("database_heurigen_update");
+          this.dbService.clear("taxi").subscribe();
+          localStorage.removeItem("database_taxi_update");
         } else {
           this.dbService.clear("heurigen").subscribe();
           localStorage.removeItem("database_heurigen_update");

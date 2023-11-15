@@ -60,6 +60,7 @@
             "delete": {
                 "favourites": "Favoriten zurücksetzen",
                 "notes": "Notizen zurücksetzen",
+                "cache": "Cache zurücksetzen",
                 "all": "Alle Daten zurücksetzen"
             }
         },
@@ -98,6 +99,10 @@
 
                     "notes": {
                         "message": "Willst du Notizen wirklich zurücksetzen?"
+                    },
+
+                    "cache": {
+                        "message": "Willst den Cache wirklich zurücksetzen?"
                     },
 
                     "all": {

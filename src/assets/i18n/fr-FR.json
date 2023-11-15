@@ -60,6 +60,7 @@
             "delete": {
                 "favourites": "Réinitialiser les favoris",
                 "notes": "Réinitialiser les notes",
+                "cache": "Réinitialiser les cache",
                 "all": "Réinitialiser toutes les données"
             }
         },
@@ -97,6 +98,10 @@
 
                     "notes": {
                         "message": "Voulez-vous vraiment réinitialiser les notes ?"
+                    },
+
+                    "cache": {
+                        "message": "Voulez-vous vraiment vider le cache?"
                     },
 
                     "all": {

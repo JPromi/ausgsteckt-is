@@ -60,6 +60,7 @@
             "delete": {
                 "favourites": "Reset Favorites",
                 "notes": "Reset Notes",
+                "cache": "Reset Cache",
                 "all": "Reset All Data"
             }
         },
@@ -97,6 +98,10 @@
 
                     "notes": {
                         "message": "Do you really want to reset notes?"
+                    },
+
+                    "cache": {
+                        "message": "Do you really want to clear the cache?"
                     },
 
                     "all": {

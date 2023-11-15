@@ -60,6 +60,7 @@
             "delete": {
                 "favourites": "Favoriten zrücksetzen",
                 "notes": "Notizen zrücksetzen",
+                "cache": "Cache zrücksetzen",
                 "all": "Olls zrücksetzen"
             }
         },
@@ -97,6 +98,10 @@
 
                     "notes": {
                         "message": "Wüst wirkli de Notizen zrücksetzen?"
+                    },
+
+                    "cache": {
+                        "message": "Wüst echt den Cache z'rucksetzn?"
                     },
 
                     "all": {
