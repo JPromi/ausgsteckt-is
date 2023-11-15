@@ -18,6 +18,7 @@ import { LanguageService } from 'src/app/services/language.service';
 export class CurrentHeurigenComponent {
 
   currentHeurigen:Heuriger[] = [];
+  heurigenNotes:string[] = [];
   parameter:any;
   dateDisplay:any;
   requestLoaded:boolean = false;
@@ -159,6 +160,7 @@ export class CurrentHeurigenComponent {
 
         this.currentHeurigen = _currentHeurigen;
         this.getFavourite();
+        this.getHeurigenNotes();
         this.requestLoaded = true;
       },
       (error: any) => {
@@ -184,6 +186,8 @@ export class CurrentHeurigenComponent {
                 }
               )
             });
+            this.getFavourite();
+            this.getHeurigenNotes();
 
             this.currentHeurigen = _currentHeurigen
             this.requestLoaded = true;
@@ -261,6 +265,26 @@ export class CurrentHeurigenComponent {
 
   datePickerLanguage() {
     this.dateAdapter.setLocale(this.languageService.getCurrentLanguage().realCode);
+  }
+
+  getHeurigenNotes() {
+    this.databaseService.getNotes().subscribe(
+      (notes) => {
+        for (let i = 0; i < notes.length; i++) {
+          this.heurigenNotes.push(notes[i].nameId);
+        }
+      }
+    );
+  }
+
+  checkIfHasNotes(heuriger: Heuriger): boolean {
+    for (let i = 0; i < this.heurigenNotes.length; i++) {
+      if (heuriger.nameId == this.heurigenNotes[i]) {
+        console.log(heuriger.nameId);
+        return true;
+      }
+    }
+    return false;
   }
 
 }

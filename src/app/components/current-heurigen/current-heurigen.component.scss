@@ -93,6 +93,7 @@
     gap: .25rem;
 
     a {
+        position: relative;
         animation: opacityIn 500ms;
         padding: .75rem 1rem;
         //border-bottom: 1px solid #21212150;
@@ -144,6 +145,18 @@
             }
             
         }
+    }
+
+    .note::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: var(--color-list-note);
+        width: 30px;
+        height: 30px;
+        clip-path: polygon(0 0, 100% 100%, 100% 0);
+        border-radius: 0 .25rem 0 0;
     }
 
     .favourite {

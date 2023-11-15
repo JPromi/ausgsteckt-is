@@ -119,4 +119,8 @@ export class DatabaseService {
   getNote(heuriger: string): Observable<Note> {
     return this.dbService.getByKey('notes_heurigen', heuriger)
   }
+
+  getNotes(): Observable<Note[]> {
+    return this.dbService.getAll('notes_heurigen')
+  }
 }

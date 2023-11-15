@@ -15,6 +15,7 @@ import { HeurigerService } from 'src/app/services/heuriger.service';
 export class AllHeurigenComponent {
 
   heurigen:Heuriger[] = [];
+  heurigenNotes:string[] = [];
   parameter:any;
   requestLoaded:boolean = false;
   error:boolean = false
@@ -32,6 +33,7 @@ export class AllHeurigenComponent {
       .subscribe((response: Heuriger[]) => {
         this.heurigen = response;
         this.getFavourite();
+        this.getHeurigenNotes();
         this.requestLoaded = true;
         this.databaseService.updateHeurigen(response);
       },
@@ -41,6 +43,7 @@ export class AllHeurigenComponent {
           (responseDB: Heuriger[]) => {
             this.heurigen = responseDB;
             this.getFavourite();
+            this.getHeurigenNotes();
             this.requestLoaded = true;
           },
           (error) => {
@@ -87,5 +90,24 @@ export class AllHeurigenComponent {
     } else {
       return '/heurigen/' + heuriger.nameId
     }
+  }
+
+  getHeurigenNotes() {
+    this.databaseService.getNotes().subscribe(
+      (notes) => {
+        for (let i = 0; i < notes.length; i++) {
+          this.heurigenNotes.push(notes[i].nameId);
+        }
+      }
+    );
+  }
+
+  checkIfHasNotes(heuriger: Heuriger): boolean {
+    for (let i = 0; i < this.heurigenNotes.length; i++) {
+      if (heuriger.nameId == this.heurigenNotes[i]) {
+        return true;
+      }
+    }
+    return false;
   }
 }

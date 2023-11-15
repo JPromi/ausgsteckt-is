@@ -51,7 +51,7 @@
     <a 
         *ngFor="let heuriger of currentHeurigen"
         [routerLink]="[generateSingleViewLink(heuriger)]"
-        [ngClass]="{'favourite': heuriger.favourite}"
+        [ngClass]="{'favourite': heuriger.favourite, 'note': checkIfHasNotes(heuriger)}"
         >
 
         <img 

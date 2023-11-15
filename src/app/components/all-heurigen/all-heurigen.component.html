@@ -22,7 +22,7 @@
     <ng-container *ngFor="let heuriger of heurigen">
         <a 
         [routerLink]="[generateSingleViewLink(heuriger)]"
-        [ngClass]="{'favourite': heuriger.favourite}"
+        [ngClass]="{'favourite': heuriger.favourite, 'note': checkIfHasNotes(heuriger)}"
         *ngIf="heuriger.type == 'heuriger' || heuriger.type == 'weinrat'">
             <img 
                 [src]="'/assets/heurigen/' + heuriger.nameId + '.png'"
