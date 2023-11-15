@@ -1,9 +1,10 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { Note } from 'src/app/dtos/note';
 import { DatabaseService } from 'src/app/services/database.service';
+import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.component';
 
 @Component({
   selector: 'app-notes',
@@ -21,6 +22,7 @@ export class NotesComponent {
     public formBuilder: FormBuilder,
     private dbService: NgxIndexedDBService,
     private databaseService: DatabaseService,
+    public dialog: MatDialog,
 
   ) {
     this.originalNote = this.data.note.note;
@@ -69,22 +71,33 @@ export class NotesComponent {
   }
 
   deleteNote() {
-    this.databaseService.getNote(this.data.heuriger.nameId).subscribe(
-      (getNote: Note) => {
-
-        if(getNote) {
-          this.dbService.deleteByKey('notes_heurigen', this.data.heuriger.nameId).subscribe(
-            (response) => {
+    var deleteData = false;
+    let dialogRef = this.dialog.open(DialogConfirmComponent, {
+      data: {
+        deleteType: 'notes.delete',
+        deleteData: deleteData
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        this.databaseService.getNote(this.data.heuriger.nameId).subscribe(
+          (getNote: Note) => {
+    
+            if(getNote) {
+              this.dbService.deleteByKey('notes_heurigen', this.data.heuriger.nameId).subscribe(
+                (response) => {
+                  this.data.note.note = '';
+                  this.originalNote = '';
+                }
+              );
+            } else {
               this.data.note.note = '';
               this.originalNote = '';
             }
-          );
-        } else {
-          this.data.note.note = '';
-          this.originalNote = '';
-        }
-        
+            
+          }
+        );
       }
-    );
+    });
   }
 }

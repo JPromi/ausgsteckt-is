@@ -33,6 +33,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NotesComponent } from './components/notes/notes.component';
+import { DialogConfirmComponent } from './components/dialog-confirm/dialog-confirm.component';
 
 //database
 const heurigenDbConfig: DBConfig  = {
@@ -104,7 +105,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SettingsComponent,
     TaxiComponent,
     SettingsConfirmComponent,
-    NotesComponent
+    NotesComponent,
+    DialogConfirmComponent
     
   ],
   imports: [
