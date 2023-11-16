@@ -9,7 +9,8 @@
 
     "heurigen": {
         "title": "Heurign",
-        "error": "Es is wos schiefgangen"
+        "error": "Es is wos schiefgangen",
+        "errorNote": "Kane Notizn gfundn"
     },
 
     "ausgsteckt": {

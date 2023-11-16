@@ -52,5 +52,6 @@
 </div>
 
 <div class="heurigen-list" *ngIf="!heurigen.length && requestLoaded">
-    <a>{{ 'heurigen.error' | translate }}</a>
+    <a *ngIf="viewListType == 'all'">{{ 'heurigen.error' | translate }}</a>
+    <a *ngIf="viewListType == 'notes'">{{ 'heurigen.errorNote' | translate }}</a>
 </div>

@@ -9,7 +9,8 @@
 
     "heurigen": {
         "title": "Tavernes à Vin",
-        "error": "Une erreur s'est produite"
+        "error": "Une erreur s'est produite",
+        "errorNote": "Aucune note trouvée"
     },
 
     "ausgsteckt": {

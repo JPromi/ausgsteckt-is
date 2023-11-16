@@ -9,7 +9,8 @@
 
     "heurigen": {
         "title": "Wine Taverns",
-        "error": "An error occurred"
+        "error": "An error occurred",
+        "errorNote": "No notes found"
     },
 
     "ausgsteckt": {

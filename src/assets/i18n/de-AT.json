@@ -9,7 +9,8 @@
 
     "heurigen": {
         "title": "Heurigen",
-        "error": "Ein Fehler ist aufgetreten"
+        "error": "Ein Fehler ist aufgetreten",
+        "errorNote": "Keine Notizen gefunden"
     },
 
     "ausgsteckt": {
