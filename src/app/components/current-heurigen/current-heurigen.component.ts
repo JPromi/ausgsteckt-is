@@ -271,7 +271,9 @@ export class CurrentHeurigenComponent {
     this.databaseService.getNotes().subscribe(
       (notes) => {
         for (let i = 0; i < notes.length; i++) {
-          this.heurigenNotes.push(notes[i].nameId);
+          if(notes[i].note != '') {
+            this.heurigenNotes.push(notes[i].nameId);
+          }
         }
       }
     );
