@@ -14,6 +14,7 @@ import { NotesComponent } from '../notes/notes.component';
 import { Note } from 'src/app/dtos/note';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { Title } from '@angular/platform-browser';
+import { CommentComponent } from '../comment/comment.component';
 
 @Component({
   selector: 'app-heuriger',
@@ -240,6 +241,26 @@ export class HeurigerComponent {
           this.heurigenNote = dialogResult.note;
         }
       }
+
+    })
+  }
+
+  currentDateNote(): string {
+    var today = new Date();
+    for (let i = 0; i < this.heuriger.ausgsteckt.length; i++) {
+      if(today >= new Date(this.heuriger.ausgsteckt[i].from) && today <= new Date(this.heuriger.ausgsteckt[i].to)) {
+        return this.heuriger.ausgsteckt[i].note;
+      }
+    }
+    return '';
+  }
+
+  openComment(text: string) {
+    let dialogRef = this.dialog.open(CommentComponent, {
+      data: text
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
 
     })
   }

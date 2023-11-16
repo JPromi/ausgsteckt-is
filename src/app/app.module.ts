@@ -34,6 +34,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NotesComponent } from './components/notes/notes.component';
 import { DialogConfirmComponent } from './components/dialog-confirm/dialog-confirm.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 //database
 const heurigenDbConfig: DBConfig  = {
@@ -106,7 +107,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TaxiComponent,
     SettingsConfirmComponent,
     NotesComponent,
-    DialogConfirmComponent
+    DialogConfirmComponent,
+    CommentComponent
     
   ],
   imports: [

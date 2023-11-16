@@ -9,6 +9,6 @@ export class EmptyObjectService {
   constructor() { }
 
   heuriger(): Heuriger {
-    return new Heuriger(0, '', '', false, '', '', new coordinates(0, 0), false, false, false, false, '', '', new phone('', '') , '', 0, [new ausgsteckt('', '')])
+    return new Heuriger(0, '', '', false, '', '', new coordinates(0, 0), false, false, false, false, '', '', new phone('', '') , '', 0, [new ausgsteckt('', '', '')])
   }
 }

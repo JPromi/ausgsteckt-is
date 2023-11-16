@@ -125,14 +125,20 @@
     
         <div class="calendar">
             <h3>{{ 'heuriger.dates.title' | translate }}</h3>
+            <div class="note" *ngIf="currentDateNote()">
+                <h2>Informationen</h2>
+                <p> {{currentDateNote()}} </p>
+            </div>
             <div class="title">
                 <p><b>{{ 'heuriger.dates.from' | translate }}</b></p>
                 <p><b>{{ 'heuriger.dates.to' | translate }}</b></p>
+                <span></span>
             </div>
             <ng-container *ngFor="let date of heuriger.ausgsteckt">
-                <div *ngIf="checkIfFuture(date.to)">
+                <div class="date" *ngIf="checkIfFuture(date.to)">
                     <p>{{ convertDate(date.from) }}</p>
                     <p>{{ convertDate(date.to) }}</p>
+                    <p *ngIf="date.note"><mat-icon (click)="openComment(date.note)">info</mat-icon></p>
                 </div>
             </ng-container>
         </div>

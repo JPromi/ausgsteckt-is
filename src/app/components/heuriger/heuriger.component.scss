@@ -119,6 +119,29 @@
         .calendar {
             width: fit-content;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            .note {
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                margin: 0 auto;
+                height: fit-content;
+                color: var(--color-text);
+
+                h2 {
+                    font-size: 1.2rem;
+                }
+
+                p {
+                    white-space: pre-wrap;
+                    max-width: 100%;
+                    overflow: hidden;
+                    line-break: anywhere;
+                }
+            }
     
             h3 {
                 color: var(--color-title);
@@ -126,11 +149,11 @@
                 font-weight: normal;
             }
     
-            div:not(.title) {
+            .date {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr) 30px;
                 width: 85%;
-                min-width: fit-content;
+                width: fit-content;
                 gap: 1rem;
                 margin: 0 auto;
     
@@ -138,16 +161,27 @@
                     color: var(--color-text);
                     font-weight: lighter;
                 }
+
+                mat-icon {
+                    color: var(--color-text-pale);
+                    cursor: pointer;
+                }
             }
     
             div.title {
                 color: var(--color-title);
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr) 30px;
                 gap: 1rem;
                 width: 85%;
-                min-width: fit-content;
+                width: fit-content;
                 margin: 0 auto;
+
+                span {
+                    width: 24px;
+                    height: 24px;
+                    content: '';
+                }
             }
         }
 

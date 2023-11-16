@@ -37,6 +37,7 @@ export class phone {
 export class ausgsteckt {
     constructor(
         public from: string,
-        public to: string
+        public to: string,
+        public note: string = ''
     ) {}
 }
