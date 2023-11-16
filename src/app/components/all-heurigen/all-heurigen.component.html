@@ -33,7 +33,7 @@
     
 </div>
 
-<div class="heurigen-list" *ngIf="requestLoaded && heurigen">
+<div class="heurigen-list" *ngIf="requestLoaded && heurigen.length">
     <ng-container *ngFor="let heuriger of heurigen">
         <a 
         [routerLink]="[generateSingleViewLink(heuriger)]"
