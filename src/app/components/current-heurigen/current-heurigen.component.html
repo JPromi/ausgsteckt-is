@@ -61,7 +61,7 @@
 
         <img 
             *ngIf="heuriger.type == 'event'"
-            [src]="'/assets/heurigen/event.png'"
+            [src]="'/assets/heurigen/' + heuriger.nameId + '.png'"
             onerror="this.src='./assets/heurigen/placeholder.png';">
 
         <img 
