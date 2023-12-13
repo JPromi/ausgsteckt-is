@@ -4,5 +4,6 @@
         "version": "/v3",
         "timeout": 10000
     },
+    "website": "https://app.ausgsteckt-is.at",
     "googleMapsAPIkey": "GOOGLE API Key"
 }

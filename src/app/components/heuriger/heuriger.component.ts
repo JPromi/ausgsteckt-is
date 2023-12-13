@@ -16,6 +16,8 @@ import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { Title } from '@angular/platform-browser';
 import { CommentComponent } from '../comment/comment.component';
 
+import cfg from '../../../config.json';
+
 @Component({
   selector: 'app-heuriger',
   templateUrl: './heuriger.component.html',
@@ -177,6 +179,8 @@ export class HeurigerComponent {
       text: `${this.heuriger.name}\n`
     }
 
+    var shareLink = cfg.website + '/heurigen/' + this.heuriger.nameId;
+
     if(this.heuriger.address) {
       shareData.text += `\n📍 ${this.heuriger.address}, ${this.heuriger.city}`
     }
@@ -202,6 +206,8 @@ export class HeurigerComponent {
 
       
     }
+
+    shareData.text += `\n\n📎 ${shareLink}`
     
     // navigator.share(shareData);
     try {
