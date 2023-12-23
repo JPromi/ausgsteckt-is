@@ -30,35 +30,16 @@
                 onerror="this.src='./assets/taxi/placeholder.png';">
             <div class="informations">
                 <h3>{{ _taxi.name }}</h3>
-                <p>{{ _taxi.phone }}</p>
+                <p *ngIf="_taxi.phone">{{ _taxi.phone }}</p>
+                <p *ngIf="!_taxi.phone">{{ _taxi.website }}</p>
             </div>
         </div>
         <div class="expand">
             <div class="buttons">
-                <a [href]="'tel:' + _taxi.phone">
+                <a [href]="'tel:' + _taxi.phone" *ngIf="_taxi.phone">
                     <mat-icon>phone</mat-icon>
                 </a>
-                <a [href]="_taxi.website" target="_blank" rel="noopener noreferrer">
-                    <mat-icon>language</mat-icon>
-                </a>
-            </div>
-        </div>
-    </a>
-
-    <a
-        (click)="expand($event)">
-        <div class="top">
-            <img 
-                [src]="'/assets/taxi/vor-anachb.png'"
-                onerror="this.src='./assets/taxi/placeholder.png';">
-            <div class="informations">
-                <h3>VOR - A nach B</h3>
-                <p>https://anachb.vor.at</p>
-            </div>
-        </div>
-        <div class="expand">
-            <div class="buttons">
-                <a href="https://anachb.vor.at" target="_blank" rel="noopener noreferrer">
+                <a [href]="_taxi.website" *ngIf="_taxi.website" target="_blank" rel="noopener noreferrer">
                     <mat-icon>language</mat-icon>
                 </a>
             </div>
