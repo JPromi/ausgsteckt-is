@@ -108,7 +108,8 @@ export class HeurigerComponent {
   }
 
   daysRemain(heuriger: Heuriger): number {
-    const today = new Date();
+    var today = new Date();
+    today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
     var returnValue = 0;
 
     for (const date of heuriger.ausgsteckt) {
@@ -117,7 +118,7 @@ export class HeurigerComponent {
 
       if (today >= startDate && today <= endDate) {
         const diffTime = Math.abs(endDate.getTime() - today.getTime());
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
         return diffDays;
         break;
       }
