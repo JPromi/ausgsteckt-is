@@ -161,8 +161,10 @@ export class HeurigerComponent {
 
   checkIfFuture(date: string): boolean {
     var checkdate = new Date(date);
+    var today = new Date();
+    today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
     
-    if(checkdate >= this.today) {
+    if(checkdate >= today) {
       return true;
     } else {
       return false;
