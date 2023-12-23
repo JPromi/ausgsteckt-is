@@ -1,8 +1,8 @@
 export const environment = {
     production: true,
     informations: {
-        version: 'b2.4',
+        version: '1.2',
         type: 'prod',
-        buildDate: '2023-11-16'
+        buildDate: '2023-12-23'
     }
 };
