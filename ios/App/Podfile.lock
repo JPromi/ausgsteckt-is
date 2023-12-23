@@ -1,9 +1,9 @@
 PODS:
-  - Capacitor (5.1.1):
+  - Capacitor (5.5.1):
     - CapacitorCordova
   - CapacitorApp (5.0.6):
     - Capacitor
-  - CapacitorCordova (5.1.1)
+  - CapacitorCordova (5.5.1)
   - CapacitorShare (5.0.6):
     - Capacitor
 
@@ -24,9 +24,9 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/share"
 
 SPEC CHECKSUMS:
-  Capacitor: 55956e1199b63efcd7f2dedffa5c6b9129c45aae
+  Capacitor: 9da0a2415e3b6098511f8b5ffdb578d91ee79f8f
   CapacitorApp: 024e1b1bea5f883d79f6330d309bc441c88ad04a
-  CapacitorCordova: b31a46ad379c93a5c04e0598a6164e8cb90c2bb2
+  CapacitorCordova: e128cc7688c070ca0bfa439898a5f609da8dbcfe
   CapacitorShare: cd41743331cb71d217c029de54b681cbd91e0fcc
 
 PODFILE CHECKSUM: 5cf655a338e2994b0f75ef54f206e6d3dc8237ec
