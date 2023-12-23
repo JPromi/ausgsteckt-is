@@ -39,10 +39,16 @@ export class LanguageService {
       "realCode": "de",
       "flag": "vienna"
     },
+    {
+      "name": "Hrvatski",
+      "code": "hr-HR",
+      "realCode": "hr",
+      "flag": "croatia"
+    },
   ]
 
   getLanguages(): Language[] {
-    return this.languages;
+    return this.languages.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   getLanguageByCode(code: string): Language {

@@ -1,0 +1,123 @@
+{
+    "nav": {
+        "maps": "Karta",
+        "heurigen": "Heurigen",
+        "ausgsteckt": "Otvoreno",
+        "taxi": "Taxi",
+        "settings": "Postavke"
+    },
+
+    "heurigen": {
+        "title": "Heurigen",
+        "error": "Dogodila se pogreška",
+        "errorNote": "Nema pronađenih bilješki"
+    },
+
+    "ausgsteckt": {
+        "error": "Nema pronađenih Heurigena"
+    },
+
+    "heuriger": {
+        "informations": {
+            "web": "Web stranica",
+            "playground": "Igralište dostupno",
+            "wheelchairAccessible": "Pristupačno za invalidska kolica",
+            "opened": {
+                "today": "Još otvoreno danas",
+                "1": "Još",
+                "2": "dana otvoreno"
+            }
+        },
+        "dates": {
+            "title": "Sljedeći put otvoreno:",
+            "from": "Od",
+            "to": "Do"
+        }
+    },
+
+    "maps": {
+        "title": "Karta",
+        "allHeurigen": {
+            "title": "Svi Heurigeni"
+        },
+        "error": "Dogodila se pogreška"
+    },
+
+    "taxi": {
+        "title": "Taxi"
+    },
+
+    "settings": {
+        "title": "Postavke",
+
+        "design": {
+            "title": "Dizajn",
+            "systemTheme": "Sistemski Tema",
+            "darkmode": "Tamni način"
+        },
+
+        "storage": {
+            "title": "Pohrana",
+            "delete": {
+                "favourites": "Resetiraj favorita",
+                "notes": "Resetiraj bilješki",
+                "cache": "Resetiraj predmemoriju",
+                "all": "Resetiraj sve podatke"
+            }
+        },
+
+        "language": {
+            "title": "Jezici",
+            "languages": "Jezik"
+        },
+
+        "development": {
+            "title": "Razvoj",
+            "developer": "Razvijatelj:",
+            "feedback": "Povratna informacija / Pogreške:",
+            "repo": "GitHub Repozitorij:",
+            "buildType": "Vrsta izgradnje:",
+            "version": "Verzija:",
+            "buildDate": "Datum izgradnje:"
+        }
+
+    },
+
+    "popup": {
+        "settings": {
+            "storage": {
+                "buttons": {
+                    "delete": {
+                        "cancel": "Odustani",
+                        "delete": "Izbriši"
+                    }
+                },
+
+                "delete": {
+                    "favourites": {
+                        "message": "Želite li zaista resetirati favorite?"
+                    },
+
+                    "notes": {
+                        "message": "Želite li zaista resetirati bilješke?"
+                    },
+
+                    "cache": {
+                        "message": "Želite li zaista resetirati predmemoriju?"
+                    },
+
+                    "all": {
+                        "message": "Želite li zaista resetirati sve podatke?"
+                    }
+                }
+            }
+        },
+        "notes": {
+            "title": "Bilješke",
+            "delete": {
+                "title": "Izbriši bilješku",
+                "message": "Želite li zaista izbrisati bilješku?"
+            }
+        }
+    }
+}
