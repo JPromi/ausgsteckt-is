@@ -248,6 +248,7 @@ export class MapsComponent implements OnInit {
     "lat": 0,
     "lng": 0
   }
+  public selectedHeuriger: Heuriger = this.emptyObjectService.heuriger();
 
   currentHeurigen:any;
   parameter:any;
@@ -691,5 +692,14 @@ export class MapsComponent implements OnInit {
 
   datePickerLanguage() {
     this.dateAdapter.setLocale(this.languageService.getCurrentLanguage().realCode);
+  }
+
+  openHeurigenInfo(heuriger: Heuriger) {
+    this.selectedHeuriger = heuriger;
+    console.log(this.selectedHeuriger);
+  }
+
+  closeHeurigenInfo() {
+    this.selectedHeuriger = this.emptyObjectService.heuriger();
   }
 }

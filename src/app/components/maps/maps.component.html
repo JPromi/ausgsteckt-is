@@ -73,6 +73,42 @@
 </div>
 
 <div class="map" *ngIf="!error && scriptLoaded">
+    <div class="heurigen-inforamation">
+        <div class="info" *ngIf="selectedHeuriger.name != ''">
+            <!-- <div class="btn">
+            </div> -->
+            <div class="top">
+                <img
+                    [src]="'/assets/heurigen/' + selectedHeuriger.nameId + '.png'"
+                    onerror="this.src='./assets/heurigen/placeholder.png';"
+                >
+                <div class="text">
+                    <h3>{{ selectedHeuriger.name }}</h3>
+                    <p>{{ selectedHeuriger.address }}</p>
+                </div>
+
+                <button (click)="closeHeurigenInfo()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+
+            <div class="infos">
+                <ng-container *ngIf="selectedHeuriger.daysRemain">
+                    <p *ngIf="selectedHeuriger.daysRemain > 1">{{ 'heuriger.informations.opened.1' | translate }} {{ selectedHeuriger.daysRemain }} {{ 'heuriger.informations.opened.2' | translate }}</p>
+                    <p *ngIf="selectedHeuriger.daysRemain <= 1">{{ 'heuriger.informations.opened.today' | translate }}</p>
+                </ng-container>
+            </div>
+
+            <div class="buttonNavigation">
+                <a [href]="selectedHeuriger.link" [target]="'_blank'" *ngIf="selectedHeuriger.link"><mat-icon>language</mat-icon></a>
+                <a *ngIf="!selectedHeuriger.link"></a>
+                <a [href]="'tel:' + selectedHeuriger.phone.main" *ngIf="selectedHeuriger.phone.main"><mat-icon>call</mat-icon></a>
+                <a *ngIf="!selectedHeuriger.phone.main"></a>
+                <a [href]="this.generateMapsLink(selectedHeuriger)" [target]="'_blank'"><mat-icon>directions_walk</mat-icon></a>
+                <a [routerLink]="generateSingleViewLink(selectedHeuriger)"><mat-icon>info_i</mat-icon></a>
+            </div>
+        </div>
+    </div>
     <google-map
         *ngIf="this.heurigenLoaded || true"
         height="100%"
@@ -84,46 +120,11 @@
             <map-marker
                 [position]="{ lat: heuriger.coordinates.lat, lng: heuriger.coordinates.lng }"
                 [options]="generateMarkerIcon('./assets/heurigen/needle/' + heuriger.nameId + '.png')"
-                (mapClick)="openInfoWindow(marker, infoWindow)"
+                (mapClick)="openHeurigenInfo(heuriger)"
                 #marker="mapMarker"
             >
             </map-marker>
-            <map-info-window #infoWindow="mapInfoWindow">
-                <div class="top">
-                    <img
-                        [src]="'/assets/heurigen/' + heuriger.nameId + '.png'"
-                        onerror="this.src='./assets/heurigen/placeholder.png';"
-                    >
-                    <div class="text">
-                        <h3>{{ heuriger.name }}</h3>
-                        <p>{{ heuriger.address }}</p>
-                    </div>
-                </div>
-
-                <div class="infos">
-                    <ng-container *ngIf="heuriger.daysRemain">
-                        <p *ngIf="heuriger.daysRemain > 1">{{ 'heuriger.informations.opened.1' | translate }} {{ heuriger.daysRemain }} {{ 'heuriger.informations.opened.2' | translate }}</p>
-                        <p *ngIf="heuriger.daysRemain <= 1">{{ 'heuriger.informations.opened.today' | translate }}</p>
-                    </ng-container>
-                </div>
-
-                <div class="buttonNavigation">
-                    <a [href]="heuriger.link" [target]="'_blank'" *ngIf="heuriger.link"><mat-icon>language</mat-icon></a>
-                    <a *ngIf="!heuriger.link"></a>
-                    <a [href]="'tel:' + heuriger.phone.main" *ngIf="heuriger.phone.main"><mat-icon>call</mat-icon></a>
-                    <a *ngIf="!heuriger.phone.main"></a>
-                    <a [href]="this.generateMapsLink(heuriger)" [target]="'_blank'"><mat-icon>directions_walk</mat-icon></a>
-                    <a [routerLink]="generateSingleViewLink(heuriger)"><mat-icon>info_i</mat-icon></a>
-                </div>
-            </map-info-window>
         </ng-container>
-        
-        <!-- <map-marker
-        *ngIf="currentLocation.allowed"
-        [position]="{ lat: currentLocation.lat, lng: currentLocation.lng }"
-        [options]="getCurrentLocationOptions()"
-        >
-        </map-marker> -->
 
     </google-map>
 </div>
