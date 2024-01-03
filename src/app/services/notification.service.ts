@@ -34,11 +34,6 @@ export class NotificationService {
           },
         ],
       });
-
-      LocalNotifications.addListener('localNotificationActionPerformed', (payload) => {
-        const route = payload.notification.extra.route;
-        this.router.navigateByUrl(route);
-      });
     }
     
   }

@@ -11,6 +11,7 @@ import { Heuriger } from './dtos/heuriger';
 import { TaxiService } from './services/taxi.service';
 import { Taxi } from './dtos/taxi';
 import { LanguageService } from './services/language.service';
+import { LocalNotifications } from '@capacitor/local-notifications';
 
 @Component({
   selector: 'app-root',
@@ -49,6 +50,12 @@ export class AppComponent implements OnInit {
       } else {
         window.history.back();
       }
+    });
+
+    //notification Router
+    LocalNotifications.addListener('localNotificationActionPerformed', (payload) => {
+      const route = payload.notification.extra.route;
+      this.router.navigateByUrl(route);
     });
 
     this.translate.use(this.settingsSerive.getSettings().language)
