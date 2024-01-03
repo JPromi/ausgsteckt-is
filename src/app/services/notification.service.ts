@@ -62,6 +62,8 @@ export class NotificationService {
           );
         }
       );
+    } else {
+      LocalNotifications.deleteChannel({ id: 'all' });
     }
   }
 

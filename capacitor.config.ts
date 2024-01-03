@@ -9,8 +9,8 @@ const config: CapacitorConfig = {
   },
   plugins: {
     LocalNotifications: {
-      smallIcon: "assets/icons/icon-128x128.png",
-      iconColor: "#488AFF",
+      // smallIcon: "assets/icons/icon-128x128.png",
+      // iconColor: "#488AFF",
     },
   }
 };

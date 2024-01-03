@@ -11,6 +11,7 @@ import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dial
 import { SettingsConfirmComponent } from 'src/app/components/settings-confirm/settings-confirm.component';
 import { LanguageService } from 'src/app/services/language.service';
 import { LocalNotifications } from '@capacitor/local-notifications';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-settings',
@@ -25,7 +26,8 @@ export class SettingsComponent implements OnInit {
     public dialog: MatDialog,
     private translate: TranslateService,
     private dbService: NgxIndexedDBService,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private notificationService: NotificationService
   ) {}
 
   languages = [
@@ -163,6 +165,7 @@ export class SettingsComponent implements OnInit {
       LocalNotifications.requestPermissions().then(result => {
         if(result.display === 'granted') {
           this.settings.notificationAll = true;
+          this.notificationService.generateAllNotifications();
         } else {
           this.settings.notificationAll = false;
         }

@@ -17,6 +17,7 @@ import { Title } from '@angular/platform-browser';
 import { CommentComponent } from '../comment/comment.component';
 
 import cfg from '../../../config.json';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-heuriger',
@@ -43,7 +44,8 @@ export class HeurigerComponent {
     private emptyObjectService: EmptyObjectService,
     public dialog: MatDialog,
     private dbService: NgxIndexedDBService,
-    private titleService: Title
+    private titleService: Title,
+    private notificationService: NotificationService
   ) {
     
   }
@@ -156,6 +158,8 @@ export class HeurigerComponent {
     } else {
       this.heuriger.favourite = true;
     }
+
+    this.notificationService.generateAllNotifications();
 
     this.databaseService.heurigenFavouritesToggle(this.heuriger.nameId)
   }
