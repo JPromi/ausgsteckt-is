@@ -10,6 +10,7 @@ import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { SettingsConfirmComponent } from 'src/app/components/settings-confirm/settings-confirm.component';
 import { LanguageService } from 'src/app/services/language.service';
+import { LocalNotifications } from '@capacitor/local-notifications';
 
 @Component({
   selector: 'app-settings',
@@ -47,7 +48,8 @@ export class SettingsComponent implements OnInit {
 
   settingsForm: FormGroup = this.formBuilder.group({
     systemTheme: [this.settings.systemTheme],
-    darkmode: [this.settings.darkmode]
+    darkmode: [this.settings.darkmode],
+    notificationAll: [this.settings.notificationAll]
   });
 
   envInfo = environment.informations;
@@ -154,6 +156,20 @@ export class SettingsComponent implements OnInit {
 
   loadLanguages() {
     this.languages = this.languageService.getLanguages();
+  }
+
+  notification() {
+    if(!this.settings.notificationAll) {
+      LocalNotifications.requestPermissions().then(result => {
+        if(result.display === 'granted') {
+          this.settings.notificationAll = true;
+        } else {
+          this.settings.notificationAll = false;
+        }
+      });
+    } else {
+      this.settings.notificationAll = false;
+    }
   }
 
 }

@@ -71,6 +71,11 @@
             "languages": "Sprache"
         },
 
+        "notification": {
+            "title": "Benachrichtigungen",
+            "all": "Benachrichtigung"
+        },
+
         "development": {
             "title": "Entwicklung",
             "developer": "Entwickler:",

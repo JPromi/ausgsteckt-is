@@ -12,6 +12,7 @@ export class SettingsService {
     localStorage.setItem('systemTheme', settings.systemTheme ? "true" : "false");
     localStorage.setItem('darkmode', settings.darkmode ? "true" : "false");
     localStorage.setItem('language', settings.language);
+    localStorage.setItem('notificationAll', settings.notificationAll ? "true" : "false");
   }
 
   getSettings(): Settings {
@@ -20,6 +21,7 @@ export class SettingsService {
         this.strinToBoolean(localStorage.getItem('systemTheme') || ''),
         this.strinToBoolean(localStorage.getItem('darkmode') || ''),
         localStorage.getItem('language') || 'de-AT',
+        this.strinToBoolean(localStorage.getItem('notificationAll') || '')
       )
     } else {
       return new Settings;
@@ -78,6 +80,14 @@ export class SettingsService {
         return false;
       }
 
+    }
+  }
+
+  checkNotificationActivated(): boolean {
+    if(this.getSettings().notificationAll) {
+      return true;
+    } else {
+      return false;
     }
   }
 }
