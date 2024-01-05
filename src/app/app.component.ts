@@ -12,7 +12,6 @@ import { TaxiService } from './services/taxi.service';
 import { Taxi } from './dtos/taxi';
 import { LanguageService } from './services/language.service';
 import { LocalNotifications } from '@capacitor/local-notifications';
-import { NotificationService } from './services/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -32,8 +31,7 @@ export class AppComponent implements OnInit {
     public databaseService: DatabaseService,
     private heurigenService: HeurigerService,
     private taxiService: TaxiService,
-    private languageService: LanguageService,
-    private notificationService: NotificationService
+    private languageService: LanguageService
   ) {
     translate.addLangs(['de-AT', 'en-US', 'fr-FR', 'uk-UA', 'at-VIE']);
     translate.setDefaultLang('de-AT');
@@ -53,8 +51,6 @@ export class AppComponent implements OnInit {
         window.history.back();
       }
     });
-
-    this.notificationService.generateAllNotifications();
 
     //notification Router
     LocalNotifications.addListener('localNotificationActionPerformed', (payload) => {

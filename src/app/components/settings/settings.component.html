@@ -89,20 +89,6 @@
 
     </div>
 
-    <!-- notification -->
-    <div class="block">
-        <h3>{{ 'settings.notification.title' | translate }}</h3>
-
-        <div>
-            <p>{{ 'settings.notification.all' | translate }}</p>
-            
-            <label class="switch">
-                <input type="checkbox" (click)="notification()" formControlName="notificationAll" name="notificationAll" [(ngModel)]="settings.notificationAll">
-                <span class="slider"></span>
-            </label>
-        </div>
-    </div>
-
     <!-- develop -->
     <div class="block">
         <h3>{{ 'settings.development.title' | translate }}</h3>

@@ -10,8 +10,6 @@ import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { SettingsConfirmComponent } from 'src/app/components/settings-confirm/settings-confirm.component';
 import { LanguageService } from 'src/app/services/language.service';
-import { LocalNotifications } from '@capacitor/local-notifications';
-import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-settings',
@@ -26,8 +24,7 @@ export class SettingsComponent implements OnInit {
     public dialog: MatDialog,
     private translate: TranslateService,
     private dbService: NgxIndexedDBService,
-    private languageService: LanguageService,
-    private notificationService: NotificationService
+    private languageService: LanguageService
   ) {}
 
   languages = [
@@ -158,21 +155,6 @@ export class SettingsComponent implements OnInit {
 
   loadLanguages() {
     this.languages = this.languageService.getLanguages();
-  }
-
-  notification() {
-    if(!this.settings.notificationAll) {
-      LocalNotifications.requestPermissions().then(result => {
-        if(result.display === 'granted') {
-          this.settings.notificationAll = true;
-          this.notificationService.generateAllNotifications();
-        } else {
-          this.settings.notificationAll = false;
-        }
-      });
-    } else {
-      this.settings.notificationAll = false;
-    }
   }
 
 }
