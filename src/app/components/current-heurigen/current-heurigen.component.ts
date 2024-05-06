@@ -9,7 +9,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 import { HeurigerFavourite } from 'src/app/dtos/heuriger-favourite';
 import { DateAdapter } from '@angular/material/core';
 import { LanguageService } from 'src/app/services/language.service';
-import { NotificationService } from 'src/app/services/notification.service';
+// import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-current-heurigen',
@@ -33,7 +33,7 @@ export class CurrentHeurigenComponent {
     private databaseService: DatabaseService,
     private languageService: LanguageService,
     private dateAdapter: DateAdapter<Date>,
-    private notificationService: NotificationService
+    // private notificationService: NotificationService
     ) {
 
     this.route.queryParams.subscribe(response => {
