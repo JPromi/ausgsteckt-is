@@ -43,7 +43,7 @@
           },
           "configurations": {
             "production": {
-              "outputPath": "Z:/ausgsteckt-is.at/app.ausgsteckt-is.at",
+              "outputPath": "Z:/ausgsteckt-is.at/app",
               "budgets": [
                 {
                   "type": "initial",
